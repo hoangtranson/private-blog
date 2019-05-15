@@ -1,0 +1,12 @@
+/* your styles go here */
+@font-face {
+    font-family: 'FontMoreAwesome';
+    src: url('fonts/Font_awesome_more-Regular.otf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.fa-troll:before {
+    font-family: FontMoreAwesome;
+    content: "0";
+}

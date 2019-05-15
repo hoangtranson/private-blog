@@ -1,0 +1,36 @@
+baseURL = "https://hoangtranson.github.io/my-blog/"
+languageCode = "en-us"
+defaultContentLanguage = "en"
+title = "Hoang Tran Blog"
+theme = "cupper-hugo-theme-master"
+googleAnalytics = "UA-118292467-1"
+disqusShortname = "https-hoangtranson-github-io-my-blog"
+enableGitInfo = false
+
+[taxonomies]
+  tag = "tags"
+
+[permalinks]
+  post = "/:filename/"
+
+[imaging]
+  quality = 99
+
+[params]
+  description = "Tran Son Hoang Blog"
+  homeMetaContent = "Tran Son Hoang Blog"
+
+[menu]
+  [[menu.nav]]
+    name = "Home"
+    url = "/"
+    weight = 1
+  [[menu.nav]]
+    name = "Blogs"
+    url = "/blogs/"
+    weight = 2
+  [[menu.nav]]
+    name = "Tags"
+    url = "/tags/"
+    weight = 3
+

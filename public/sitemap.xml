@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://hoangtranson.github.io/my-blog/blogs/work3/</loc>
+    <lastmod>2018-04-30T17:00:00+07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hoangtranson.github.io/my-blog/blogs/work5/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hoangtranson.github.io/my-blog/blogs/work4/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hoangtranson.github.io/my-blog/blogs/work6/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hoangtranson.github.io/my-blog/blogs/work14/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hoangtranson.github.io/my-blog/blogs/work16/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hoangtranson.github.io/my-blog/blogs/work13/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hoangtranson.github.io/my-blog/blogs/work7/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hoangtranson.github.io/my-blog/blogs/</loc>
+    <lastmod>2018-04-30T17:00:00+07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hoangtranson.github.io/my-blog/blogs/work2/</loc>
+    <lastmod>2018-04-29T20:00:00+07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hoangtranson.github.io/my-blog/blogs/work1/</loc>
+    <lastmod>2018-04-27T15:00:00+07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hoangtranson.github.io/my-blog/tags/</loc>
+    <lastmod>2018-04-27T15:00:00+07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hoangtranson.github.io/my-blog/tags/command-line/</loc>
+    <lastmod>2018-04-27T15:00:00+07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hoangtranson.github.io/my-blog/tags/hugo/</loc>
+    <lastmod>2018-04-27T15:00:00+07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hoangtranson.github.io/my-blog/tags/theme/</loc>
+    <lastmod>2018-04-27T15:00:00+07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hoangtranson.github.io/my-blog/</loc>
+    <lastmod>2016-11-05T21:05:33+05:30</lastmod>
+  </url>
+  
+</urlset>

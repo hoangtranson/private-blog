@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>hugo on Hoang Tran Blog</title>
+    <link>https://hoangtranson.github.io/my-blog/tags/hugo/</link>
+    <description>Recent content in hugo on Hoang Tran Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 27 Apr 2018 15:00:00 +0700</lastBuildDate>
+    
+	<atom:link href="https://hoangtranson.github.io/my-blog/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>How To Create A Blog and Deploy to Github</title>
+      <link>https://hoangtranson.github.io/my-blog/blogs/work1/</link>
+      <pubDate>Fri, 27 Apr 2018 15:00:00 +0700</pubDate>
+      
+      <guid>https://hoangtranson.github.io/my-blog/blogs/work1/</guid>
+      <description>&lt;p&gt;I ve just configured out recently how to create a site and deploy it to github hosting.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
