@@ -1,0 +1,4229 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <meta name="generator" content="Hugo 0.55.5" />
+  <link rel="canonical" href="https://hoangtranson.github.io/my-blog/blogs/javascript-style-guide/">
+
+  
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#000000">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="theme-color" content="#ffffff">
+
+  <link rel="stylesheet" href="https://hoangtranson.github.io/my-blog/css/prism.css" media="none" onload="this.media='all';">
+
+  
+  
+  <link rel="stylesheet" type="text/css" href="https://hoangtranson.github.io/my-blog/css/styles.css">
+
+  <style id="inverter" media="none">
+    html { filter: invert(100%) }
+    * { background-color: inherit }
+    img:not([src*=".svg"]), .colors, iframe, .demo-container { filter: invert(100%) }
+  </style>
+
+  
+  
+  <title>JavaScript Style Guide | Hoang Tran Blog</title>
+</head>
+
+  <body>
+    <a href="#main">skip to content</a>
+    <svg style="display: none">
+  <symbol id="bookmark" viewBox="0 0 40 50">
+   <g transform="translate(2266 3206.2)">
+    <path style="stroke:currentColor;stroke-width:3.2637;fill:none" d="m-2262.2-3203.4-.2331 42.195 16.319-16.318 16.318 16.318.2331-42.428z"/>
+   </g>
+  </symbol>
+
+  <symbol id="w3c" viewBox="0 0 127.09899 67.763">
+   <text font-size="83" style="font-size:83px;font-family:Trebuchet;letter-spacing:-12;fill-opacity:0" letter-spacing="-12" y="67.609352" x="-26.782778">W3C</text>
+   <text font-size="83" style="font-size:83px;font-weight:bold;font-family:Trebuchet;fill-opacity:0" y="67.609352" x="153.21722" font-weight="bold">SVG</text>
+   <path style="fill:currentColor;image-rendering:optimizeQuality;shape-rendering:geometricPrecision" d="m33.695.377 12.062 41.016 12.067-41.016h8.731l-19.968 67.386h-.831l-12.48-41.759-12.479 41.759h-.832l-19.965-67.386h8.736l12.061 41.016 8.154-27.618-3.993-13.397h8.737z"/>
+   <path style="fill:currentColor;image-rendering:optimizeQuality;shape-rendering:geometricPrecision" d="m91.355 46.132c0 6.104-1.624 11.234-4.862 15.394-3.248 4.158-7.45 6.237-12.607 6.237-3.882 0-7.263-1.238-10.148-3.702-2.885-2.47-5.02-5.812-6.406-10.022l6.82-2.829c1.001 2.552 2.317 4.562 3.953 6.028 1.636 1.469 3.56 2.207 5.781 2.207 2.329 0 4.3-1.306 5.909-3.911 1.609-2.606 2.411-5.738 2.411-9.401 0-4.049-.861-7.179-2.582-9.399-1.995-2.604-5.129-3.912-9.397-3.912h-3.327v-3.991l11.646-20.133h-14.062l-3.911 6.655h-2.493v-14.976h32.441v4.075l-12.31 21.217c4.324 1.385 7.596 3.911 9.815 7.571 2.22 3.659 3.329 7.953 3.329 12.892z"/>
+   <path style="fill:currentColor;image-rendering:optimizeQuality;shape-rendering:geometricPrecision" d="m125.21 0 1.414 8.6-5.008 9.583s-1.924-4.064-5.117-6.314c-2.693-1.899-4.447-2.309-7.186-1.746-3.527.73-7.516 4.938-9.258 10.13-2.084 6.21-2.104 9.218-2.178 11.978-.115 4.428.58 7.043.58 7.043s-3.04-5.626-3.011-13.866c.018-5.882.947-11.218 3.666-16.479 2.404-4.627 5.954-7.404 9.114-7.728 3.264-.343 5.848 1.229 7.841 2.938 2.089 1.788 4.213 5.698 4.213 5.698l4.94-9.837z"/>
+   <path style="fill:currentColor;image-rendering:optimizeQuality;shape-rendering:geometricPrecision" d="m125.82 48.674s-2.208 3.957-3.589 5.48c-1.379 1.524-3.849 4.209-6.896 5.555-3.049 1.343-4.646 1.598-7.661 1.306-3.01-.29-5.807-2.032-6.786-2.764-.979-.722-3.486-2.864-4.897-4.854-1.42-2-3.634-5.995-3.634-5.995s1.233 4.001 2.007 5.699c.442.977 1.81 3.965 3.749 6.572 1.805 2.425 5.315 6.604 10.652 7.545 5.336.945 9.002-1.449 9.907-2.031.907-.578 2.819-2.178 4.032-3.475 1.264-1.351 2.459-3.079 3.116-4.108.487-.758 1.276-2.286 1.276-2.286l-1.276-6.644z"/>
+  </symbol>
+
+  <symbol id="tag" viewBox="0 0 177.16535 177.16535">
+    <g transform="translate(0 -875.2)">
+     <path style="fill-rule:evenodd;stroke-width:0;fill:currentColor" d="m159.9 894.3-68.79 8.5872-75.42 77.336 61.931 60.397 75.429-76.565 6.8495-69.755zm-31.412 31.835a10.813 10.813 0 0 1 1.8443 2.247 10.813 10.813 0 0 1 -3.5174 14.872l-.0445.0275a10.813 10.813 0 0 1 -14.86 -3.5714 10.813 10.813 0 0 1 3.5563 -14.863 10.813 10.813 0 0 1 13.022 1.2884z"/>
+    </g>
+  </symbol>
+
+  <symbol id="balloon" viewBox="0 0 141.73228 177.16535">
+   <g transform="translate(0 -875.2)">
+    <g>
+     <path style="fill:currentColor" d="m68.156 882.83-.88753 1.4269c-4.9564 7.9666-6.3764 17.321-5.6731 37.378.36584 10.437 1.1246 23.51 1.6874 29.062.38895 3.8372 3.8278 32.454 4.6105 38.459 4.6694-.24176 9.2946.2879 14.377 1.481 1.2359-3.2937 5.2496-13.088 8.886-21.623 6.249-14.668 8.4128-21.264 10.253-31.252 1.2464-6.7626 1.6341-12.156 1.4204-19.764-.36325-12.93-2.1234-19.487-6.9377-25.843-2.0833-2.7507-6.9865-7.6112-7.9127-7.8436-.79716-.20019-6.6946-1.0922-6.7755-1.0248-.02213.0182-5.0006-.41858-7.5248-.22808l-2.149-.22808h-3.3738z"/>
+     <path style="fill:currentColor" d="m61.915 883.28-3.2484.4497c-1.7863.24724-3.5182.53481-3.8494.63994-2.4751.33811-4.7267.86957-6.7777 1.5696-.28598 0-1.0254.20146-2.3695.58589-5.0418 1.4418-6.6374 2.2604-8.2567 4.2364-6.281 7.6657-11.457 18.43-12.932 26.891-1.4667 8.4111.71353 22.583 5.0764 32.996 3.8064 9.0852 13.569 25.149 22.801 37.517 1.3741 1.841 2.1708 2.9286 2.4712 3.5792 3.5437-1.1699 6.8496-1.9336 10.082-2.3263-1.3569-5.7831-4.6968-21.86-6.8361-33.002-.92884-4.8368-2.4692-14.322-3.2452-19.991-.68557-5.0083-.77707-6.9534-.74159-15.791.04316-10.803.41822-16.162 1.5026-21.503 1.4593-5.9026 3.3494-11.077 6.3247-15.852z"/>
+     <path style="fill:currentColor" d="m94.499 885.78c-.10214-.0109-.13691 0-.0907.0409.16033.13489 1.329 1.0675 2.5976 2.0723 6.7003 5.307 11.273 14.568 12.658 25.638.52519 4.1949.24765 14.361-.5059 18.523-2.4775 13.684-9.7807 32.345-20.944 53.519l-3.0559 5.7971c2.8082.76579 5.7915 1.727 8.9926 2.8441 11.562-11.691 18.349-19.678 24.129-28.394 7.8992-11.913 11.132-20.234 12.24-31.518.98442-10.02-1.5579-20.876-6.7799-28.959-.2758-.4269-.57803-.86856-.89617-1.3166-3.247-6.13-9.752-12.053-21.264-16.131-2.3687-.86369-6.3657-2.0433-7.0802-2.1166z"/>
+     <path style="fill:currentColor" d="m32.52 892.22c-.20090-.13016-1.4606.81389-3.9132 2.7457-11.486 9.0476-17.632 24.186-16.078 39.61.79699 7.9138 2.4066 13.505 5.9184 20.562 5.8577 11.77 14.749 23.219 30.087 38.74.05838.059.12188.1244.18052.1838 1.3166-.5556 2.5965-1.0618 3.8429-1.5199-.66408-.32448-1.4608-1.3297-3.8116-4.4602-5.0951-6.785-8.7512-11.962-13.051-18.486-5.1379-7.7948-5.0097-7.5894-8.0586-13.054-6.2097-11.13-8.2674-17.725-8.6014-27.563-.21552-6.3494.13041-9.2733 1.775-14.987 2.1832-7.5849 3.9273-10.986 9.2693-18.07 1.7839-2.3656 2.6418-3.57 2.4409-3.7003z"/>
+     <path style="fill:currentColor" d="m69.133 992.37c-6.2405.0309-12.635.76718-19.554 2.5706 4.6956 4.7759 9.935 10.258 12.05 12.625l4.1272 4.6202h11.493l3.964-4.4516c2.0962-2.3541 7.4804-7.9845 12.201-12.768-8.378-1.4975-16.207-2.6353-24.281-2.5955z"/>
+     <rect style="stroke-width:0;fill:currentColor" ry="2.0328" height="27.746" width="22.766" y="1017.7" x="60.201"/>
+    </g>
+   </g>
+  </symbol>
+
+  <symbol id="info" viewBox="0 0 41.667 41.667">
+   <g transform="translate(-37.035 -1004.6)">
+    <path style="stroke-linejoin:round;stroke:currentColor;stroke-linecap:round;stroke-width:3.728;fill:none" d="m76.25 1030.2a18.968 18.968 0 0 1 -23.037 13.709 18.968 18.968 0 0 1 -13.738 -23.019 18.968 18.968 0 0 1 23.001 -13.768 18.968 18.968 0 0 1 13.798 22.984"/>
+    <g transform="matrix(1.1146 0 0 1.1146 -26.276 -124.92)">
+     <path style="stroke:currentColor;stroke-linecap:round;stroke-width:3.728;fill:none" d="m75.491 1039.5v-8.7472"/>
+     <path style="stroke-width:0;fill:currentColor" transform="scale(-1)" d="m-73.193-1024.5a2.3719 2.3719 0 0 1 -2.8807 1.7142 2.3719 2.3719 0 0 1 -1.718 -2.8785 2.3719 2.3719 0 0 1 2.8763 -1.7217 2.3719 2.3719 0 0 1 1.7254 2.8741"/>
+    </g>
+   </g>
+  </symbol>
+
+  <symbol id="warning" viewBox="0 0 48.430474 41.646302">
+    <g transform="translate(-1.1273 -1010.2)">
+     <path style="stroke-linejoin:round;stroke:currentColor;stroke-linecap:round;stroke-width:4.151;fill:none" d="m25.343 1012.3-22.14 37.496h44.28z"/>
+     <path style="stroke:currentColor;stroke-linecap:round;stroke-width:4.1512;fill:none" d="m25.54 1027.7v8.7472"/>
+     <path style="stroke-width:0;fill:currentColor" d="m27.839 1042.8a2.3719 2.3719 0 0 1 -2.8807 1.7143 2.3719 2.3719 0 0 1 -1.718 -2.8785 2.3719 2.3719 0 0 1 2.8763 -1.7217 2.3719 2.3719 0 0 1 1.7254 2.8741"/>
+    </g>
+  </symbol>
+
+  <symbol id="menu" viewBox="0 0 50 50">
+     <rect style="stroke-width:0;fill:currentColor" height="10" width="50" y="0" x="0"/>
+     <rect style="stroke-width:0;fill:currentColor" height="10" width="50" y="20" x="0"/>
+     <rect style="stroke-width:0;fill:currentColor" height="10" width="50" y="40" x="0"/>
+   </symbol>
+
+   <symbol id="link" viewBox="0 0 50 50">
+    <g transform="translate(0 -1002.4)">
+     <g transform="matrix(.095670 0 0 .095670 2.3233 1004.9)">
+      <g>
+       <path style="stroke-width:0;fill:currentColor" d="m452.84 192.9-128.65 128.65c-35.535 35.54-93.108 35.54-128.65 0l-42.881-42.886 42.881-42.876 42.884 42.876c11.845 11.822 31.064 11.846 42.886 0l128.64-128.64c11.816-11.831 11.816-31.066 0-42.9l-42.881-42.881c-11.822-11.814-31.064-11.814-42.887 0l-45.928 45.936c-21.292-12.531-45.491-17.905-69.449-16.291l72.501-72.526c35.535-35.521 93.136-35.521 128.64 0l42.886 42.881c35.535 35.523 35.535 93.141-.001 128.66zm-254.28 168.51-45.903 45.9c-11.845 11.846-31.064 11.817-42.881 0l-42.884-42.881c-11.845-11.821-11.845-31.041 0-42.886l128.65-128.65c11.819-11.814 31.069-11.814 42.884 0l42.886 42.886 42.876-42.886-42.876-42.881c-35.54-35.521-93.113-35.521-128.65 0l-128.65 128.64c-35.538 35.545-35.538 93.146 0 128.65l42.883 42.882c35.51 35.54 93.11 35.54 128.65 0l72.496-72.499c-23.956 1.597-48.092-3.784-69.474-16.283z"/>
+      </g>
+     </g>
+    </g>
+  </symbol>
+
+  <symbol id="doc" viewBox="0 0 35 45">
+   <g transform="translate(-147.53 -539.83)">
+    <path style="stroke:currentColor;stroke-width:2.4501;fill:none" d="m149.38 542.67v39.194h31.354v-39.194z"/>
+    <g style="stroke-width:25" transform="matrix(.098003 0 0 .098003 133.69 525.96)">
+     <path d="m220 252.36h200" style="stroke:currentColor;stroke-width:25;fill:none"/>
+     <path style="stroke:currentColor;stroke-width:25;fill:none" d="m220 409.95h200"/>
+     <path d="m220 488.74h200" style="stroke:currentColor;stroke-width:25;fill:none"/>
+     <path d="m220 331.15h200" style="stroke:currentColor;stroke-width:25;fill:none"/>
+    </g>
+   </g>
+ </symbol>
+
+ <symbol id="tick" viewBox="0 0 177.16535 177.16535">
+  <g transform="translate(0 -875.2)">
+   <rect style="stroke-width:0;fill:currentColor" transform="rotate(30)" height="155" width="40" y="702.99" x="556.82"/>
+   <rect style="stroke-width:0;fill:currentColor" transform="rotate(30)" height="40" width="90.404" y="817.99" x="506.42"/>
+  </g>
+ </symbol>
+</svg>
+
+    <div class="wrapper">
+      <header class="intro-and-nav" role="banner">
+  <div>
+    <div class="intro">
+      <a class="logo" href="/my-blog/" aria-label="Hoang Tran Blog home page">
+        <img src="https://hoangtranson.github.io/my-blog/img/avatar.jpg" alt="">
+      </a>
+      <p class="library-desc">
+          Frontend Developer 💻 <br/> 
+          Software Philosopher 📖 <br/>
+          <a href="https://stackoverflow.com/users/4344732/hoang-tran-son" aria-label="Hoang stackoverflow">
+            Stackoverflow
+          </a> <br/>
+          <a href="https://github.com/hoangtranson" aria-label="Hoang github">
+            Github
+          </a> <br/>
+          <a href="mailto:hayden.tran.d@gmail.com">hayden.tran.d@gmail.com</a>
+        
+      </p>
+    </div>
+    <nav id="patterns-nav" class="patterns" role="navigation">
+  <h2 class="vh">Main navigation</h2>
+  <button id="menu-button" aria-expanded="false">
+    <svg viewBox="0 0 50 50" aria-hidden="true" focusable="false">
+      <use xlink:href="#menu"></use>
+    </svg>
+    Menu
+  </button>
+  
+  <ul id="patterns-list">
+  
+    <li class="pattern">
+      
+      
+      
+      
+      <a href="/my-blog/" >
+        <svg class="bookmark-icon" aria-hidden="true" focusable="false" viewBox="0 0 40 50">
+          <use xlink:href="#bookmark"></use>
+        </svg>
+        <span class="text">Home</span>
+      </a>
+    </li>
+  
+    <li class="pattern">
+      
+      
+      
+      
+      <a href="/my-blog/blogs/" >
+        <svg class="bookmark-icon" aria-hidden="true" focusable="false" viewBox="0 0 40 50">
+          <use xlink:href="#bookmark"></use>
+        </svg>
+        <span class="text">Blogs</span>
+      </a>
+    </li>
+  
+    <li class="pattern">
+      
+      
+      
+      
+      <a href="/my-blog/tags/" >
+        <svg class="bookmark-icon" aria-hidden="true" focusable="false" viewBox="0 0 40 50">
+          <use xlink:href="#bookmark"></use>
+        </svg>
+        <span class="text">Tags</span>
+      </a>
+    </li>
+  
+  </ul>
+</nav>
+  </div>
+</header>
+      <div class="main-and-footer">
+        <div>
+          
+  <main id="main">
+    <h1>JavaScript Style Guide</h1>
+    <p><em>A mostly reasonable approach to JavaScript</em></p>
+
+<h3 id="table-of-contents">Table of Contents</h3>
+
+<ol>
+<li><a href="#types">Types</a></li>
+<li><a href="#references">References</a></li>
+<li><a href="#objects">Objects</a></li>
+<li><a href="#arrays">Arrays</a></li>
+<li><a href="#destructuring">Destructuring</a></li>
+<li><a href="#strings">Strings</a></li>
+<li><a href="#functions">Functions</a></li>
+<li><a href="#arrow-functions">Arrow Functions</a></li>
+<li><a href="#classes--constructors">Classes &amp; Constructors</a></li>
+<li><a href="#modules">Modules</a></li>
+<li><a href="#iterators-and-generators">Iterators and Generators</a></li>
+<li><a href="#properties">Properties</a></li>
+<li><a href="#variables">Variables</a></li>
+<li><a href="#hoisting">Hoisting</a></li>
+<li><a href="#comparison-operators--equality">Comparison Operators &amp; Equality</a></li>
+<li><a href="#blocks">Blocks</a></li>
+<li><a href="#control-statements">Control Statements</a></li>
+<li><a href="#comments">Comments</a></li>
+<li><a href="#whitespace">Whitespace</a></li>
+<li><a href="#commas">Commas</a></li>
+<li><a href="#semicolons">Semicolons</a></li>
+<li><a href="#type-casting--coercion">Type Casting &amp; Coercion</a></li>
+<li><a href="#naming-conventions">Naming Conventions</a></li>
+<li><a href="#accessors">Accessors</a></li>
+<li><a href="#events">Events</a></li>
+<li><a href="#jquery">jQuery</a></li>
+<li><a href="#ecmascript-5-compatibility">ECMAScript 5 Compatibility</a></li>
+<li><a href="#ecmascript-6-es-2015-styles">ECMAScript 6+ (ES 2015+) Styles</a></li>
+<li><a href="#standard-library">Standard Library</a></li>
+<li><a href="#testing">Testing</a></li>
+<li><a href="#performance">Performance</a></li>
+<li><a href="#resources">Resources</a></li>
+<li><a href="#in-the-wild">In the Wild</a></li>
+<li><a href="#translation">Translation</a></li>
+<li><a href="#the-javascript-style-guide-guide">The JavaScript Style Guide Guide</a></li>
+<li><a href="#chat-with-us-about-javascript">Chat With Us About JavaScript</a></li>
+<li><a href="#contributors">Contributors</a></li>
+<li><a href="#license">License</a></li>
+<li><a href="#amendments">Amendments</a></li>
+</ol>
+
+<h2 id="types">Types</h2>
+
+<p><a name="types--primitives"></a><a name="1.1"></a>
+  - <a href="#types--primitives">1.1</a> <strong>Primitives</strong>: When you access a primitive type you work directly on its value.</p>
+
+<pre><code>- `string`
+- `number`
+- `boolean`
+- `null`
+- `undefined`
+- `symbol`
+
+```javascript
+const foo = 1;
+let bar = foo;
+
+bar = 9;
+
+console.log(foo, bar); // =&gt; 1, 9
+```
+
+- Symbols cannot be faithfully polyfilled, so they should not be used when targeting browsers/environments that don't support them natively.
+</code></pre>
+
+<p><a name="types--complex"></a><a name="1.2"></a>
+  - <a href="#types--complex">1.2</a>  <strong>Complex</strong>: When you access a complex type you work on a reference to its value.</p>
+
+<pre><code>- `object`
+- `array`
+- `function`
+
+```javascript
+const foo = [1, 2];
+const bar = foo;
+
+bar[0] = 9;
+
+console.log(foo[0], bar[0]); // =&gt; 9, 9
+```
+</code></pre>
+
+<p><strong><a href="#table-of-contents">⬆ back to top</a></strong></p>
+
+<h2 id="references">References</h2>
+
+<p><a name="references--prefer-const"></a><a name="2.1"></a>
+  - <a href="#references--prefer-const">2.1</a> Use <code>const</code> for all of your references; avoid using <code>var</code>. eslint: <a href="https://eslint.org/docs/rules/prefer-const.html"><code>prefer-const</code></a>, <a href="https://eslint.org/docs/rules/no-const-assign.html"><code>no-const-assign</code></a></p>
+
+<pre><code>&gt; Why? This ensures that you can’t reassign your references, which can lead to bugs and difficult to comprehend code.
+
+```javascript
+// bad
+var a = 1;
+var b = 2;
+
+// good
+const a = 1;
+const b = 2;
+```
+</code></pre>
+
+<p><a name="references--disallow-var"></a><a name="2.2"></a>
+  - <a href="#references--disallow-var">2.2</a> If you must reassign references, use <code>let</code> instead of <code>var</code>. eslint: <a href="https://eslint.org/docs/rules/no-var.html"><code>no-var</code></a></p>
+
+<pre><code>&gt; Why? `let` is block-scoped rather than function-scoped like `var`.
+
+```javascript
+// bad
+var count = 1;
+if (true) {
+  count += 1;
+}
+
+// good, use the let.
+let count = 1;
+if (true) {
+  count += 1;
+}
+```
+</code></pre>
+
+<p><a name="references--block-scope"></a><a name="2.3"></a>
+  - <a href="#references--block-scope">2.3</a> Note that both <code>let</code> and <code>const</code> are block-scoped.</p>
+
+<pre><code>```javascript
+// const and let only exist in the blocks they are defined in.
+{
+  let a = 1;
+  const b = 1;
+}
+console.log(a); // ReferenceError
+console.log(b); // ReferenceError
+```
+</code></pre>
+
+<p><strong><a href="#table-of-contents">⬆ back to top</a></strong></p>
+
+<h2 id="objects">Objects</h2>
+
+<p><a name="objects--no-new"></a><a name="3.1"></a>
+  - <a href="#objects--no-new">3.1</a> Use the literal syntax for object creation. eslint: <a href="https://eslint.org/docs/rules/no-new-object.html"><code>no-new-object</code></a></p>
+
+<pre><code>```javascript
+// bad
+const item = new Object();
+
+// good
+const item = {};
+```
+</code></pre>
+
+<p><a name="es6-computed-properties"></a><a name="3.4"></a>
+  - <a href="#es6-computed-properties">3.2</a> Use computed property names when creating objects with dynamic property names.</p>
+
+<pre><code>&gt; Why? They allow you to define all the properties of an object in one place.
+
+```javascript
+
+function getKey(k) {
+  return `a key named ${k}`;
+}
+
+// bad
+const obj = {
+  id: 5,
+  name: 'San Francisco',
+};
+obj[getKey('enabled')] = true;
+
+// good
+const obj = {
+  id: 5,
+  name: 'San Francisco',
+  [getKey('enabled')]: true,
+};
+```
+</code></pre>
+
+<p><a name="es6-object-shorthand"></a><a name="3.5"></a>
+  - <a href="#es6-object-shorthand">3.3</a> Use object method shorthand. eslint: <a href="https://eslint.org/docs/rules/object-shorthand.html"><code>object-shorthand</code></a></p>
+
+<pre><code>```javascript
+// bad
+const atom = {
+  value: 1,
+
+  addValue: function (value) {
+    return atom.value + value;
+  },
+};
+
+// good
+const atom = {
+  value: 1,
+
+  addValue(value) {
+    return atom.value + value;
+  },
+};
+```
+</code></pre>
+
+<p><a name="es6-object-concise"></a><a name="3.6"></a>
+  - <a href="#es6-object-concise">3.4</a> Use property value shorthand. eslint: <a href="https://eslint.org/docs/rules/object-shorthand.html"><code>object-shorthand</code></a></p>
+
+<pre><code>&gt; Why? It is shorter to write and descriptive.
+
+```javascript
+const lukeSkywalker = 'Luke Skywalker';
+
+// bad
+const obj = {
+  lukeSkywalker: lukeSkywalker,
+};
+
+// good
+const obj = {
+  lukeSkywalker,
+};
+```
+</code></pre>
+
+<p><a name="objects--grouped-shorthand"></a><a name="3.7"></a>
+  - <a href="#objects--grouped-shorthand">3.5</a> Group your shorthand properties at the beginning of your object declaration.</p>
+
+<pre><code>&gt; Why? It’s easier to tell which properties are using the shorthand.
+
+```javascript
+const anakinSkywalker = 'Anakin Skywalker';
+const lukeSkywalker = 'Luke Skywalker';
+
+// bad
+const obj = {
+  episodeOne: 1,
+  twoJediWalkIntoACantina: 2,
+  lukeSkywalker,
+  episodeThree: 3,
+  mayTheFourth: 4,
+  anakinSkywalker,
+};
+
+// good
+const obj = {
+  lukeSkywalker,
+  anakinSkywalker,
+  episodeOne: 1,
+  twoJediWalkIntoACantina: 2,
+  episodeThree: 3,
+  mayTheFourth: 4,
+};
+```
+</code></pre>
+
+<p><a name="objects--quoted-props"></a><a name="3.8"></a>
+  - <a href="#objects--quoted-props">3.6</a> Only quote properties that are invalid identifiers. eslint: <a href="https://eslint.org/docs/rules/quote-props.html"><code>quote-props</code></a></p>
+
+<pre><code>&gt; Why? In general we consider it subjectively easier to read. It improves syntax highlighting, and is also more easily optimized by many JS engines.
+
+```javascript
+// bad
+const bad = {
+  'foo': 3,
+  'bar': 4,
+  'data-blah': 5,
+};
+
+// good
+const good = {
+  foo: 3,
+  bar: 4,
+  'data-blah': 5,
+};
+```
+</code></pre>
+
+<p><a name="objects--prototype-builtins"></a>
+  - <a href="#objects--prototype-builtins">3.7</a> Do not call <code>Object.prototype</code> methods directly, such as <code>hasOwnProperty</code>, <code>propertyIsEnumerable</code>, and <code>isPrototypeOf</code>.</p>
+
+<pre><code>&gt; Why? These methods may be shadowed by properties on the object in question - consider `{ hasOwnProperty: false }` - or, the object may be a null object (`Object.create(null)`).
+
+```javascript
+// bad
+console.log(object.hasOwnProperty(key));
+
+// good
+console.log(Object.prototype.hasOwnProperty.call(object, key));
+
+// best
+const has = Object.prototype.hasOwnProperty; // cache the lookup once, in module scope.
+/* or */
+import has from 'has'; // https://www.npmjs.com/package/has
+// ...
+console.log(has.call(object, key));
+```
+</code></pre>
+
+<p><a name="objects--rest-spread"></a>
+  - <a href="#objects--rest-spread">3.8</a> Prefer the object spread operator over <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Object/assign"><code>Object.assign</code></a> to shallow-copy objects. Use the object rest operator to get a new object with certain properties omitted.</p>
+
+<pre><code>```javascript
+// very bad
+const original = { a: 1, b: 2 };
+const copy = Object.assign(original, { c: 3 }); // this mutates `original` ಠ_ಠ
+delete copy.a; // so does this
+
+// bad
+const original = { a: 1, b: 2 };
+const copy = Object.assign({}, original, { c: 3 }); // copy =&gt; { a: 1, b: 2, c: 3 }
+
+// good
+const original = { a: 1, b: 2 };
+const copy = { ...original, c: 3 }; // copy =&gt; { a: 1, b: 2, c: 3 }
+
+const { a, ...noA } = copy; // noA =&gt; { b: 2, c: 3 }
+```
+</code></pre>
+
+<p><strong><a href="#table-of-contents">⬆ back to top</a></strong></p>
+
+<h2 id="arrays">Arrays</h2>
+
+<p><a name="arrays--literals"></a><a name="4.1"></a>
+  - <a href="#arrays--literals">4.1</a> Use the literal syntax for array creation. eslint: <a href="https://eslint.org/docs/rules/no-array-constructor.html"><code>no-array-constructor</code></a></p>
+
+<pre><code>```javascript
+// bad
+const items = new Array();
+
+// good
+const items = [];
+```
+</code></pre>
+
+<p><a name="arrays--push"></a><a name="4.2"></a>
+  - <a href="#arrays--push">4.2</a> Use <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/push">Array#push</a> instead of direct assignment to add items to an array.</p>
+
+<pre><code>```javascript
+const someStack = [];
+
+// bad
+someStack[someStack.length] = 'abracadabra';
+
+// good
+someStack.push('abracadabra');
+```
+</code></pre>
+
+<p><a name="es6-array-spreads"></a><a name="4.3"></a>
+  - <a href="#es6-array-spreads">4.3</a> Use array spreads <code>...</code> to copy arrays.</p>
+
+<pre><code>```javascript
+// bad
+const len = items.length;
+const itemsCopy = [];
+let i;
+
+for (i = 0; i &lt; len; i += 1) {
+  itemsCopy[i] = items[i];
+}
+
+// good
+const itemsCopy = [...items];
+```
+</code></pre>
+
+<p><a name="arrays--from"></a><a name="4.4"></a>
+  - <a href="#arrays--from">4.4</a> To convert an array-like object to an array, use spreads <code>...</code> instead of <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/from"><code>Array.from</code></a>.</p>
+
+<pre><code>```javascript
+const foo = document.querySelectorAll('.foo');
+
+// good
+const nodes = Array.from(foo);
+
+// best
+const nodes = [...foo];
+```
+</code></pre>
+
+<p><a name="arrays--mapping"></a>
+  - <a href="#arrays--mapping">4.5</a> Use <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/from">Array.from</a> instead of spread <code>...</code> for mapping over iterables, because it avoids creating an intermediate array.</p>
+
+<pre><code>```javascript
+// bad
+const baz = [...foo].map(bar);
+
+// good
+const baz = Array.from(foo, bar);
+```
+</code></pre>
+
+<p><a name="arrays--callback-return"></a><a name="4.5"></a>
+  - <a href="#arrays--callback-return">4.6</a> Use return statements in array method callbacks. It’s ok to omit the return if the function body consists of a single statement returning an expression without side effects, following <a href="#arrows--implicit-return">8.2</a>. eslint: <a href="https://eslint.org/docs/rules/array-callback-return"><code>array-callback-return</code></a></p>
+
+<pre><code>```javascript
+// good
+[1, 2, 3].map((x) =&gt; {
+  const y = x + 1;
+  return x * y;
+});
+
+// good
+[1, 2, 3].map(x =&gt; x + 1);
+
+// bad - no returned value means `acc` becomes undefined after the first iteration
+[[0, 1], [2, 3], [4, 5]].reduce((acc, item, index) =&gt; {
+  const flatten = acc.concat(item);
+  acc[index] = flatten;
+});
+
+// good
+[[0, 1], [2, 3], [4, 5]].reduce((acc, item, index) =&gt; {
+  const flatten = acc.concat(item);
+  acc[index] = flatten;
+  return flatten;
+});
+
+// bad
+inbox.filter((msg) =&gt; {
+  const { subject, author } = msg;
+  if (subject === 'Mockingbird') {
+    return author === 'Harper Lee';
+  } else {
+    return false;
+  }
+});
+
+// good
+inbox.filter((msg) =&gt; {
+  const { subject, author } = msg;
+  if (subject === 'Mockingbird') {
+    return author === 'Harper Lee';
+  }
+
+  return false;
+});
+```
+</code></pre>
+
+<p><a name="arrays--bracket-newline"></a>
+  - <a href="#arrays--bracket-newline">4.7</a> Use line breaks after open and before close array brackets if an array has multiple lines</p>
+
+<pre><code>```javascript
+// bad
+const arr = [
+  [0, 1], [2, 3], [4, 5],
+];
+
+const objectInArray = [{
+  id: 1,
+}, {
+  id: 2,
+}];
+
+const numberInArray = [
+  1, 2,
+];
+
+// good
+const arr = [[0, 1], [2, 3], [4, 5]];
+
+const objectInArray = [
+  {
+    id: 1,
+  },
+  {
+    id: 2,
+  },
+];
+
+const numberInArray = [
+  1,
+  2,
+];
+```
+</code></pre>
+
+<p><strong><a href="#table-of-contents">⬆ back to top</a></strong></p>
+
+<h2 id="destructuring">Destructuring</h2>
+
+<p><a name="destructuring--object"></a><a name="5.1"></a>
+  - <a href="#destructuring--object">5.1</a> Use object destructuring when accessing and using multiple properties of an object. eslint: <a href="https://eslint.org/docs/rules/prefer-destructuring"><code>prefer-destructuring</code></a></p>
+
+<pre><code>&gt; Why? Destructuring saves you from creating temporary references for those properties.
+
+```javascript
+// bad
+function getFullName(user) {
+  const firstName = user.firstName;
+  const lastName = user.lastName;
+
+  return `${firstName} ${lastName}`;
+}
+
+// good
+function getFullName(user) {
+  const { firstName, lastName } = user;
+  return `${firstName} ${lastName}`;
+}
+
+// best
+function getFullName({ firstName, lastName }) {
+  return `${firstName} ${lastName}`;
+}
+```
+</code></pre>
+
+<p><a name="destructuring--array"></a><a name="5.2"></a>
+  - <a href="#destructuring--array">5.2</a> Use array destructuring. eslint: <a href="https://eslint.org/docs/rules/prefer-destructuring"><code>prefer-destructuring</code></a></p>
+
+<pre><code>```javascript
+const arr = [1, 2, 3, 4];
+
+// bad
+const first = arr[0];
+const second = arr[1];
+
+// good
+const [first, second] = arr;
+```
+</code></pre>
+
+<p><a name="destructuring--object-over-array"></a><a name="5.3"></a>
+  - <a href="#destructuring--object-over-array">5.3</a> Use object destructuring for multiple return values, not array destructuring.</p>
+
+<pre><code>&gt; Why? You can add new properties over time or change the order of things without breaking call sites.
+
+```javascript
+// bad
+function processInput(input) {
+  // then a miracle occurs
+  return [left, right, top, bottom];
+}
+
+// the caller needs to think about the order of return data
+const [left, __, top] = processInput(input);
+
+// good
+function processInput(input) {
+  // then a miracle occurs
+  return { left, right, top, bottom };
+}
+
+// the caller selects only the data they need
+const { left, top } = processInput(input);
+```
+</code></pre>
+
+<p><strong><a href="#table-of-contents">⬆ back to top</a></strong></p>
+
+<h2 id="strings">Strings</h2>
+
+<p><a name="strings--quotes"></a><a name="6.1"></a>
+  - <a href="#strings--quotes">6.1</a> Use single quotes <code>''</code> for strings. eslint: <a href="https://eslint.org/docs/rules/quotes.html"><code>quotes</code></a></p>
+
+<pre><code>```javascript
+// bad
+const name = &quot;Capt. Janeway&quot;;
+
+// bad - template literals should contain interpolation or newlines
+const name = `Capt. Janeway`;
+
+// good
+const name = 'Capt. Janeway';
+```
+</code></pre>
+
+<p><a name="strings--line-length"></a><a name="6.2"></a>
+  - <a href="#strings--line-length">6.2</a> Strings that cause the line to go over 100 characters should not be written across multiple lines using string concatenation.</p>
+
+<pre><code>&gt; Why? Broken strings are painful to work with and make code less searchable.
+
+```javascript
+// bad
+const errorMessage = 'This is a super long error that was thrown because \
+of Batman. When you stop to think about how Batman had anything to do \
+with this, you would get nowhere \
+fast.';
+
+// bad
+const errorMessage = 'This is a super long error that was thrown because ' +
+  'of Batman. When you stop to think about how Batman had anything to do ' +
+  'with this, you would get nowhere fast.';
+
+// good
+const errorMessage = 'This is a super long error that was thrown because of Batman. When you stop to think about how Batman had anything to do with this, you would get nowhere fast.';
+```
+</code></pre>
+
+<p><a name="es6-template-literals"></a><a name="6.4"></a>
+  - <a href="#es6-template-literals">6.3</a> When programmatically building up strings, use template strings instead of concatenation. eslint: <a href="https://eslint.org/docs/rules/prefer-template.html"><code>prefer-template</code></a> <a href="https://eslint.org/docs/rules/template-curly-spacing"><code>template-curly-spacing</code></a></p>
+
+<pre><code>&gt; Why? Template strings give you a readable, concise syntax with proper newlines and string interpolation features.
+
+```javascript
+// bad
+function sayHi(name) {
+  return 'How are you, ' + name + '?';
+}
+
+// bad
+function sayHi(name) {
+  return ['How are you, ', name, '?'].join();
+}
+
+// bad
+function sayHi(name) {
+  return `How are you, ${ name }?`;
+}
+
+// good
+function sayHi(name) {
+  return `How are you, ${name}?`;
+}
+```
+</code></pre>
+
+<p><a name="strings--eval"></a><a name="6.5"></a>
+  - <a href="#strings--eval">6.4</a> Never use <code>eval()</code> on a string, it opens too many vulnerabilities. eslint: <a href="https://eslint.org/docs/rules/no-eval"><code>no-eval</code></a></p>
+
+<p><a name="strings--escaping"></a>
+  - <a href="#strings--escaping">6.5</a> Do not unnecessarily escape characters in strings. eslint: <a href="https://eslint.org/docs/rules/no-useless-escape"><code>no-useless-escape</code></a></p>
+
+<pre><code>&gt; Why? Backslashes harm readability, thus they should only be present when necessary.
+
+```javascript
+// bad
+const foo = '\'this\' \i\s \&quot;quoted\&quot;';
+
+// good
+const foo = '\'this\' is &quot;quoted&quot;';
+const foo = `my name is '${name}'`;
+```
+</code></pre>
+
+<p><strong><a href="#table-of-contents">⬆ back to top</a></strong></p>
+
+<h2 id="functions">Functions</h2>
+
+<p><a name="functions--declarations"></a><a name="7.1"></a>
+  - <a href="#functions--declarations">7.1</a> Use named function expressions instead of function declarations. eslint: <a href="https://eslint.org/docs/rules/func-style"><code>func-style</code></a></p>
+
+<pre><code>&gt; Why? Function declarations are hoisted, which means that it’s easy - too easy - to reference the function before it is defined in the file. This harms readability and maintainability. If you find that a function’s definition is large or complex enough that it is interfering with understanding the rest of the file, then perhaps it’s time to extract it to its own module! Don’t forget to explicitly name the expression, regardless of whether or not the name is inferred from the containing variable (which is often the case in modern browsers or when using compilers such as Babel). This eliminates any assumptions made about the Error's call stack. ([Discussion](https://github.com/airbnb/javascript/issues/794))
+
+```javascript
+// bad
+function foo() {
+  // ...
+}
+
+// bad
+const foo = function () {
+  // ...
+};
+
+// good
+// lexical name distinguished from the variable-referenced invocation(s)
+const short = function longUniqueMoreDescriptiveLexicalFoo() {
+  // ...
+};
+```
+</code></pre>
+
+<p><a name="functions--iife"></a><a name="7.2"></a>
+  - <a href="#functions--iife">7.2</a> Wrap immediately invoked function expressions in parentheses. eslint: <a href="https://eslint.org/docs/rules/wrap-iife.html"><code>wrap-iife</code></a></p>
+
+<pre><code>&gt; Why? An immediately invoked function expression is a single unit - wrapping both it, and its invocation parens, in parens, cleanly expresses this. Note that in a world with modules everywhere, you almost never need an IIFE.
+
+```javascript
+// immediately-invoked function expression (IIFE)
+(function () {
+  console.log('Welcome to the Internet. Please follow me.');
+}());
+```
+</code></pre>
+
+<p><a name="functions--in-blocks"></a><a name="7.3"></a>
+  - <a href="#functions--in-blocks">7.3</a> Never declare a function in a non-function block (<code>if</code>, <code>while</code>, etc). Assign the function to a variable instead. Browsers will allow you to do it, but they all interpret it differently, which is bad news bears. eslint: <a href="https://eslint.org/docs/rules/no-loop-func.html"><code>no-loop-func</code></a></p>
+
+<p><a name="functions--note-on-blocks"></a><a name="7.4"></a>
+  - <a href="#functions--note-on-blocks">7.4</a> <strong>Note:</strong> ECMA-262 defines a <code>block</code> as a list of statements. A function declaration is not a statement.</p>
+
+<pre><code>```javascript
+// bad
+if (currentUser) {
+  function test() {
+    console.log('Nope.');
+  }
+}
+
+// good
+let test;
+if (currentUser) {
+  test = () =&gt; {
+    console.log('Yup.');
+  };
+}
+```
+</code></pre>
+
+<p><a name="functions--arguments-shadow"></a><a name="7.5"></a>
+  - <a href="#functions--arguments-shadow">7.5</a> Never name a parameter <code>arguments</code>. This will take precedence over the <code>arguments</code> object that is given to every function scope.</p>
+
+<pre><code>```javascript
+// bad
+function foo(name, options, arguments) {
+  // ...
+}
+
+// good
+function foo(name, options, args) {
+  // ...
+}
+```
+</code></pre>
+
+<p><a name="es6-rest"></a><a name="7.6"></a>
+  - <a href="#es6-rest">7.6</a> Never use <code>arguments</code>, opt to use rest syntax <code>...</code> instead. eslint: <a href="https://eslint.org/docs/rules/prefer-rest-params"><code>prefer-rest-params</code></a></p>
+
+<pre><code>&gt; Why? `...` is explicit about which arguments you want pulled. Plus, rest arguments are a real Array, and not merely Array-like like `arguments`.
+
+```javascript
+// bad
+function concatenateAll() {
+  const args = Array.prototype.slice.call(arguments);
+  return args.join('');
+}
+
+// good
+function concatenateAll(...args) {
+  return args.join('');
+}
+```
+</code></pre>
+
+<p><a name="es6-default-parameters"></a><a name="7.7"></a>
+  - <a href="#es6-default-parameters">7.7</a> Use default parameter syntax rather than mutating function arguments.</p>
+
+<pre><code>```javascript
+// really bad
+function handleThings(opts) {
+  // No! We shouldn’t mutate function arguments.
+  // Double bad: if opts is falsy it'll be set to an object which may
+  // be what you want but it can introduce subtle bugs.
+  opts = opts || {};
+  // ...
+}
+
+// still bad
+function handleThings(opts) {
+  if (opts === void 0) {
+    opts = {};
+  }
+  // ...
+}
+
+// good
+function handleThings(opts = {}) {
+  // ...
+}
+```
+</code></pre>
+
+<p><a name="functions--default-side-effects"></a><a name="7.8"></a>
+  - <a href="#functions--default-side-effects">7.8</a> Avoid side effects with default parameters.</p>
+
+<pre><code>&gt; Why? They are confusing to reason about.
+
+```javascript
+var b = 1;
+// bad
+function count(a = b++) {
+  console.log(a);
+}
+count();  // 1
+count();  // 2
+count(3); // 3
+count();  // 3
+```
+</code></pre>
+
+<p><a name="functions--defaults-last"></a><a name="7.9"></a>
+  - <a href="#functions--defaults-last">7.9</a> Always put default parameters last.</p>
+
+<pre><code>```javascript
+// bad
+function handleThings(opts = {}, name) {
+  // ...
+}
+
+// good
+function handleThings(name, opts = {}) {
+  // ...
+}
+```
+</code></pre>
+
+<p><a name="functions--constructor"></a><a name="7.10"></a>
+  - <a href="#functions--constructor">7.10</a> Never use the Function constructor to create a new function. eslint: <a href="https://eslint.org/docs/rules/no-new-func"><code>no-new-func</code></a></p>
+
+<pre><code>&gt; Why? Creating a function in this way evaluates a string similarly to `eval()`, which opens vulnerabilities.
+
+```javascript
+// bad
+var add = new Function('a', 'b', 'return a + b');
+
+// still bad
+var subtract = Function('a', 'b', 'return a - b');
+```
+</code></pre>
+
+<p><a name="functions--signature-spacing"></a><a name="7.11"></a>
+  - <a href="#functions--signature-spacing">7.11</a> Spacing in a function signature. eslint: <a href="https://eslint.org/docs/rules/space-before-function-paren"><code>space-before-function-paren</code></a> <a href="https://eslint.org/docs/rules/space-before-blocks"><code>space-before-blocks</code></a></p>
+
+<pre><code>&gt; Why? Consistency is good, and you shouldn’t have to add or remove a space when adding or removing a name.
+
+```javascript
+// bad
+const f = function(){};
+const g = function (){};
+const h = function() {};
+
+// good
+const x = function () {};
+const y = function a() {};
+```
+</code></pre>
+
+<p><a name="functions--mutate-params"></a><a name="7.12"></a>
+  - <a href="#functions--mutate-params">7.12</a> Never mutate parameters. eslint: <a href="https://eslint.org/docs/rules/no-param-reassign.html"><code>no-param-reassign</code></a></p>
+
+<pre><code>&gt; Why? Manipulating objects passed in as parameters can cause unwanted variable side effects in the original caller.
+
+```javascript
+// bad
+function f1(obj) {
+  obj.key = 1;
+}
+
+// good
+function f2(obj) {
+  const key = Object.prototype.hasOwnProperty.call(obj, 'key') ? obj.key : 1;
+}
+```
+</code></pre>
+
+<p><a name="functions--reassign-params"></a><a name="7.13"></a>
+  - <a href="#functions--reassign-params">7.13</a> Never reassign parameters. eslint: <a href="https://eslint.org/docs/rules/no-param-reassign.html"><code>no-param-reassign</code></a></p>
+
+<pre><code>&gt; Why? Reassigning parameters can lead to unexpected behavior, especially when accessing the `arguments` object. It can also cause optimization issues, especially in V8.
+
+```javascript
+// bad
+function f1(a) {
+  a = 1;
+  // ...
+}
+
+function f2(a) {
+  if (!a) { a = 1; }
+  // ...
+}
+
+// good
+function f3(a) {
+  const b = a || 1;
+  // ...
+}
+
+function f4(a = 1) {
+  // ...
+}
+```
+</code></pre>
+
+<p><a name="functions--spread-vs-apply"></a><a name="7.14"></a>
+  - <a href="#functions--spread-vs-apply">7.14</a> Prefer the use of the spread operator <code>...</code> to call variadic functions. eslint: <a href="https://eslint.org/docs/rules/prefer-spread"><code>prefer-spread</code></a></p>
+
+<pre><code>&gt; Why? It’s cleaner, you don’t need to supply a context, and you can not easily compose `new` with `apply`.
+
+```javascript
+// bad
+const x = [1, 2, 3, 4, 5];
+console.log.apply(console, x);
+
+// good
+const x = [1, 2, 3, 4, 5];
+console.log(...x);
+
+// bad
+new (Function.prototype.bind.apply(Date, [null, 2016, 8, 5]));
+
+// good
+new Date(...[2016, 8, 5]);
+```
+</code></pre>
+
+<p><a name="functions--signature-invocation-indentation"></a>
+  - <a href="#functions--signature-invocation-indentation">7.15</a> Functions with multiline signatures, or invocations, should be indented just like every other multiline list in this guide: with each item on a line by itself, with a trailing comma on the last item. eslint: <a href="https://eslint.org/docs/rules/function-paren-newline"><code>function-paren-newline</code></a></p>
+
+<pre><code>```javascript
+// bad
+function foo(bar,
+             baz,
+             quux) {
+  // ...
+}
+
+// good
+function foo(
+  bar,
+  baz,
+  quux,
+) {
+  // ...
+}
+
+// bad
+console.log(foo,
+  bar,
+  baz);
+
+// good
+console.log(
+  foo,
+  bar,
+  baz,
+);
+```
+</code></pre>
+
+<p><strong><a href="#table-of-contents">⬆ back to top</a></strong></p>
+
+<h2 id="arrow-functions">Arrow Functions</h2>
+
+<p><a name="arrows--use-them"></a><a name="8.1"></a>
+  - <a href="#arrows--use-them">8.1</a> When you must use an anonymous function (as when passing an inline callback), use arrow function notation. eslint: <a href="https://eslint.org/docs/rules/prefer-arrow-callback.html"><code>prefer-arrow-callback</code></a>, <a href="https://eslint.org/docs/rules/arrow-spacing.html"><code>arrow-spacing</code></a></p>
+
+<pre><code>&gt; Why? It creates a version of the function that executes in the context of `this`, which is usually what you want, and is a more concise syntax.
+
+&gt; Why not? If you have a fairly complicated function, you might move that logic out into its own named function expression.
+
+```javascript
+// bad
+[1, 2, 3].map(function (x) {
+  const y = x + 1;
+  return x * y;
+});
+
+// good
+[1, 2, 3].map((x) =&gt; {
+  const y = x + 1;
+  return x * y;
+});
+```
+</code></pre>
+
+<p><a name="arrows--implicit-return"></a><a name="8.2"></a>
+  - <a href="#arrows--implicit-return">8.2</a> If the function body consists of a single statement returning an <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators#Expressions">expression</a> without side effects, omit the braces and use the implicit return. Otherwise, keep the braces and use a <code>return</code> statement. eslint: <a href="https://eslint.org/docs/rules/arrow-parens.html"><code>arrow-parens</code></a>, <a href="https://eslint.org/docs/rules/arrow-body-style.html"><code>arrow-body-style</code></a></p>
+
+<pre><code>&gt; Why? Syntactic sugar. It reads well when multiple functions are chained together.
+
+```javascript
+// bad
+[1, 2, 3].map(number =&gt; {
+  const nextNumber = number + 1;
+  `A string containing the ${nextNumber}.`;
+});
+
+// good
+[1, 2, 3].map(number =&gt; `A string containing the ${number}.`);
+
+// good
+[1, 2, 3].map((number) =&gt; {
+  const nextNumber = number + 1;
+  return `A string containing the ${nextNumber}.`;
+});
+
+// good
+[1, 2, 3].map((number, index) =&gt; ({
+  [index]: number,
+}));
+
+// No implicit return with side effects
+function foo(callback) {
+  const val = callback();
+  if (val === true) {
+    // Do something if callback returns true
+  }
+}
+
+let bool = false;
+
+// bad
+foo(() =&gt; bool = true);
+
+// good
+foo(() =&gt; {
+  bool = true;
+});
+```
+</code></pre>
+
+<p><a name="arrows--paren-wrap"></a><a name="8.3"></a>
+  - <a href="#arrows--paren-wrap">8.3</a> In case the expression spans over multiple lines, wrap it in parentheses for better readability.</p>
+
+<pre><code>&gt; Why? It shows clearly where the function starts and ends.
+
+```javascript
+// bad
+['get', 'post', 'put'].map(httpMethod =&gt; Object.prototype.hasOwnProperty.call(
+    httpMagicObjectWithAVeryLongName,
+    httpMethod,
+  )
+);
+
+// good
+['get', 'post', 'put'].map(httpMethod =&gt; (
+  Object.prototype.hasOwnProperty.call(
+    httpMagicObjectWithAVeryLongName,
+    httpMethod,
+  )
+));
+```
+</code></pre>
+
+<p><a name="arrows--one-arg-parens"></a><a name="8.4"></a>
+  - <a href="#arrows--one-arg-parens">8.4</a> If your function takes a single argument and doesn’t use braces, omit the parentheses. Otherwise, always include parentheses around arguments for clarity and consistency. Note: it is also acceptable to always use parentheses, in which case use the <a href="https://eslint.org/docs/rules/arrow-parens#always">“always” option</a> for eslint. eslint: <a href="https://eslint.org/docs/rules/arrow-parens.html"><code>arrow-parens</code></a></p>
+
+<pre><code>&gt; Why? Less visual clutter.
+
+```javascript
+// bad
+[1, 2, 3].map((x) =&gt; x * x);
+
+// good
+[1, 2, 3].map(x =&gt; x * x);
+
+// good
+[1, 2, 3].map(number =&gt; (
+  `A long string with the ${number}. It’s so long that we don’t want it to take up space on the .map line!`
+));
+
+// bad
+[1, 2, 3].map(x =&gt; {
+  const y = x + 1;
+  return x * y;
+});
+
+// good
+[1, 2, 3].map((x) =&gt; {
+  const y = x + 1;
+  return x * y;
+});
+```
+</code></pre>
+
+<p><a name="arrows--confusing"></a><a name="8.5"></a>
+  - <a href="#arrows--confusing">8.5</a> Avoid confusing arrow function syntax (<code>=&gt;</code>) with comparison operators (<code>&lt;=</code>, <code>&gt;=</code>). eslint: <a href="https://eslint.org/docs/rules/no-confusing-arrow"><code>no-confusing-arrow</code></a></p>
+
+<pre><code>```javascript
+// bad
+const itemHeight = item =&gt; item.height &gt; 256 ? item.largeSize : item.smallSize;
+
+// bad
+const itemHeight = (item) =&gt; item.height &gt; 256 ? item.largeSize : item.smallSize;
+
+// good
+const itemHeight = item =&gt; (item.height &gt; 256 ? item.largeSize : item.smallSize);
+
+// good
+const itemHeight = (item) =&gt; {
+  const { height, largeSize, smallSize } = item;
+  return height &gt; 256 ? largeSize : smallSize;
+};
+```
+</code></pre>
+
+<p><a name="whitespace--implicit-arrow-linebreak"></a>
+  - <a href="#whitespace--implicit-arrow-linebreak">8.6</a> Enforce the location of arrow function bodies with implicit returns. eslint: <a href="https://eslint.org/docs/rules/implicit-arrow-linebreak"><code>implicit-arrow-linebreak</code></a></p>
+
+<pre><code>```javascript
+// bad
+(foo) =&gt;
+  bar;
+
+(foo) =&gt;
+  (bar);
+
+// good
+(foo) =&gt; bar;
+(foo) =&gt; (bar);
+(foo) =&gt; (
+   bar
+)
+```
+</code></pre>
+
+<p><strong><a href="#table-of-contents">⬆ back to top</a></strong></p>
+
+<h2 id="classes-constructors">Classes &amp; Constructors</h2>
+
+<p><a name="constructors--use-class"></a><a name="9.1"></a>
+  - <a href="#constructors--use-class">9.1</a> Always use <code>class</code>. Avoid manipulating <code>prototype</code> directly.</p>
+
+<pre><code>&gt; Why? `class` syntax is more concise and easier to reason about.
+
+```javascript
+// bad
+function Queue(contents = []) {
+  this.queue = [...contents];
+}
+Queue.prototype.pop = function () {
+  const value = this.queue[0];
+  this.queue.splice(0, 1);
+  return value;
+};
+
+// good
+class Queue {
+  constructor(contents = []) {
+    this.queue = [...contents];
+  }
+  pop() {
+    const value = this.queue[0];
+    this.queue.splice(0, 1);
+    return value;
+  }
+}
+```
+</code></pre>
+
+<p><a name="constructors--extends"></a><a name="9.2"></a>
+  - <a href="#constructors--extends">9.2</a> Use <code>extends</code> for inheritance.</p>
+
+<pre><code>&gt; Why? It is a built-in way to inherit prototype functionality without breaking `instanceof`.
+
+```javascript
+// bad
+const inherits = require('inherits');
+function PeekableQueue(contents) {
+  Queue.apply(this, contents);
+}
+inherits(PeekableQueue, Queue);
+PeekableQueue.prototype.peek = function () {
+  return this.queue[0];
+};
+
+// good
+class PeekableQueue extends Queue {
+  peek() {
+    return this.queue[0];
+  }
+}
+```
+</code></pre>
+
+<p><a name="constructors--chaining"></a><a name="9.3"></a>
+  - <a href="#constructors--chaining">9.3</a> Methods can return <code>this</code> to help with method chaining.</p>
+
+<pre><code>```javascript
+// bad
+Jedi.prototype.jump = function () {
+  this.jumping = true;
+  return true;
+};
+
+Jedi.prototype.setHeight = function (height) {
+  this.height = height;
+};
+
+const luke = new Jedi();
+luke.jump(); // =&gt; true
+luke.setHeight(20); // =&gt; undefined
+
+// good
+class Jedi {
+  jump() {
+    this.jumping = true;
+    return this;
+  }
+
+  setHeight(height) {
+    this.height = height;
+    return this;
+  }
+}
+
+const luke = new Jedi();
+
+luke.jump()
+  .setHeight(20);
+```
+</code></pre>
+
+<p><a name="constructors--tostring"></a><a name="9.4"></a>
+  - <a href="#constructors--tostring">9.4</a> It’s okay to write a custom <code>toString()</code> method, just make sure it works successfully and causes no side effects.</p>
+
+<pre><code>```javascript
+class Jedi {
+  constructor(options = {}) {
+    this.name = options.name || 'no name';
+  }
+
+  getName() {
+    return this.name;
+  }
+
+  toString() {
+    return `Jedi - ${this.getName()}`;
+  }
+}
+```
+</code></pre>
+
+<p><a name="constructors--no-useless"></a><a name="9.5"></a>
+  - <a href="#constructors--no-useless">9.5</a> Classes have a default constructor if one is not specified. An empty constructor function or one that just delegates to a parent class is unnecessary. eslint: <a href="https://eslint.org/docs/rules/no-useless-constructor"><code>no-useless-constructor</code></a></p>
+
+<pre><code>```javascript
+// bad
+class Jedi {
+  constructor() {}
+
+  getName() {
+    return this.name;
+  }
+}
+
+// bad
+class Rey extends Jedi {
+  constructor(...args) {
+    super(...args);
+  }
+}
+
+// good
+class Rey extends Jedi {
+  constructor(...args) {
+    super(...args);
+    this.name = 'Rey';
+  }
+}
+```
+</code></pre>
+
+<p><a name="classes--no-duplicate-members"></a>
+  - <a href="#classes--no-duplicate-members">9.6</a> Avoid duplicate class members. eslint: <a href="https://eslint.org/docs/rules/no-dupe-class-members"><code>no-dupe-class-members</code></a></p>
+
+<pre><code>&gt; Why? Duplicate class member declarations will silently prefer the last one - having duplicates is almost certainly a bug.
+
+```javascript
+// bad
+class Foo {
+  bar() { return 1; }
+  bar() { return 2; }
+}
+
+// good
+class Foo {
+  bar() { return 1; }
+}
+
+// good
+class Foo {
+  bar() { return 2; }
+}
+```
+</code></pre>
+
+<p><strong><a href="#table-of-contents">⬆ back to top</a></strong></p>
+
+<h2 id="modules">Modules</h2>
+
+<p><a name="modules--use-them"></a><a name="10.1"></a>
+  - <a href="#modules--use-them">10.1</a> Always use modules (<code>import</code>/<code>export</code>) over a non-standard module system. You can always transpile to your preferred module system.</p>
+
+<pre><code>&gt; Why? Modules are the future, let’s start using the future now.
+
+```javascript
+// bad
+const AirbnbStyleGuide = require('./AirbnbStyleGuide');
+module.exports = AirbnbStyleGuide.es6;
+
+// ok
+import AirbnbStyleGuide from './AirbnbStyleGuide';
+export default AirbnbStyleGuide.es6;
+
+// best
+import { es6 } from './AirbnbStyleGuide';
+export default es6;
+```
+</code></pre>
+
+<p><a name="modules--no-wildcard"></a><a name="10.2"></a>
+  - <a href="#modules--no-wildcard">10.2</a> Do not use wildcard imports.</p>
+
+<pre><code>&gt; Why? This makes sure you have a single default export.
+
+```javascript
+// bad
+import * as AirbnbStyleGuide from './AirbnbStyleGuide';
+
+// good
+import AirbnbStyleGuide from './AirbnbStyleGuide';
+```
+</code></pre>
+
+<p><a name="modules--no-export-from-import"></a><a name="10.3"></a>
+  - <a href="#modules--no-export-from-import">10.3</a> And do not export directly from an import.</p>
+
+<pre><code>&gt; Why? Although the one-liner is concise, having one clear way to import and one clear way to export makes things consistent.
+
+```javascript
+// bad
+// filename es6.js
+export { es6 as default } from './AirbnbStyleGuide';
+
+// good
+// filename es6.js
+import { es6 } from './AirbnbStyleGuide';
+export default es6;
+```
+</code></pre>
+
+<p><a name="modules--no-duplicate-imports"></a>
+  - <a href="#modules--no-duplicate-imports">10.4</a> Only import from a path in one place.
+ eslint: <a href="https://eslint.org/docs/rules/no-duplicate-imports"><code>no-duplicate-imports</code></a>
+    &gt; Why? Having multiple lines that import from the same path can make code harder to maintain.</p>
+
+<pre><code>```javascript
+// bad
+import foo from 'foo';
+// … some other imports … //
+import { named1, named2 } from 'foo';
+
+// good
+import foo, { named1, named2 } from 'foo';
+
+// good
+import foo, {
+  named1,
+  named2,
+} from 'foo';
+```
+</code></pre>
+
+<p><a name="modules--no-mutable-exports"></a>
+  - <a href="#modules--no-mutable-exports">10.5</a> Do not export mutable bindings.
+ eslint: <a href="https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-mutable-exports.md"><code>import/no-mutable-exports</code></a>
+    &gt; Why? Mutation should be avoided in general, but in particular when exporting mutable bindings. While this technique may be needed for some special cases, in general, only constant references should be exported.</p>
+
+<pre><code>```javascript
+// bad
+let foo = 3;
+export { foo };
+
+// good
+const foo = 3;
+export { foo };
+```
+</code></pre>
+
+<p><a name="modules--prefer-default-export"></a>
+  - <a href="#modules--prefer-default-export">10.6</a> In modules with a single export, prefer default export over named export.
+ eslint: <a href="https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/prefer-default-export.md"><code>import/prefer-default-export</code></a>
+    &gt; Why? To encourage more files that only ever export one thing, which is better for readability and maintainability.</p>
+
+<pre><code>```javascript
+// bad
+export function foo() {}
+
+// good
+export default function foo() {}
+```
+</code></pre>
+
+<p><a name="modules--imports-first"></a>
+  - <a href="#modules--imports-first">10.7</a> Put all <code>import</code>s above non-import statements.
+ eslint: <a href="https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/first.md"><code>import/first</code></a>
+    &gt; Why? Since <code>import</code>s are hoisted, keeping them all at the top prevents surprising behavior.</p>
+
+<pre><code>```javascript
+// bad
+import foo from 'foo';
+foo.init();
+
+import bar from 'bar';
+
+// good
+import foo from 'foo';
+import bar from 'bar';
+
+foo.init();
+```
+</code></pre>
+
+<p><a name="modules--multiline-imports-over-newlines"></a>
+  - <a href="#modules--multiline-imports-over-newlines">10.8</a> Multiline imports should be indented just like multiline array and object literals.</p>
+
+<pre><code>&gt; Why? The curly braces follow the same indentation rules as every other curly brace block in the style guide, as do the trailing commas.
+
+```javascript
+// bad
+import {longNameA, longNameB, longNameC, longNameD, longNameE} from 'path';
+
+// good
+import {
+  longNameA,
+  longNameB,
+  longNameC,
+  longNameD,
+  longNameE,
+} from 'path';
+```
+</code></pre>
+
+<p><a name="modules--no-webpack-loader-syntax"></a>
+  - <a href="#modules--no-webpack-loader-syntax">10.9</a> Disallow Webpack loader syntax in module import statements.
+ eslint: <a href="https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-webpack-loader-syntax.md"><code>import/no-webpack-loader-syntax</code></a>
+    &gt; Why? Since using Webpack syntax in the imports couples the code to a module bundler. Prefer using the loader syntax in <code>webpack.config.js</code>.</p>
+
+<pre><code>```javascript
+// bad
+import fooSass from 'css!sass!foo.scss';
+import barCss from 'style!css!bar.css';
+
+// good
+import fooSass from 'foo.scss';
+import barCss from 'bar.css';
+```
+</code></pre>
+
+<p><strong><a href="#table-of-contents">⬆ back to top</a></strong></p>
+
+<h2 id="iterators-and-generators">Iterators and Generators</h2>
+
+<p><a name="iterators--nope"></a><a name="11.1"></a>
+  - <a href="#iterators--nope">11.1</a> Don’t use iterators. Prefer JavaScript’s higher-order functions instead of loops like <code>for-in</code> or <code>for-of</code>. eslint: <a href="https://eslint.org/docs/rules/no-iterator.html"><code>no-iterator</code></a> <a href="https://eslint.org/docs/rules/no-restricted-syntax"><code>no-restricted-syntax</code></a></p>
+
+<pre><code>&gt; Why? This enforces our immutable rule. Dealing with pure functions that return values is easier to reason about than side effects.
+
+&gt; Use `map()` / `every()` / `filter()` / `find()` / `findIndex()` / `reduce()` / `some()` / ... to iterate over arrays, and `Object.keys()` / `Object.values()` / `Object.entries()` to produce arrays so you can iterate over objects.
+
+```javascript
+const numbers = [1, 2, 3, 4, 5];
+
+// bad
+let sum = 0;
+for (let num of numbers) {
+  sum += num;
+}
+sum === 15;
+
+// good
+let sum = 0;
+numbers.forEach((num) =&gt; {
+  sum += num;
+});
+sum === 15;
+
+// best (use the functional force)
+const sum = numbers.reduce((total, num) =&gt; total + num, 0);
+sum === 15;
+
+// bad
+const increasedByOne = [];
+for (let i = 0; i &lt; numbers.length; i++) {
+  increasedByOne.push(numbers[i] + 1);
+}
+
+// good
+const increasedByOne = [];
+numbers.forEach((num) =&gt; {
+  increasedByOne.push(num + 1);
+});
+
+// best (keeping it functional)
+const increasedByOne = numbers.map(num =&gt; num + 1);
+```
+</code></pre>
+
+<p><a name="generators--nope"></a><a name="11.2"></a>
+  - <a href="#generators--nope">11.2</a> Don’t use generators for now.</p>
+
+<pre><code>&gt; Why? They don’t transpile well to ES5.
+</code></pre>
+
+<p><a name="generators--spacing"></a>
+  - <a href="#generators--spacing">11.3</a> If you must use generators, or if you disregard <a href="#generators--nope">our advice</a>, make sure their function signature is spaced properly. eslint: <a href="https://eslint.org/docs/rules/generator-star-spacing"><code>generator-star-spacing</code></a></p>
+
+<pre><code>&gt; Why? `function` and `*` are part of the same conceptual keyword - `*` is not a modifier for `function`, `function*` is a unique construct, different from `function`.
+
+```javascript
+// bad
+function * foo() {
+  // ...
+}
+
+// bad
+const bar = function * () {
+  // ...
+};
+
+// bad
+const baz = function *() {
+  // ...
+};
+
+// bad
+const quux = function*() {
+  // ...
+};
+
+// bad
+function*foo() {
+  // ...
+}
+
+// bad
+function *foo() {
+  // ...
+}
+
+// very bad
+function
+*
+foo() {
+  // ...
+}
+
+// very bad
+const wat = function
+*
+() {
+  // ...
+};
+
+// good
+function* foo() {
+  // ...
+}
+
+// good
+const foo = function* () {
+  // ...
+};
+```
+</code></pre>
+
+<p><strong><a href="#table-of-contents">⬆ back to top</a></strong></p>
+
+<h2 id="properties">Properties</h2>
+
+<p><a name="properties--dot"></a><a name="12.1"></a>
+  - <a href="#properties--dot">12.1</a> Use dot notation when accessing properties. eslint: <a href="https://eslint.org/docs/rules/dot-notation.html"><code>dot-notation</code></a></p>
+
+<pre><code>```javascript
+const luke = {
+  jedi: true,
+  age: 28,
+};
+
+// bad
+const isJedi = luke['jedi'];
+
+// good
+const isJedi = luke.jedi;
+```
+</code></pre>
+
+<p><a name="properties--bracket"></a><a name="12.2"></a>
+  - <a href="#properties--bracket">12.2</a> Use bracket notation <code>[]</code> when accessing properties with a variable.</p>
+
+<pre><code>```javascript
+const luke = {
+  jedi: true,
+  age: 28,
+};
+
+function getProp(prop) {
+  return luke[prop];
+}
+
+const isJedi = getProp('jedi');
+```
+</code></pre>
+
+<p><a name="es2016-properties--exponentiation-operator"></a>
+  - <a href="#es2016-properties--exponentiation-operator">12.3</a> Use exponentiation operator <code>**</code> when calculating exponentiations. eslint: <a href="https://eslint.org/docs/rules/no-restricted-properties"><code>no-restricted-properties</code></a>.</p>
+
+<pre><code>```javascript
+// bad
+const binary = Math.pow(2, 10);
+
+// good
+const binary = 2 ** 10;
+```
+</code></pre>
+
+<p><strong><a href="#table-of-contents">⬆ back to top</a></strong></p>
+
+<h2 id="variables">Variables</h2>
+
+<p><a name="variables--const"></a><a name="13.1"></a>
+  - <a href="#variables--const">13.1</a> Always use <code>const</code> or <code>let</code> to declare variables. Not doing so will result in global variables. We want to avoid polluting the global namespace. Captain Planet warned us of that. eslint: <a href="https://eslint.org/docs/rules/no-undef"><code>no-undef</code></a> <a href="https://eslint.org/docs/rules/prefer-const"><code>prefer-const</code></a></p>
+
+<pre><code>```javascript
+// bad
+superPower = new SuperPower();
+
+// good
+const superPower = new SuperPower();
+```
+</code></pre>
+
+<p><a name="variables--one-const"></a><a name="13.2"></a>
+  - <a href="#variables--one-const">13.2</a> Use one <code>const</code> or <code>let</code> declaration per variable. eslint: <a href="https://eslint.org/docs/rules/one-var.html"><code>one-var</code></a></p>
+
+<pre><code>&gt; Why? It’s easier to add new variable declarations this way, and you never have to worry about swapping out a `;` for a `,` or introducing punctuation-only diffs. You can also step through each declaration with the debugger, instead of jumping through all of them at once.
+
+```javascript
+// bad
+const items = getItems(),
+    goSportsTeam = true,
+    dragonball = 'z';
+
+// bad
+// (compare to above, and try to spot the mistake)
+const items = getItems(),
+    goSportsTeam = true;
+    dragonball = 'z';
+
+// good
+const items = getItems();
+const goSportsTeam = true;
+const dragonball = 'z';
+```
+</code></pre>
+
+<p><a name="variables--const-let-group"></a><a name="13.3"></a>
+  - <a href="#variables--const-let-group">13.3</a> Group all your <code>const</code>s and then group all your <code>let</code>s.</p>
+
+<pre><code>&gt; Why? This is helpful when later on you might need to assign a variable depending on one of the previous assigned variables.
+
+```javascript
+// bad
+let i, len, dragonball,
+    items = getItems(),
+    goSportsTeam = true;
+
+// bad
+let i;
+const items = getItems();
+let dragonball;
+const goSportsTeam = true;
+let len;
+
+// good
+const goSportsTeam = true;
+const items = getItems();
+let dragonball;
+let i;
+let length;
+```
+</code></pre>
+
+<p><a name="variables--define-where-used"></a><a name="13.4"></a>
+  - <a href="#variables--define-where-used">13.4</a> Assign variables where you need them, but place them in a reasonable place.</p>
+
+<pre><code>&gt; Why? `let` and `const` are block scoped and not function scoped.
+
+```javascript
+// bad - unnecessary function call
+function checkName(hasName) {
+  const name = getName();
+
+  if (hasName === 'test') {
+    return false;
+  }
+
+  if (name === 'test') {
+    this.setName('');
+    return false;
+  }
+
+  return name;
+}
+
+// good
+function checkName(hasName) {
+  if (hasName === 'test') {
+    return false;
+  }
+
+  const name = getName();
+
+  if (name === 'test') {
+    this.setName('');
+    return false;
+  }
+
+  return name;
+}
+```
+</code></pre>
+
+<p><a name="variables--no-chain-assignment"></a><a name="13.5"></a>
+  - <a href="#variables--no-chain-assignment">13.5</a> Don’t chain variable assignments. eslint: <a href="https://eslint.org/docs/rules/no-multi-assign"><code>no-multi-assign</code></a></p>
+
+<pre><code>&gt; Why? Chaining variable assignments creates implicit global variables.
+
+```javascript
+// bad
+(function example() {
+  // JavaScript interprets this as
+  // let a = ( b = ( c = 1 ) );
+  // The let keyword only applies to variable a; variables b and c become
+  // global variables.
+  let a = b = c = 1;
+}());
+
+console.log(a); // throws ReferenceError
+console.log(b); // 1
+console.log(c); // 1
+
+// good
+(function example() {
+  let a = 1;
+  let b = a;
+  let c = a;
+}());
+
+console.log(a); // throws ReferenceError
+console.log(b); // throws ReferenceError
+console.log(c); // throws ReferenceError
+
+// the same applies for `const`
+```
+</code></pre>
+
+<p><a name="variables--unary-increment-decrement"></a><a name="13.6"></a>
+  - <a href="#variables--unary-increment-decrement">13.6</a> Avoid using unary increments and decrements (<code>++</code>, <code>--</code>). eslint <a href="https://eslint.org/docs/rules/no-plusplus"><code>no-plusplus</code></a></p>
+
+<pre><code>&gt; Why? Per the eslint documentation, unary increment and decrement statements are subject to automatic semicolon insertion and can cause silent errors with incrementing or decrementing values within an application. It is also more expressive to mutate your values with statements like `num += 1` instead of `num++` or `num ++`. Disallowing unary increment and decrement statements also prevents you from pre-incrementing/pre-decrementing values unintentionally which can also cause unexpected behavior in your programs.
+
+```javascript
+// bad
+
+const array = [1, 2, 3];
+let num = 1;
+num++;
+--num;
+
+let sum = 0;
+let truthyCount = 0;
+for (let i = 0; i &lt; array.length; i++) {
+  let value = array[i];
+  sum += value;
+  if (value) {
+    truthyCount++;
+  }
+}
+
+// good
+
+const array = [1, 2, 3];
+let num = 1;
+num += 1;
+num -= 1;
+
+const sum = array.reduce((a, b) =&gt; a + b, 0);
+const truthyCount = array.filter(Boolean).length;
+```
+</code></pre>
+
+<p><a name="variables--linebreak"></a>
+  - <a href="#variables--linebreak">13.7</a> Avoid linebreaks before or after <code>=</code> in an assignment. If your assignment violates <a href="https://eslint.org/docs/rules/max-len.html"><code>max-len</code></a>, surround the value in parens. eslint <a href="https://eslint.org/docs/rules/operator-linebreak.html"><code>operator-linebreak</code></a>.</p>
+
+<pre><code>&gt; Why? Linebreaks surrounding `=` can obfuscate the value of an assignment.
+
+```javascript
+// bad
+const foo =
+  superLongLongLongLongLongLongLongLongFunctionName();
+
+// bad
+const foo
+  = 'superLongLongLongLongLongLongLongLongString';
+
+// good
+const foo = (
+  superLongLongLongLongLongLongLongLongFunctionName()
+);
+
+// good
+const foo = 'superLongLongLongLongLongLongLongLongString';
+```
+</code></pre>
+
+<p><strong><a href="#table-of-contents">⬆ back to top</a></strong></p>
+
+<h2 id="hoisting">Hoisting</h2>
+
+<p><a name="hoisting--about"></a><a name="14.1"></a>
+  - <a href="#hoisting--about">14.1</a> <code>var</code> declarations get hoisted to the top of their closest enclosing function scope, their assignment does not. <code>const</code> and <code>let</code> declarations are blessed with a new concept called <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let#Temporal_Dead_Zone">Temporal Dead Zones (TDZ)</a>. It’s important to know why <a href="http://es-discourse.com/t/why-typeof-is-no-longer-safe/15">typeof is no longer safe</a>.</p>
+
+<pre><code>```javascript
+// we know this wouldn’t work (assuming there
+// is no notDefined global variable)
+function example() {
+  console.log(notDefined); // =&gt; throws a ReferenceError
+}
+
+// creating a variable declaration after you
+// reference the variable will work due to
+// variable hoisting. Note: the assignment
+// value of `true` is not hoisted.
+function example() {
+  console.log(declaredButNotAssigned); // =&gt; undefined
+  var declaredButNotAssigned = true;
+}
+
+// the interpreter is hoisting the variable
+// declaration to the top of the scope,
+// which means our example could be rewritten as:
+function example() {
+  let declaredButNotAssigned;
+  console.log(declaredButNotAssigned); // =&gt; undefined
+  declaredButNotAssigned = true;
+}
+
+// using const and let
+function example() {
+  console.log(declaredButNotAssigned); // =&gt; throws a ReferenceError
+  console.log(typeof declaredButNotAssigned); // =&gt; throws a ReferenceError
+  const declaredButNotAssigned = true;
+}
+```
+</code></pre>
+
+<p><a name="hoisting--anon-expressions"></a><a name="14.2"></a>
+  - <a href="#hoisting--anon-expressions">14.2</a> Anonymous function expressions hoist their variable name, but not the function assignment.</p>
+
+<pre><code>```javascript
+function example() {
+  console.log(anonymous); // =&gt; undefined
+
+  anonymous(); // =&gt; TypeError anonymous is not a function
+
+  var anonymous = function () {
+    console.log('anonymous function expression');
+  };
+}
+```
+</code></pre>
+
+<p><a name="hoisting--named-expresions"></a><a name="hoisting--named-expressions"></a><a name="14.3"></a>
+  - <a href="#hoisting--named-expressions">14.3</a> Named function expressions hoist the variable name, not the function name or the function body.</p>
+
+<pre><code>```javascript
+function example() {
+  console.log(named); // =&gt; undefined
+
+  named(); // =&gt; TypeError named is not a function
+
+  superPower(); // =&gt; ReferenceError superPower is not defined
+
+  var named = function superPower() {
+    console.log('Flying');
+  };
+}
+
+// the same is true when the function name
+// is the same as the variable name.
+function example() {
+  console.log(named); // =&gt; undefined
+
+  named(); // =&gt; TypeError named is not a function
+
+  var named = function named() {
+    console.log('named');
+  };
+}
+```
+</code></pre>
+
+<p><a name="hoisting--declarations"></a><a name="14.4"></a>
+  - <a href="#hoisting--declarations">14.4</a> Function declarations hoist their name and the function body.</p>
+
+<pre><code>```javascript
+function example() {
+  superPower(); // =&gt; Flying
+
+  function superPower() {
+    console.log('Flying');
+  }
+}
+```
+</code></pre>
+
+<ul>
+<li>For more information refer to <a href="http://www.adequatelygood.com/2010/2/JavaScript-Scoping-and-Hoisting/">JavaScript Scoping &amp; Hoisting</a> by <a href="http://www.adequatelygood.com/">Ben Cherry</a>.</li>
+</ul>
+
+<p><strong><a href="#table-of-contents">⬆ back to top</a></strong></p>
+
+<h2 id="comparison-operators-equality">Comparison Operators &amp; Equality</h2>
+
+<p><a name="comparison--eqeqeq"></a><a name="15.1"></a>
+  - <a href="#comparison--eqeqeq">15.1</a> Use <code>===</code> and <code>!==</code> over <code>==</code> and <code>!=</code>. eslint: <a href="https://eslint.org/docs/rules/eqeqeq.html"><code>eqeqeq</code></a></p>
+
+<p><a name="comparison--if"></a><a name="15.2"></a>
+  - <a href="#comparison--if">15.2</a> Conditional statements such as the <code>if</code> statement evaluate their expression using coercion with the <code>ToBoolean</code> abstract method and always follow these simple rules:</p>
+
+<pre><code>- **Objects** evaluate to **true**
+- **Undefined** evaluates to **false**
+- **Null** evaluates to **false**
+- **Booleans** evaluate to **the value of the boolean**
+- **Numbers** evaluate to **false** if **+0, -0, or NaN**, otherwise **true**
+- **Strings** evaluate to **false** if an empty string `''`, otherwise **true**
+
+```javascript
+if ([0] &amp;&amp; []) {
+  // true
+  // an array (even an empty one) is an object, objects will evaluate to true
+}
+```
+</code></pre>
+
+<p><a name="comparison--shortcuts"></a><a name="15.3"></a>
+  - <a href="#comparison--shortcuts">15.3</a> Use shortcuts for booleans, but explicit comparisons for strings and numbers.</p>
+
+<pre><code>```javascript
+// bad
+if (isValid === true) {
+  // ...
+}
+
+// good
+if (isValid) {
+  // ...
+}
+
+// bad
+if (name) {
+  // ...
+}
+
+// good
+if (name !== '') {
+  // ...
+}
+
+// bad
+if (collection.length) {
+  // ...
+}
+
+// good
+if (collection.length &gt; 0) {
+  // ...
+}
+```
+</code></pre>
+
+<p><a name="comparison--moreinfo"></a><a name="15.4"></a>
+  - <a href="#comparison--moreinfo">15.4</a> For more information see <a href="https://javascriptweblog.wordpress.com/2011/02/07/truth-equality-and-javascript/#more-2108">Truth Equality and JavaScript</a> by Angus Croll.</p>
+
+<p><a name="comparison--switch-blocks"></a><a name="15.5"></a>
+  - <a href="#comparison--switch-blocks">15.5</a> Use braces to create blocks in <code>case</code> and <code>default</code> clauses that contain lexical declarations (e.g. <code>let</code>, <code>const</code>, <code>function</code>, and <code>class</code>). eslint: <a href="https://eslint.org/docs/rules/no-case-declarations.html"><code>no-case-declarations</code></a></p>
+
+<pre><code>&gt; Why? Lexical declarations are visible in the entire `switch` block but only get initialized when assigned, which only happens when its `case` is reached. This causes problems when multiple `case` clauses attempt to define the same thing.
+
+```javascript
+// bad
+switch (foo) {
+  case 1:
+    let x = 1;
+    break;
+  case 2:
+    const y = 2;
+    break;
+  case 3:
+    function f() {
+      // ...
+    }
+    break;
+  default:
+    class C {}
+}
+
+// good
+switch (foo) {
+  case 1: {
+    let x = 1;
+    break;
+  }
+  case 2: {
+    const y = 2;
+    break;
+  }
+  case 3: {
+    function f() {
+      // ...
+    }
+    break;
+  }
+  case 4:
+    bar();
+    break;
+  default: {
+    class C {}
+  }
+}
+```
+</code></pre>
+
+<p><a name="comparison--nested-ternaries"></a><a name="15.6"></a>
+  - <a href="#comparison--nested-ternaries">15.6</a> Ternaries should not be nested and generally be single line expressions. eslint: <a href="https://eslint.org/docs/rules/no-nested-ternary.html"><code>no-nested-ternary</code></a></p>
+
+<pre><code>```javascript
+// bad
+const foo = maybe1 &gt; maybe2
+  ? &quot;bar&quot;
+  : value1 &gt; value2 ? &quot;baz&quot; : null;
+
+// split into 2 separated ternary expressions
+const maybeNull = value1 &gt; value2 ? 'baz' : null;
+
+// better
+const foo = maybe1 &gt; maybe2
+  ? 'bar'
+  : maybeNull;
+
+// best
+const foo = maybe1 &gt; maybe2 ? 'bar' : maybeNull;
+```
+</code></pre>
+
+<p><a name="comparison--unneeded-ternary"></a><a name="15.7"></a>
+  - <a href="#comparison--unneeded-ternary">15.7</a> Avoid unneeded ternary statements. eslint: <a href="https://eslint.org/docs/rules/no-unneeded-ternary.html"><code>no-unneeded-ternary</code></a></p>
+
+<pre><code>```javascript
+// bad
+const foo = a ? a : b;
+const bar = c ? true : false;
+const baz = c ? false : true;
+
+// good
+const foo = a || b;
+const bar = !!c;
+const baz = !c;
+```
+</code></pre>
+
+<p><a name="comparison--no-mixed-operators"></a>
+  - <a href="#comparison--no-mixed-operators">15.8</a> When mixing operators, enclose them in parentheses. The only exception is the standard arithmetic operators (<code>+</code>, <code>-</code>, <code>*</code>, &amp; <code>/</code>) since their precedence is broadly understood. eslint: <a href="https://eslint.org/docs/rules/no-mixed-operators.html"><code>no-mixed-operators</code></a></p>
+
+<pre><code>&gt; Why? This improves readability and clarifies the developer’s intention.
+
+```javascript
+// bad
+const foo = a &amp;&amp; b &lt; 0 || c &gt; 0 || d + 1 === 0;
+
+// bad
+const bar = a ** b - 5 % d;
+
+// bad
+// one may be confused into thinking (a || b) &amp;&amp; c
+if (a || b &amp;&amp; c) {
+  return d;
+}
+
+// good
+const foo = (a &amp;&amp; b &lt; 0) || c &gt; 0 || (d + 1 === 0);
+
+// good
+const bar = (a ** b) - (5 % d);
+
+// good
+if (a || (b &amp;&amp; c)) {
+  return d;
+}
+
+// good
+const bar = a + b / c * d;
+```
+</code></pre>
+
+<p><strong><a href="#table-of-contents">⬆ back to top</a></strong></p>
+
+<h2 id="blocks">Blocks</h2>
+
+<p><a name="blocks--braces"></a><a name="16.1"></a>
+  - <a href="#blocks--braces">16.1</a> Use braces with all multi-line blocks. eslint: <a href="https://eslint.org/docs/rules/nonblock-statement-body-position"><code>nonblock-statement-body-position</code></a></p>
+
+<pre><code>```javascript
+// bad
+if (test)
+  return false;
+
+// good
+if (test) return false;
+
+// good
+if (test) {
+  return false;
+}
+
+// bad
+function foo() { return false; }
+
+// good
+function bar() {
+  return false;
+}
+```
+</code></pre>
+
+<p><a name="blocks--cuddled-elses"></a><a name="16.2"></a>
+  - <a href="#blocks--cuddled-elses">16.2</a> If you&rsquo;re using multi-line blocks with <code>if</code> and <code>else</code>, put <code>else</code> on the same line as your <code>if</code> block’s closing brace. eslint: <a href="https://eslint.org/docs/rules/brace-style.html"><code>brace-style</code></a></p>
+
+<pre><code>```javascript
+// bad
+if (test) {
+  thing1();
+  thing2();
+}
+else {
+  thing3();
+}
+
+// good
+if (test) {
+  thing1();
+  thing2();
+} else {
+  thing3();
+}
+```
+</code></pre>
+
+<p><a name="blocks--no-else-return"></a><a name="16.3"></a>
+  - <a href="#blocks--no-else-return">16.3</a> If an <code>if</code> block always executes a <code>return</code> statement, the subsequent <code>else</code> block is unnecessary. A <code>return</code> in an <code>else if</code> block following an <code>if</code> block that contains a <code>return</code> can be separated into multiple <code>if</code> blocks. eslint: <a href="https://eslint.org/docs/rules/no-else-return"><code>no-else-return</code></a></p>
+
+<pre><code>```javascript
+// bad
+function foo() {
+  if (x) {
+    return x;
+  } else {
+    return y;
+  }
+}
+
+// bad
+function cats() {
+  if (x) {
+    return x;
+  } else if (y) {
+    return y;
+  }
+}
+
+// bad
+function dogs() {
+  if (x) {
+    return x;
+  } else {
+    if (y) {
+      return y;
+    }
+  }
+}
+
+// good
+function foo() {
+  if (x) {
+    return x;
+  }
+
+  return y;
+}
+
+// good
+function cats() {
+  if (x) {
+    return x;
+  }
+
+  if (y) {
+    return y;
+  }
+}
+
+// good
+function dogs(x) {
+  if (x) {
+    if (z) {
+      return y;
+    }
+  } else {
+    return z;
+  }
+}
+```
+</code></pre>
+
+<p><strong><a href="#table-of-contents">⬆ back to top</a></strong></p>
+
+<h2 id="control-statements">Control Statements</h2>
+
+<p><a name="control-statements"></a>
+  - <a href="#control-statements">17.1</a> In case your control statement (<code>if</code>, <code>while</code> etc.) gets too long or exceeds the maximum line length, each (grouped) condition could be put into a new line. The logical operator should begin the line.</p>
+
+<pre><code>&gt; Why? Requiring operators at the beginning of the line keeps the operators aligned and follows a pattern similar to method chaining. This also improves readability by making it easier to visually follow complex logic.
+
+```javascript
+// bad
+if ((foo === 123 || bar === 'abc') &amp;&amp; doesItLookGoodWhenItBecomesThatLong() &amp;&amp; isThisReallyHappening()) {
+  thing1();
+}
+
+// bad
+if (foo === 123 &amp;&amp;
+  bar === 'abc') {
+  thing1();
+}
+
+// bad
+if (foo === 123
+  &amp;&amp; bar === 'abc') {
+  thing1();
+}
+
+// bad
+if (
+  foo === 123 &amp;&amp;
+  bar === 'abc'
+) {
+  thing1();
+}
+
+// good
+if (
+  foo === 123
+  &amp;&amp; bar === 'abc'
+) {
+  thing1();
+}
+
+// good
+if (
+  (foo === 123 || bar === 'abc')
+  &amp;&amp; doesItLookGoodWhenItBecomesThatLong()
+  &amp;&amp; isThisReallyHappening()
+) {
+  thing1();
+}
+
+// good
+if (foo === 123 &amp;&amp; bar === 'abc') {
+  thing1();
+}
+```
+</code></pre>
+
+<p><a name="control-statement--value-selection"></a>
+  - <a href="#control-statements--value-selection">17.2</a> Don&rsquo;t use selection operators in place of control statements.</p>
+
+<pre><code>```javascript
+// bad
+!isRunning &amp;&amp; startRunning();
+
+// good
+if (!isRunning) {
+  startRunning();
+}
+```
+</code></pre>
+
+<p><strong><a href="#table-of-contents">⬆ back to top</a></strong></p>
+
+<h2 id="comments">Comments</h2>
+
+<p><a name="comments--multiline"></a><a name="17.1"></a>
+  - <a href="#comments--multiline">18.1</a> Use <code>/** ... */</code> for multi-line comments.</p>
+
+<pre><code>```javascript
+// bad
+// make() returns a new element
+// based on the passed in tag name
+//
+// @param {String} tag
+// @return {Element} element
+function make(tag) {
+
+  // ...
+
+  return element;
+}
+
+// good
+/**
+ * make() returns a new element
+ * based on the passed-in tag name
+ */
+function make(tag) {
+
+  // ...
+
+  return element;
+}
+```
+</code></pre>
+
+<p><a name="comments--singleline"></a><a name="17.2"></a>
+  - <a href="#comments--singleline">18.2</a> Use <code>//</code> for single line comments. Place single line comments on a newline above the subject of the comment. Put an empty line before the comment unless it’s on the first line of a block.</p>
+
+<pre><code>```javascript
+// bad
+const active = true;  // is current tab
+
+// good
+// is current tab
+const active = true;
+
+// bad
+function getType() {
+  console.log('fetching type...');
+  // set the default type to 'no type'
+  const type = this.type || 'no type';
+
+  return type;
+}
+
+// good
+function getType() {
+  console.log('fetching type...');
+
+  // set the default type to 'no type'
+  const type = this.type || 'no type';
+
+  return type;
+}
+
+// also good
+function getType() {
+  // set the default type to 'no type'
+  const type = this.type || 'no type';
+
+  return type;
+}
+```
+</code></pre>
+
+<p><a name="comments--spaces"></a>
+  - <a href="#comments--spaces">18.3</a> Start all comments with a space to make it easier to read. eslint: <a href="https://eslint.org/docs/rules/spaced-comment"><code>spaced-comment</code></a></p>
+
+<pre><code>```javascript
+// bad
+//is current tab
+const active = true;
+
+// good
+// is current tab
+const active = true;
+
+// bad
+/**
+ *make() returns a new element
+ *based on the passed-in tag name
+ */
+function make(tag) {
+
+  // ...
+
+  return element;
+}
+
+// good
+/**
+ * make() returns a new element
+ * based on the passed-in tag name
+ */
+function make(tag) {
+
+  // ...
+
+  return element;
+}
+```
+</code></pre>
+
+<p><a name="comments--actionitems"></a><a name="17.3"></a>
+  - <a href="#comments--actionitems">18.4</a> Prefixing your comments with <code>FIXME</code> or <code>TODO</code> helps other developers quickly understand if you&rsquo;re pointing out a problem that needs to be revisited, or if you&rsquo;re suggesting a solution to the problem that needs to be implemented. These are different than regular comments because they are actionable. The actions are <code>FIXME: -- need to figure this out</code> or <code>TODO: -- need to implement</code>.</p>
+
+<p><a name="comments--fixme"></a><a name="17.4"></a>
+  - <a href="#comments--fixme">18.5</a> Use <code>// FIXME:</code> to annotate problems.</p>
+
+<pre><code>```javascript
+class Calculator extends Abacus {
+  constructor() {
+    super();
+
+    // FIXME: shouldn’t use a global here
+    total = 0;
+  }
+}
+```
+</code></pre>
+
+<p><a name="comments--todo"></a><a name="17.5"></a>
+  - <a href="#comments--todo">18.6</a> Use <code>// TODO:</code> to annotate solutions to problems.</p>
+
+<pre><code>```javascript
+class Calculator extends Abacus {
+  constructor() {
+    super();
+
+    // TODO: total should be configurable by an options param
+    this.total = 0;
+  }
+}
+```
+</code></pre>
+
+<p><strong><a href="#table-of-contents">⬆ back to top</a></strong></p>
+
+<h2 id="whitespace">Whitespace</h2>
+
+<p><a name="whitespace--spaces"></a><a name="18.1"></a>
+  - <a href="#whitespace--spaces">19.1</a> Use soft tabs (space character) set to 2 spaces. eslint: <a href="https://eslint.org/docs/rules/indent.html"><code>indent</code></a></p>
+
+<pre><code>```javascript
+// bad
+function foo() {
+∙∙∙∙let name;
+}
+
+// bad
+function bar() {
+∙let name;
+}
+
+// good
+function baz() {
+∙∙let name;
+}
+```
+</code></pre>
+
+<p><a name="whitespace--before-blocks"></a><a name="18.2"></a>
+  - <a href="#whitespace--before-blocks">19.2</a> Place 1 space before the leading brace. eslint: <a href="https://eslint.org/docs/rules/space-before-blocks.html"><code>space-before-blocks</code></a></p>
+
+<pre><code>```javascript
+// bad
+function test(){
+  console.log('test');
+}
+
+// good
+function test() {
+  console.log('test');
+}
+
+// bad
+dog.set('attr',{
+  age: '1 year',
+  breed: 'Bernese Mountain Dog',
+});
+
+// good
+dog.set('attr', {
+  age: '1 year',
+  breed: 'Bernese Mountain Dog',
+});
+```
+</code></pre>
+
+<p><a name="whitespace--around-keywords"></a><a name="18.3"></a>
+  - <a href="#whitespace--around-keywords">19.3</a> Place 1 space before the opening parenthesis in control statements (<code>if</code>, <code>while</code> etc.). Place no space between the argument list and the function name in function calls and declarations. eslint: <a href="https://eslint.org/docs/rules/keyword-spacing.html"><code>keyword-spacing</code></a></p>
+
+<pre><code>```javascript
+// bad
+if(isJedi) {
+  fight ();
+}
+
+// good
+if (isJedi) {
+  fight();
+}
+
+// bad
+function fight () {
+  console.log ('Swooosh!');
+}
+
+// good
+function fight() {
+  console.log('Swooosh!');
+}
+```
+</code></pre>
+
+<p><a name="whitespace--infix-ops"></a><a name="18.4"></a>
+  - <a href="#whitespace--infix-ops">19.4</a> Set off operators with spaces. eslint: <a href="https://eslint.org/docs/rules/space-infix-ops.html"><code>space-infix-ops</code></a></p>
+
+<pre><code>```javascript
+// bad
+const x=y+5;
+
+// good
+const x = y + 5;
+```
+</code></pre>
+
+<p><a name="whitespace--newline-at-end"></a><a name="18.5"></a>
+  - <a href="#whitespace--newline-at-end">19.5</a> End files with a single newline character. eslint: <a href="https://github.com/eslint/eslint/blob/master/docs/rules/eol-last.md"><code>eol-last</code></a></p>
+
+<pre><code>```javascript
+// bad
+import { es6 } from './AirbnbStyleGuide';
+  // ...
+export default es6;
+```
+
+```javascript
+// bad
+import { es6 } from './AirbnbStyleGuide';
+  // ...
+export default es6;↵
+↵
+```
+
+```javascript
+// good
+import { es6 } from './AirbnbStyleGuide';
+  // ...
+export default es6;↵
+```
+</code></pre>
+
+<p><a name="whitespace--chains"></a><a name="18.6"></a>
+  - <a href="#whitespace--chains">19.6</a> Use indentation when making long method chains (more than 2 method chains). Use a leading dot, which
+    emphasizes that the line is a method call, not a new statement. eslint: <a href="https://eslint.org/docs/rules/newline-per-chained-call"><code>newline-per-chained-call</code></a> <a href="https://eslint.org/docs/rules/no-whitespace-before-property"><code>no-whitespace-before-property</code></a></p>
+
+<pre><code>```javascript
+// bad
+$('#items').find('.selected').highlight().end().find('.open').updateCount();
+
+// bad
+$('#items').
+  find('.selected').
+    highlight().
+    end().
+  find('.open').
+    updateCount();
+
+// good
+$('#items')
+  .find('.selected')
+    .highlight()
+    .end()
+  .find('.open')
+    .updateCount();
+
+// bad
+const leds = stage.selectAll('.led').data(data).enter().append('svg:svg').classed('led', true)
+    .attr('width', (radius + margin) * 2).append('svg:g')
+    .attr('transform', `translate(${radius + margin},${radius + margin})`)
+    .call(tron.led);
+
+// good
+const leds = stage.selectAll('.led')
+    .data(data)
+  .enter().append('svg:svg')
+    .classed('led', true)
+    .attr('width', (radius + margin) * 2)
+  .append('svg:g')
+    .attr('transform', `translate(${radius + margin},${radius + margin})`)
+    .call(tron.led);
+
+// good
+const leds = stage.selectAll('.led').data(data);
+```
+</code></pre>
+
+<p><a name="whitespace--after-blocks"></a><a name="18.7"></a>
+  - <a href="#whitespace--after-blocks">19.7</a> Leave a blank line after blocks and before the next statement.</p>
+
+<pre><code>```javascript
+// bad
+if (foo) {
+  return bar;
+}
+return baz;
+
+// good
+if (foo) {
+  return bar;
+}
+
+return baz;
+
+// bad
+const obj = {
+  foo() {
+  },
+  bar() {
+  },
+};
+return obj;
+
+// good
+const obj = {
+  foo() {
+  },
+
+  bar() {
+  },
+};
+
+return obj;
+
+// bad
+const arr = [
+  function foo() {
+  },
+  function bar() {
+  },
+];
+return arr;
+
+// good
+const arr = [
+  function foo() {
+  },
+
+  function bar() {
+  },
+];
+
+return arr;
+```
+</code></pre>
+
+<p><a name="whitespace--padded-blocks"></a><a name="18.8"></a>
+  - <a href="#whitespace--padded-blocks">19.8</a> Do not pad your blocks with blank lines. eslint: <a href="https://eslint.org/docs/rules/padded-blocks.html"><code>padded-blocks</code></a></p>
+
+<pre><code>```javascript
+// bad
+function bar() {
+
+  console.log(foo);
+
+}
+
+// bad
+if (baz) {
+
+  console.log(qux);
+} else {
+  console.log(foo);
+
+}
+
+// bad
+class Foo {
+
+  constructor(bar) {
+    this.bar = bar;
+  }
+}
+
+// good
+function bar() {
+  console.log(foo);
+}
+
+// good
+if (baz) {
+  console.log(qux);
+} else {
+  console.log(foo);
+}
+```
+</code></pre>
+
+<p><a name="whitespace--in-parens"></a><a name="18.9"></a>
+  - <a href="#whitespace--in-parens">19.9</a> Do not add spaces inside parentheses. eslint: <a href="https://eslint.org/docs/rules/space-in-parens.html"><code>space-in-parens</code></a></p>
+
+<pre><code>```javascript
+// bad
+function bar( foo ) {
+  return foo;
+}
+
+// good
+function bar(foo) {
+  return foo;
+}
+
+// bad
+if ( foo ) {
+  console.log(foo);
+}
+
+// good
+if (foo) {
+  console.log(foo);
+}
+```
+</code></pre>
+
+<p><a name="whitespace--in-brackets"></a><a name="18.10"></a>
+  - <a href="#whitespace--in-brackets">19.10</a> Do not add spaces inside brackets. eslint: <a href="https://eslint.org/docs/rules/array-bracket-spacing.html"><code>array-bracket-spacing</code></a></p>
+
+<pre><code>```javascript
+// bad
+const foo = [ 1, 2, 3 ];
+console.log(foo[ 0 ]);
+
+// good
+const foo = [1, 2, 3];
+console.log(foo[0]);
+```
+</code></pre>
+
+<p><a name="whitespace--in-braces"></a><a name="18.11"></a>
+  - <a href="#whitespace--in-braces">19.11</a> Add spaces inside curly braces. eslint: <a href="https://eslint.org/docs/rules/object-curly-spacing.html"><code>object-curly-spacing</code></a></p>
+
+<pre><code>```javascript
+// bad
+const foo = {clark: 'kent'};
+
+// good
+const foo = { clark: 'kent' };
+```
+</code></pre>
+
+<p><a name="whitespace--max-len"></a><a name="18.12"></a>
+  - <a href="#whitespace--max-len">19.12</a> Avoid having lines of code that are longer than 100 characters (including whitespace). Note: per <a href="#strings--line-length">above</a>, long strings are exempt from this rule, and should not be broken up. eslint: <a href="https://eslint.org/docs/rules/max-len.html"><code>max-len</code></a></p>
+
+<pre><code>&gt; Why? This ensures readability and maintainability.
+
+```javascript
+// bad
+const foo = jsonData &amp;&amp; jsonData.foo &amp;&amp; jsonData.foo.bar &amp;&amp; jsonData.foo.bar.baz &amp;&amp; jsonData.foo.bar.baz.quux &amp;&amp; jsonData.foo.bar.baz.quux.xyzzy;
+
+// bad
+$.ajax({ method: 'POST', url: 'https://airbnb.com/', data: { name: 'John' } }).done(() =&gt; console.log('Congratulations!')).fail(() =&gt; console.log('You have failed this city.'));
+
+// good
+const foo = jsonData
+  &amp;&amp; jsonData.foo
+  &amp;&amp; jsonData.foo.bar
+  &amp;&amp; jsonData.foo.bar.baz
+  &amp;&amp; jsonData.foo.bar.baz.quux
+  &amp;&amp; jsonData.foo.bar.baz.quux.xyzzy;
+
+// good
+$.ajax({
+  method: 'POST',
+  url: 'https://airbnb.com/',
+  data: { name: 'John' },
+})
+  .done(() =&gt; console.log('Congratulations!'))
+  .fail(() =&gt; console.log('You have failed this city.'));
+```
+</code></pre>
+
+<p><a name="whitespace--block-spacing"></a>
+  - <a href="#whitespace--block-spacing">19.13</a> Require consistent spacing inside an open block token and the next token on the same line. This rule also enforces consistent spacing inside a close block token and previous token on the same line. eslint: <a href="https://eslint.org/docs/rules/block-spacing"><code>block-spacing</code></a></p>
+
+<pre><code>```javascript
+// bad
+function foo() {return true;}
+if (foo) { bar = 0;}
+
+// good
+function foo() { return true; }
+if (foo) { bar = 0; }
+```
+</code></pre>
+
+<p><a name="whitespace--comma-spacing"></a>
+  - <a href="#whitespace--comma-spacing">19.14</a> Avoid spaces before commas and require a space after commas. eslint: <a href="https://eslint.org/docs/rules/comma-spacing"><code>comma-spacing</code></a></p>
+
+<pre><code>```javascript
+// bad
+var foo = 1,bar = 2;
+var arr = [1 , 2];
+
+// good
+var foo = 1, bar = 2;
+var arr = [1, 2];
+```
+</code></pre>
+
+<p><a name="whitespace--computed-property-spacing"></a>
+  - <a href="#whitespace--computed-property-spacing">19.15</a> Enforce spacing inside of computed properties. eslint: <a href="https://eslint.org/docs/rules/computed-property-spacing"><code>computed-property-spacing</code></a></p>
+
+<pre><code>```javascript
+// bad
+obj[foo ]
+obj[ 'foo']
+var x = {[ b ]: a}
+obj[foo[ bar ]]
+
+// good
+obj[foo]
+obj['foo']
+var x = { [b]: a }
+obj[foo[bar]]
+```
+</code></pre>
+
+<p><a name="whitespace--func-call-spacing"></a>
+  - <a href="#whitespace--func-call-spacing">19.16</a> Enforce spacing between functions and their invocations. eslint: <a href="https://eslint.org/docs/rules/func-call-spacing"><code>func-call-spacing</code></a></p>
+
+<pre><code>```javascript
+// bad
+func ();
+
+func
+();
+
+// good
+func();
+```
+</code></pre>
+
+<p><a name="whitespace--key-spacing"></a>
+  - <a href="#whitespace--key-spacing">19.17</a> Enforce spacing between keys and values in object literal properties. eslint: <a href="https://eslint.org/docs/rules/key-spacing"><code>key-spacing</code></a></p>
+
+<pre><code>```javascript
+// bad
+var obj = { &quot;foo&quot; : 42 };
+var obj2 = { &quot;foo&quot;:42 };
+
+// good
+var obj = { &quot;foo&quot;: 42 };
+```
+</code></pre>
+
+<p><a name="whitespace--no-trailing-spaces"></a>
+  - <a href="#whitespace--no-trailing-spaces">19.18</a> Avoid trailing spaces at the end of lines. eslint: <a href="https://eslint.org/docs/rules/no-trailing-spaces"><code>no-trailing-spaces</code></a></p>
+
+<p><a name="whitespace--no-multiple-empty-lines"></a>
+  - <a href="#whitespace--no-multiple-empty-lines">19.19</a> Avoid multiple empty lines and only allow one newline at the end of files. eslint: <a href="https://eslint.org/docs/rules/no-multiple-empty-lines"><code>no-multiple-empty-lines</code></a></p>
+
+<pre><code>&lt;!-- markdownlint-disable MD012 --&gt;
+```javascript
+// bad
+var x = 1;
+
+
+
+var y = 2;
+
+// good
+var x = 1;
+
+var y = 2;
+```
+&lt;!-- markdownlint-enable MD012 --&gt;
+</code></pre>
+
+<p><strong><a href="#table-of-contents">⬆ back to top</a></strong></p>
+
+<h2 id="commas">Commas</h2>
+
+<p><a name="commas--leading-trailing"></a><a name="19.1"></a>
+  - <a href="#commas--leading-trailing">20.1</a> Leading commas: <strong>Nope.</strong> eslint: <a href="https://eslint.org/docs/rules/comma-style.html"><code>comma-style</code></a></p>
+
+<pre><code>```javascript
+// bad
+const story = [
+    once
+  , upon
+  , aTime
+];
+
+// good
+const story = [
+  once,
+  upon,
+  aTime,
+];
+
+// bad
+const hero = {
+    firstName: 'Ada'
+  , lastName: 'Lovelace'
+  , birthYear: 1815
+  , superPower: 'computers'
+};
+
+// good
+const hero = {
+  firstName: 'Ada',
+  lastName: 'Lovelace',
+  birthYear: 1815,
+  superPower: 'computers',
+};
+```
+</code></pre>
+
+<p><a name="commas--dangling"></a><a name="19.2"></a>
+  - <a href="#commas--dangling">20.2</a> Additional trailing comma: <strong>Yup.</strong> eslint: <a href="https://eslint.org/docs/rules/comma-dangle.html"><code>comma-dangle</code></a></p>
+
+<pre><code>&gt; Why? This leads to cleaner git diffs. Also, transpilers like Babel will remove the additional trailing comma in the transpiled code which means you don’t have to worry about the [trailing comma problem](https://github.com/airbnb/javascript/blob/es5-deprecated/es5/README.md#commas) in legacy browsers.
+
+```diff
+// bad - git diff without trailing comma
+const hero = {
+     firstName: 'Florence',
+-    lastName: 'Nightingale'
++    lastName: 'Nightingale',
++    inventorOf: ['coxcomb chart', 'modern nursing']
+};
+
+// good - git diff with trailing comma
+const hero = {
+     firstName: 'Florence',
+     lastName: 'Nightingale',
++    inventorOf: ['coxcomb chart', 'modern nursing'],
+};
+```
+
+```javascript
+// bad
+const hero = {
+  firstName: 'Dana',
+  lastName: 'Scully'
+};
+
+const heroes = [
+  'Batman',
+  'Superman'
+];
+
+// good
+const hero = {
+  firstName: 'Dana',
+  lastName: 'Scully',
+};
+
+const heroes = [
+  'Batman',
+  'Superman',
+];
+
+// bad
+function createHero(
+  firstName,
+  lastName,
+  inventorOf
+) {
+  // does nothing
+}
+
+// good
+function createHero(
+  firstName,
+  lastName,
+  inventorOf,
+) {
+  // does nothing
+}
+
+// good (note that a comma must not appear after a &quot;rest&quot; element)
+function createHero(
+  firstName,
+  lastName,
+  inventorOf,
+  ...heroArgs
+) {
+  // does nothing
+}
+
+// bad
+createHero(
+  firstName,
+  lastName,
+  inventorOf
+);
+
+// good
+createHero(
+  firstName,
+  lastName,
+  inventorOf,
+);
+
+// good (note that a comma must not appear after a &quot;rest&quot; element)
+createHero(
+  firstName,
+  lastName,
+  inventorOf,
+  ...heroArgs
+);
+```
+</code></pre>
+
+<p><strong><a href="#table-of-contents">⬆ back to top</a></strong></p>
+
+<h2 id="semicolons">Semicolons</h2>
+
+<p><a name="semicolons--required"></a><a name="20.1"></a>
+  - <a href="#semicolons--required">21.1</a> <strong>Yup.</strong> eslint: <a href="https://eslint.org/docs/rules/semi.html"><code>semi</code></a></p>
+
+<pre><code>&gt; Why? When JavaScript encounters a line break without a semicolon, it uses a set of rules called [Automatic Semicolon Insertion](https://tc39.github.io/ecma262/#sec-automatic-semicolon-insertion) to determine whether or not it should regard that line break as the end of a statement, and (as the name implies) place a semicolon into your code before the line break if it thinks so. ASI contains a few eccentric behaviors, though, and your code will break if JavaScript misinterprets your line break. These rules will become more complicated as new features become a part of JavaScript. Explicitly terminating your statements and configuring your linter to catch missing semicolons will help prevent you from encountering issues.
+
+```javascript
+// bad - raises exception
+const luke = {}
+const leia = {}
+[luke, leia].forEach(jedi =&gt; jedi.father = 'vader')
+
+// bad - raises exception
+const reaction = &quot;No! That's impossible!&quot;
+(async function meanwhileOnTheFalcon() {
+  // handle `leia`, `lando`, `chewie`, `r2`, `c3p0`
+  // ...
+}())
+
+// bad - returns `undefined` instead of the value on the next line - always happens when `return` is on a line by itself because of ASI!
+function foo() {
+  return
+    'search your feelings, you know it to be foo'
+}
+
+// good
+const luke = {};
+const leia = {};
+[luke, leia].forEach((jedi) =&gt; {
+  jedi.father = 'vader';
+});
+
+// good
+const reaction = &quot;No! That's impossible!&quot;;
+(async function meanwhileOnTheFalcon() {
+  // handle `leia`, `lando`, `chewie`, `r2`, `c3p0`
+  // ...
+}());
+
+// good
+function foo() {
+  return 'search your feelings, you know it to be foo';
+}
+```
+
+[Read more](https://stackoverflow.com/questions/7365172/semicolon-before-self-invoking-function/7365214#7365214).
+</code></pre>
+
+<p><strong><a href="#table-of-contents">⬆ back to top</a></strong></p>
+
+<h2 id="type-casting-coercion">Type Casting &amp; Coercion</h2>
+
+<p><a name="coercion--explicit"></a><a name="21.1"></a>
+  - <a href="#coercion--explicit">22.1</a> Perform type coercion at the beginning of the statement.</p>
+
+<p><a name="coercion--strings"></a><a name="21.2"></a>
+  - <a href="#coercion--strings">22.2</a>  Strings: eslint: <a href="https://eslint.org/docs/rules/no-new-wrappers"><code>no-new-wrappers</code></a></p>
+
+<pre><code>```javascript
+// =&gt; this.reviewScore = 9;
+
+// bad
+const totalScore = new String(this.reviewScore); // typeof totalScore is &quot;object&quot; not &quot;string&quot;
+
+// bad
+const totalScore = this.reviewScore + ''; // invokes this.reviewScore.valueOf()
+
+// bad
+const totalScore = this.reviewScore.toString(); // isn’t guaranteed to return a string
+
+// good
+const totalScore = String(this.reviewScore);
+```
+</code></pre>
+
+<p><a name="coercion--numbers"></a><a name="21.3"></a>
+  - <a href="#coercion--numbers">22.3</a> Numbers: Use <code>Number</code> for type casting and <code>parseInt</code> always with a radix for parsing strings. eslint: <a href="https://eslint.org/docs/rules/radix"><code>radix</code></a> <a href="https://eslint.org/docs/rules/no-new-wrappers"><code>no-new-wrappers</code></a></p>
+
+<pre><code>```javascript
+const inputValue = '4';
+
+// bad
+const val = new Number(inputValue);
+
+// bad
+const val = +inputValue;
+
+// bad
+const val = inputValue &gt;&gt; 0;
+
+// bad
+const val = parseInt(inputValue);
+
+// good
+const val = Number(inputValue);
+
+// good
+const val = parseInt(inputValue, 10);
+```
+</code></pre>
+
+<p><a name="coercion--comment-deviations"></a><a name="21.4"></a>
+  - <a href="#coercion--comment-deviations">22.4</a> If for whatever reason you are doing something wild and <code>parseInt</code> is your bottleneck and need to use Bitshift for <a href="https://jsperf.com/coercion-vs-casting/3">performance reasons</a>, leave a comment explaining why and what you&rsquo;re doing.</p>
+
+<pre><code>```javascript
+// good
+/**
+ * parseInt was the reason my code was slow.
+ * Bitshifting the String to coerce it to a
+ * Number made it a lot faster.
+ */
+const val = inputValue &gt;&gt; 0;
+```
+</code></pre>
+
+<p><a name="coercion--bitwise"></a><a name="21.5"></a>
+  - <a href="#coercion--bitwise">22.5</a> <strong>Note:</strong> Be careful when using bitshift operations. Numbers are represented as <a href="https://es5.github.io/#x4.3.19">64-bit values</a>, but bitshift operations always return a 32-bit integer (<a href="https://es5.github.io/#x11.7">source</a>). Bitshift can lead to unexpected behavior for integer values larger than 32 bits. <a href="https://github.com/airbnb/javascript/issues/109">Discussion</a>. Largest signed 32-bit Int is 2,147,483,647:</p>
+
+<pre><code>```javascript
+2147483647 &gt;&gt; 0; // =&gt; 2147483647
+2147483648 &gt;&gt; 0; // =&gt; -2147483648
+2147483649 &gt;&gt; 0; // =&gt; -2147483647
+```
+</code></pre>
+
+<p><a name="coercion--booleans"></a><a name="21.6"></a>
+  - <a href="#coercion--booleans">22.6</a> Booleans: eslint: <a href="https://eslint.org/docs/rules/no-new-wrappers"><code>no-new-wrappers</code></a></p>
+
+<pre><code>```javascript
+const age = 0;
+
+// bad
+const hasAge = new Boolean(age);
+
+// good
+const hasAge = Boolean(age);
+
+// best
+const hasAge = !!age;
+```
+</code></pre>
+
+<p><strong><a href="#table-of-contents">⬆ back to top</a></strong></p>
+
+<h2 id="naming-conventions">Naming Conventions</h2>
+
+<p><a name="naming--descriptive"></a><a name="22.1"></a>
+  - <a href="#naming--descriptive">23.1</a> Avoid single letter names. Be descriptive with your naming. eslint: <a href="https://eslint.org/docs/rules/id-length"><code>id-length</code></a></p>
+
+<pre><code>```javascript
+// bad
+function q() {
+  // ...
+}
+
+// good
+function query() {
+  // ...
+}
+```
+</code></pre>
+
+<p><a name="naming--camelCase"></a><a name="22.2"></a>
+  - <a href="#naming--camelCase">23.2</a> Use camelCase when naming objects, functions, and instances. eslint: <a href="https://eslint.org/docs/rules/camelcase.html"><code>camelcase</code></a></p>
+
+<pre><code>```javascript
+// bad
+const OBJEcttsssss = {};
+const this_is_my_object = {};
+function c() {}
+
+// good
+const thisIsMyObject = {};
+function thisIsMyFunction() {}
+```
+</code></pre>
+
+<p><a name="naming--PascalCase"></a><a name="22.3"></a>
+  - <a href="#naming--PascalCase">23.3</a> Use PascalCase only when naming constructors or classes. eslint: <a href="https://eslint.org/docs/rules/new-cap.html"><code>new-cap</code></a></p>
+
+<pre><code>```javascript
+// bad
+function user(options) {
+  this.name = options.name;
+}
+
+const bad = new user({
+  name: 'nope',
+});
+
+// good
+class User {
+  constructor(options) {
+    this.name = options.name;
+  }
+}
+
+const good = new User({
+  name: 'yup',
+});
+```
+</code></pre>
+
+<p><a name="naming--leading-underscore"></a><a name="22.4"></a>
+  - <a href="#naming--leading-underscore">23.4</a> Do not use trailing or leading underscores. eslint: <a href="https://eslint.org/docs/rules/no-underscore-dangle.html"><code>no-underscore-dangle</code></a></p>
+
+<pre><code>&gt; Why? JavaScript does not have the concept of privacy in terms of properties or methods. Although a leading underscore is a common convention to mean “private”, in fact, these properties are fully public, and as such, are part of your public API contract. This convention might lead developers to wrongly think that a change won’t count as breaking, or that tests aren’t needed. tl;dr: if you want something to be “private”, it must not be observably present.
+
+```javascript
+// bad
+this.__firstName__ = 'Panda';
+this.firstName_ = 'Panda';
+this._firstName = 'Panda';
+
+// good
+this.firstName = 'Panda';
+
+// good, in environments where WeakMaps are available
+// see https://kangax.github.io/compat-table/es6/#test-WeakMap
+const firstNames = new WeakMap();
+firstNames.set(this, 'Panda');
+```
+</code></pre>
+
+<p><a name="naming--self-this"></a><a name="22.5"></a>
+  - <a href="#naming--self-this">23.5</a> Don’t save references to <code>this</code>. Use arrow functions or <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind">Function#bind</a>.</p>
+
+<pre><code>```javascript
+// bad
+function foo() {
+  const self = this;
+  return function () {
+    console.log(self);
+  };
+}
+
+// bad
+function foo() {
+  const that = this;
+  return function () {
+    console.log(that);
+  };
+}
+
+// good
+function foo() {
+  return () =&gt; {
+    console.log(this);
+  };
+}
+```
+</code></pre>
+
+<p><a name="naming--filename-matches-export"></a><a name="22.6"></a>
+  - <a href="#naming--filename-matches-export">23.6</a> A base filename should exactly match the name of its default export.</p>
+
+<pre><code>```javascript
+// file 1 contents
+class CheckBox {
+  // ...
+}
+export default CheckBox;
+
+// file 2 contents
+export default function fortyTwo() { return 42; }
+
+// file 3 contents
+export default function insideDirectory() {}
+
+// in some other file
+// bad
+import CheckBox from './checkBox'; // PascalCase import/export, camelCase filename
+import FortyTwo from './FortyTwo'; // PascalCase import/filename, camelCase export
+import InsideDirectory from './InsideDirectory'; // PascalCase import/filename, camelCase export
+
+// bad
+import CheckBox from './check_box'; // PascalCase import/export, snake_case filename
+import forty_two from './forty_two'; // snake_case import/filename, camelCase export
+import inside_directory from './inside_directory'; // snake_case import, camelCase export
+import index from './inside_directory/index'; // requiring the index file explicitly
+import insideDirectory from './insideDirectory/index'; // requiring the index file explicitly
+
+// good
+import CheckBox from './CheckBox'; // PascalCase export/import/filename
+import fortyTwo from './fortyTwo'; // camelCase export/import/filename
+import insideDirectory from './insideDirectory'; // camelCase export/import/directory name/implicit &quot;index&quot;
+// ^ supports both insideDirectory.js and insideDirectory/index.js
+```
+</code></pre>
+
+<p><a name="naming--camelCase-default-export"></a><a name="22.7"></a>
+  - <a href="#naming--camelCase-default-export">23.7</a> Use camelCase when you export-default a function. Your filename should be identical to your function’s name.</p>
+
+<pre><code>```javascript
+function makeStyleGuide() {
+  // ...
+}
+
+export default makeStyleGuide;
+```
+</code></pre>
+
+<p><a name="naming--PascalCase-singleton"></a><a name="22.8"></a>
+  - <a href="#naming--PascalCase-singleton">23.8</a> Use PascalCase when you export a constructor / class / singleton / function library / bare object.</p>
+
+<pre><code>```javascript
+const AirbnbStyleGuide = {
+  es6: {
+  },
+};
+
+export default AirbnbStyleGuide;
+```
+</code></pre>
+
+<p><a name="naming--Acronyms-and-Initialisms"></a>
+  - <a href="#naming--Acronyms-and-Initialisms">23.9</a> Acronyms and initialisms should always be all capitalized, or all lowercased.</p>
+
+<pre><code>&gt; Why? Names are for readability, not to appease a computer algorithm.
+
+```javascript
+// bad
+import SmsContainer from './containers/SmsContainer';
+
+// bad
+const HttpRequests = [
+  // ...
+];
+
+// good
+import SMSContainer from './containers/SMSContainer';
+
+// good
+const HTTPRequests = [
+  // ...
+];
+
+// also good
+const httpRequests = [
+  // ...
+];
+
+// best
+import TextMessageContainer from './containers/TextMessageContainer';
+
+// best
+const requests = [
+  // ...
+];
+```
+</code></pre>
+
+<p><a name="naming--uppercase"></a>
+  - <a href="#naming--uppercase">23.10</a> You may optionally uppercase a constant only if it (1) is exported, (2) is a <code>const</code> (it can not be reassigned), and (3) the programmer can trust it (and its nested properties) to never change.</p>
+
+<pre><code>&gt; Why? This is an additional tool to assist in situations where the programmer would be unsure if a variable might ever change. UPPERCASE_VARIABLES are letting the programmer know that they can trust the variable (and its properties) not to change.
+- What about all `const` variables? - This is unnecessary, so uppercasing should not be used for constants within a file. It should be used for exported constants however.
+- What about exported objects? - Uppercase at the top level of export  (e.g. `EXPORTED_OBJECT.key`) and maintain that all nested properties do not change.
+
+```javascript
+// bad
+const PRIVATE_VARIABLE = 'should not be unnecessarily uppercased within a file';
+
+// bad
+export const THING_TO_BE_CHANGED = 'should obviously not be uppercased';
+
+// bad
+export let REASSIGNABLE_VARIABLE = 'do not use let with uppercase variables';
+
+// ---
+
+// allowed but does not supply semantic value
+export const apiKey = 'SOMEKEY';
+
+// better in most cases
+export const API_KEY = 'SOMEKEY';
+
+// ---
+
+// bad - unnecessarily uppercases key while adding no semantic value
+export const MAPPING = {
+  KEY: 'value'
+};
+
+// good
+export const MAPPING = {
+  key: 'value'
+};
+```
+</code></pre>
+
+<p><strong><a href="#table-of-contents">⬆ back to top</a></strong></p>
+
+<h2 id="accessors">Accessors</h2>
+
+<p><a name="accessors--not-required"></a><a name="23.1"></a>
+  - <a href="#accessors--not-required">24.1</a> Accessor functions for properties are not required.</p>
+
+<p><a name="accessors--no-getters-setters"></a><a name="23.2"></a>
+  - <a href="#accessors--no-getters-setters">24.2</a> Do not use JavaScript getters/setters as they cause unexpected side effects and are harder to test, maintain, and reason about. Instead, if you do make accessor functions, use <code>getVal()</code> and <code>setVal('hello')</code>.</p>
+
+<pre><code>```javascript
+// bad
+class Dragon {
+  get age() {
+    // ...
+  }
+
+  set age(value) {
+    // ...
+  }
+}
+
+// good
+class Dragon {
+  getAge() {
+    // ...
+  }
+
+  setAge(value) {
+    // ...
+  }
+}
+```
+</code></pre>
+
+<p><a name="accessors--boolean-prefix"></a><a name="23.3"></a>
+  - <a href="#accessors--boolean-prefix">24.3</a> If the property/method is a <code>boolean</code>, use <code>isVal()</code> or <code>hasVal()</code>.</p>
+
+<pre><code>```javascript
+// bad
+if (!dragon.age()) {
+  return false;
+}
+
+// good
+if (!dragon.hasAge()) {
+  return false;
+}
+```
+</code></pre>
+
+<p><a name="accessors--consistent"></a><a name="23.4"></a>
+  - <a href="#accessors--consistent">24.4</a> It’s okay to create <code>get()</code> and <code>set()</code> functions, but be consistent.</p>
+
+<pre><code>```javascript
+class Jedi {
+  constructor(options = {}) {
+    const lightsaber = options.lightsaber || 'blue';
+    this.set('lightsaber', lightsaber);
+  }
+
+  set(key, val) {
+    this[key] = val;
+  }
+
+  get(key) {
+    return this[key];
+  }
+}
+```
+</code></pre>
+
+<p><strong><a href="#table-of-contents">⬆ back to top</a></strong></p>
+
+<h2 id="events">Events</h2>
+
+<p><a name="events--hash"></a><a name="24.1"></a>
+  - <a href="#events--hash">25.1</a> When attaching data payloads to events (whether DOM events or something more proprietary like Backbone events), pass an object literal (also known as a &ldquo;hash&rdquo;)  instead of a raw value. This allows a subsequent contributor to add more data to the event payload without finding and updating every handler for the event. For example, instead of:</p>
+
+<pre><code>```javascript
+// bad
+$(this).trigger('listingUpdated', listing.id);
+
+// ...
+
+$(this).on('listingUpdated', (e, listingID) =&gt; {
+  // do something with listingID
+});
+```
+
+prefer:
+
+```javascript
+// good
+$(this).trigger('listingUpdated', { listingID: listing.id });
+
+// ...
+
+$(this).on('listingUpdated', (e, data) =&gt; {
+  // do something with data.listingID
+});
+```
+</code></pre>
+
+<p><strong><a href="#table-of-contents">⬆ back to top</a></strong></p>
+
+<h2 id="jquery">jQuery</h2>
+
+<p><a name="jquery--dollar-prefix"></a><a name="25.1"></a>
+  - <a href="#jquery--dollar-prefix">26.1</a> Prefix jQuery object variables with a <code>$</code>.</p>
+
+<pre><code>```javascript
+// bad
+const sidebar = $('.sidebar');
+
+// good
+const $sidebar = $('.sidebar');
+
+// good
+const $sidebarBtn = $('.sidebar-btn');
+```
+</code></pre>
+
+<p><a name="jquery--cache"></a><a name="25.2"></a>
+  - <a href="#jquery--cache">26.2</a> Cache jQuery lookups.</p>
+
+<pre><code>```javascript
+// bad
+function setSidebar() {
+  $('.sidebar').hide();
+
+  // ...
+
+  $('.sidebar').css({
+    'background-color': 'pink',
+  });
+}
+
+// good
+function setSidebar() {
+  const $sidebar = $('.sidebar');
+  $sidebar.hide();
+
+  // ...
+
+  $sidebar.css({
+    'background-color': 'pink',
+  });
+}
+```
+</code></pre>
+
+<p><a name="jquery--queries"></a><a name="25.3"></a>
+  - <a href="#jquery--queries">26.3</a> For DOM queries use Cascading <code>$('.sidebar ul')</code> or parent &gt; child <code>$('.sidebar &gt; ul')</code>. <a href="http://jsperf.com/jquery-find-vs-context-sel/16">jsPerf</a></p>
+
+<p><a name="jquery--find"></a><a name="25.4"></a>
+  - <a href="#jquery--find">26.4</a> Use <code>find</code> with scoped jQuery object queries.</p>
+
+<pre><code>```javascript
+// bad
+$('ul', '.sidebar').hide();
+
+// bad
+$('.sidebar').find('ul').hide();
+
+// good
+$('.sidebar ul').hide();
+
+// good
+$('.sidebar &gt; ul').hide();
+
+// good
+$sidebar.find('ul').hide();
+```
+</code></pre>
+
+<p><strong><a href="#table-of-contents">⬆ back to top</a></strong></p>
+
+<h2 id="ecmascript-5-compatibility">ECMAScript 5 Compatibility</h2>
+
+<p><a name="es5-compat--kangax"></a><a name="26.1"></a>
+  - <a href="#es5-compat--kangax">27.1</a> Refer to <a href="https://twitter.com/kangax/">Kangax</a>’s ES5 <a href="https://kangax.github.io/es5-compat-table/">compatibility table</a>.</p>
+
+<p><strong><a href="#table-of-contents">⬆ back to top</a></strong></p>
+
+<p><a name="ecmascript-6-styles"></a></p>
+
+<h2 id="ecmascript-6-es-2015-styles">ECMAScript 6+ (ES 2015+) Styles</h2>
+
+<p><a name="es6-styles"></a><a name="27.1"></a>
+  - <a href="#es6-styles">28.1</a> This is a collection of links to the various ES6+ features.</p>
+
+<ol>
+<li><a href="#arrow-functions">Arrow Functions</a></li>
+<li><a href="#classes--constructors">Classes</a></li>
+<li><a href="#es6-object-shorthand">Object Shorthand</a></li>
+<li><a href="#es6-object-concise">Object Concise</a></li>
+<li><a href="#es6-computed-properties">Object Computed Properties</a></li>
+<li><a href="#es6-template-literals">Template Strings</a></li>
+<li><a href="#destructuring">Destructuring</a></li>
+<li><a href="#es6-default-parameters">Default Parameters</a></li>
+<li><a href="#es6-rest">Rest</a></li>
+<li><a href="#es6-array-spreads">Array Spreads</a></li>
+<li><a href="#references">Let and Const</a></li>
+<li><a href="#es2016-properties--exponentiation-operator">Exponentiation Operator</a></li>
+<li><a href="#iterators-and-generators">Iterators and Generators</a></li>
+<li><a href="#modules">Modules</a></li>
+</ol>
+
+<p><a name="tc39-proposals"></a>
+  - <a href="#tc39-proposals">28.2</a> Do not use <a href="https://github.com/tc39/proposals">TC39 proposals</a> that have not reached stage 3.</p>
+
+<pre><code>&gt; Why? [They are not finalized](https://tc39.github.io/process-document/), and they are subject to change or to be withdrawn entirely. We want to use JavaScript, and proposals are not JavaScript yet.
+</code></pre>
+
+<p><strong><a href="#table-of-contents">⬆ back to top</a></strong></p>
+
+<h2 id="standard-library">Standard Library</h2>
+
+<p>The <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects">Standard Library</a>
+  contains utilities that are functionally broken but remain for legacy reasons.</p>
+
+<p><a name="standard-library--isnan"></a>
+  - <a href="#standard-library--isnan">29.1</a> Use <code>Number.isNaN</code> instead of global <code>isNaN</code>.
+    eslint: <a href="https://eslint.org/docs/rules/no-restricted-globals"><code>no-restricted-globals</code></a></p>
+
+<pre><code>&gt; Why? The global `isNaN` coerces non-numbers to numbers, returning true for anything that coerces to NaN.
+&gt; If this behavior is desired, make it explicit.
+
+```javascript
+// bad
+isNaN('1.2'); // false
+isNaN('1.2.3'); // true
+
+// good
+Number.isNaN('1.2.3'); // false
+Number.isNaN(Number('1.2.3')); // true
+```
+</code></pre>
+
+<p><a name="standard-library--isfinite"></a>
+  - <a href="#standard-library--isfinite">29.2</a> Use <code>Number.isFinite</code> instead of global <code>isFinite</code>.
+    eslint: <a href="https://eslint.org/docs/rules/no-restricted-globals"><code>no-restricted-globals</code></a></p>
+
+<pre><code>&gt; Why? The global `isFinite` coerces non-numbers to numbers, returning true for anything that coerces to a finite number.
+&gt; If this behavior is desired, make it explicit.
+
+```javascript
+// bad
+isFinite('2e3'); // true
+
+// good
+Number.isFinite('2e3'); // false
+Number.isFinite(parseInt('2e3', 10)); // true
+```
+</code></pre>
+
+<p><strong><a href="#table-of-contents">⬆ back to top</a></strong></p>
+
+<h2 id="testing">Testing</h2>
+
+<p><a name="testing--yup"></a><a name="28.1"></a>
+  - <a href="#testing--yup">30.1</a> <strong>Yup.</strong></p>
+
+<pre><code>```javascript
+function foo() {
+  return true;
+}
+```
+</code></pre>
+
+<p><a name="testing--for-real"></a><a name="28.2"></a>
+  - <a href="#testing--for-real">30.2</a> <strong>No, but seriously</strong>:
+    - Whichever testing framework you use, you should be writing tests!
+    - Strive to write many small pure functions, and minimize where mutations occur.
+    - Be cautious about stubs and mocks - they can make your tests more brittle.
+    - We primarily use <a href="https://www.npmjs.com/package/mocha"><code>mocha</code></a> and <a href="https://www.npmjs.com/package/jest"><code>jest</code></a> at Airbnb. <a href="https://www.npmjs.com/package/tape"><code>tape</code></a> is also used occasionally for small, separate modules.
+    - 100% test coverage is a good goal to strive for, even if it’s not always practical to reach it.
+    - Whenever you fix a bug, <em>write a regression test</em>. A bug fixed without a regression test is almost certainly going to break again in the future.</p>
+
+<p><strong><a href="#table-of-contents">⬆ back to top</a></strong></p>
+
+<h2 id="performance">Performance</h2>
+
+<ul>
+<li><a href="https://www.kellegous.com/j/2013/01/26/layout-performance/">On Layout &amp; Web Performance</a></li>
+<li><a href="https://jsperf.com/string-vs-array-concat/2">String vs Array Concat</a></li>
+<li><a href="https://jsperf.com/try-catch-in-loop-cost">Try/Catch Cost In a Loop</a></li>
+<li><a href="https://jsperf.com/bang-function">Bang Function</a></li>
+<li><a href="https://jsperf.com/jquery-find-vs-context-sel/13">jQuery Find vs Context, Selector</a></li>
+<li><a href="https://jsperf.com/innerhtml-vs-textcontent-for-script-text">innerHTML vs textContent for script text</a></li>
+<li><a href="https://jsperf.com/ya-string-concat">Long String Concatenation</a></li>
+<li><a href="https://www.quora.com/JavaScript-programming-language-Are-Javascript-functions-like-map-reduce-and-filter-already-optimized-for-traversing-array/answer/Quildreen-Motta">Are Javascript functions like <code>map()</code>, <code>reduce()</code>, and <code>filter()</code> optimized for traversing arrays?</a></li>
+<li>Loading&hellip;</li>
+</ul>
+
+<p><strong><a href="#table-of-contents">⬆ back to top</a></strong></p>
+
+<h2 id="resources">Resources</h2>
+
+<p><strong>Learning ES6+</strong></p>
+
+<ul>
+<li><a href="https://tc39.github.io/ecma262/">Latest ECMA spec</a></li>
+<li><a href="http://exploringjs.com/">ExploringJS</a></li>
+<li><a href="https://kangax.github.io/compat-table/es6/">ES6 Compatibility Table</a></li>
+<li><a href="http://es6-features.org/">Comprehensive Overview of ES6 Features</a></li>
+</ul>
+
+<p><strong>Read This</strong></p>
+
+<ul>
+<li><a href="http://www.ecma-international.org/ecma-262/6.0/index.html">Standard ECMA-262</a></li>
+</ul>
+
+<p><strong>Tools</strong></p>
+
+<ul>
+<li>Code Style Linters
+
+<ul>
+<li><a href="https://eslint.org/">ESlint</a> - <a href="https://github.com/airbnb/javascript/blob/master/linters/.eslintrc">Airbnb Style .eslintrc</a></li>
+<li><a href="http://jshint.com/">JSHint</a> - <a href="https://github.com/airbnb/javascript/blob/master/linters/.jshintrc">Airbnb Style .jshintrc</a></li>
+</ul></li>
+<li>Neutrino preset - <a href="https://neutrino.js.org/presets/neutrino-preset-airbnb-base/">neutrino-preset-airbnb-base</a></li>
+</ul>
+
+<p><strong>Other Style Guides</strong></p>
+
+<ul>
+<li><a href="https://google.github.io/styleguide/javascriptguide.xml">Google JavaScript Style Guide</a></li>
+<li><a href="https://contribute.jquery.org/style-guide/js/">jQuery Core Style Guidelines</a></li>
+<li><a href="https://github.com/rwaldron/idiomatic.js">Principles of Writing Consistent, Idiomatic JavaScript</a></li>
+<li><a href="https://standardjs.com">StandardJS</a></li>
+</ul>
+
+<p><strong>Other Styles</strong></p>
+
+<ul>
+<li><a href="https://gist.github.com/cjohansen/4135065">Naming this in nested functions</a> - Christian Johansen</li>
+<li><a href="https://github.com/airbnb/javascript/issues/52">Conditional Callbacks</a> - Ross Allen</li>
+<li><a href="http://sideeffect.kr/popularconvention/#javascript">Popular JavaScript Coding Conventions on GitHub</a> - JeongHoon Byun</li>
+<li><a href="http://benalman.com/news/2012/05/multiple-var-statements-javascript/">Multiple var statements in JavaScript, not superfluous</a> - Ben Alman</li>
+</ul>
+
+<p><strong>Further Reading</strong></p>
+
+<ul>
+<li><a href="https://javascriptweblog.wordpress.com/2010/10/25/understanding-javascript-closures/">Understanding JavaScript Closures</a> - Angus Croll</li>
+<li><a href="http://www.2ality.com/2013/06/basic-javascript.html">Basic JavaScript for the impatient programmer</a> - Dr. Axel Rauschmayer</li>
+<li><a href="http://youmightnotneedjquery.com/">You Might Not Need jQuery</a> - Zack Bloom &amp; Adam Schwartz</li>
+<li><a href="https://github.com/lukehoban/es6features">ES6 Features</a> - Luke Hoban</li>
+<li><a href="https://github.com/bendc/frontend-guidelines">Frontend Guidelines</a> - Benjamin De Cock</li>
+</ul>
+
+<p><strong>Books</strong></p>
+
+<ul>
+<li><a href="https://www.amazon.com/JavaScript-Good-Parts-Douglas-Crockford/dp/0596517742">JavaScript: The Good Parts</a> - Douglas Crockford</li>
+<li><a href="https://www.amazon.com/JavaScript-Patterns-Stoyan-Stefanov/dp/0596806752">JavaScript Patterns</a> - Stoyan Stefanov</li>
+<li><a href="https://www.amazon.com/JavaScript-Design-Patterns-Recipes-Problem-Solution/dp/159059908X">Pro JavaScript Design Patterns</a>  - Ross Harmes and Dustin Diaz</li>
+<li><a href="https://www.amazon.com/High-Performance-Web-Sites-Essential/dp/0596529309">High Performance Web Sites: Essential Knowledge for Front-End Engineers</a> - Steve Souders</li>
+<li><a href="https://www.amazon.com/Maintainable-JavaScript-Nicholas-C-Zakas/dp/1449327680">Maintainable JavaScript</a> - Nicholas C. Zakas</li>
+<li><a href="https://www.amazon.com/JavaScript-Web-Applications-Alex-MacCaw/dp/144930351X">JavaScript Web Applications</a> - Alex MacCaw</li>
+<li><a href="https://www.amazon.com/Pro-JavaScript-Techniques-John-Resig/dp/1590597273">Pro JavaScript Techniques</a> - John Resig</li>
+<li><a href="https://www.amazon.com/Smashing-Node-js-JavaScript-Everywhere-Magazine/dp/1119962595">Smashing Node.js: JavaScript Everywhere</a> - Guillermo Rauch</li>
+<li><a href="https://www.amazon.com/Secrets-JavaScript-Ninja-John-Resig/dp/193398869X">Secrets of the JavaScript Ninja</a> - John Resig and Bear Bibeault</li>
+<li><a href="http://humanjavascript.com/">Human JavaScript</a> - Henrik Joreteg</li>
+<li><a href="http://superherojs.com/">Superhero.js</a> - Kim Joar Bekkelund, Mads Mobæk, &amp; Olav Bjorkoy</li>
+<li><a href="http://jsbooks.revolunet.com/">JSBooks</a> - Julien Bouquillon</li>
+<li><a href="https://www.manning.com/books/third-party-javascript">Third Party JavaScript</a> - Ben Vinegar and Anton Kovalyov</li>
+<li><a href="http://amzn.com/0321812182">Effective JavaScript: 68 Specific Ways to Harness the Power of JavaScript</a> - David Herman</li>
+<li><a href="http://eloquentjavascript.net/">Eloquent JavaScript</a> - Marijn Haverbeke</li>
+<li><a href="http://shop.oreilly.com/product/0636920033769.do">You Don’t Know JS: ES6 &amp; Beyond</a> - Kyle Simpson</li>
+</ul>
+
+<p><strong>Blogs</strong></p>
+
+<ul>
+<li><a href="http://javascriptweekly.com/">JavaScript Weekly</a></li>
+<li><a href="https://javascriptweblog.wordpress.com/">JavaScript, JavaScript&hellip;</a></li>
+<li><a href="https://bocoup.com/weblog">Bocoup Weblog</a></li>
+<li><a href="http://www.adequatelygood.com/">Adequately Good</a></li>
+<li><a href="https://www.nczonline.net/">NCZOnline</a></li>
+<li><a href="http://perfectionkills.com/">Perfection Kills</a></li>
+<li><a href="http://benalman.com/">Ben Alman</a></li>
+<li><a href="http://dmitry.baranovskiy.com/">Dmitry Baranovskiy</a></li>
+<li><a href="http://code.tutsplus.com/?s=javascript">nettuts</a></li>
+</ul>
+
+<p><strong>Podcasts</strong></p>
+
+<ul>
+<li><a href="https://javascriptair.com/">JavaScript Air</a></li>
+<li><a href="https://devchat.tv/js-jabber/">JavaScript Jabber</a></li>
+</ul>
+
+<p><strong><a href="#table-of-contents">⬆ back to top</a></strong></p>
+
+<h2 id="in-the-wild">In the Wild</h2>
+
+<p>This is a list of organizations that are using this style guide. Send us a pull request and we&rsquo;ll add you to the list.</p>
+
+<ul>
+<li><strong>123erfasst</strong>: <a href="https://github.com/123erfasst/javascript">123erfasst/javascript</a></li>
+<li><strong>3blades</strong>: <a href="https://github.com/3blades">3Blades</a></li>
+<li><strong>4Catalyzer</strong>: <a href="https://github.com/4Catalyzer/javascript">4Catalyzer/javascript</a></li>
+<li><strong>Aan Zee</strong>: <a href="https://github.com/AanZee/javascript">AanZee/javascript</a></li>
+<li><strong>Adult Swim</strong>: <a href="https://github.com/adult-swim/javascript">adult-swim/javascript</a></li>
+<li><strong>Airbnb</strong>: <a href="https://github.com/airbnb/javascript">airbnb/javascript</a></li>
+<li><strong>AltSchool</strong>: <a href="https://github.com/AltSchool/javascript">AltSchool/javascript</a></li>
+<li><strong>Apartmint</strong>: <a href="https://github.com/apartmint/javascript">apartmint/javascript</a></li>
+<li><strong>Ascribe</strong>: <a href="https://github.com/ascribe/javascript">ascribe/javascript</a></li>
+<li><strong>Avalara</strong>: <a href="https://github.com/avalara/javascript">avalara/javascript</a></li>
+<li><strong>Avant</strong>: <a href="https://github.com/avantcredit/javascript">avantcredit/javascript</a></li>
+<li><strong>Axept</strong>: <a href="https://github.com/axept/javascript">axept/javascript</a></li>
+<li><strong>BashPros</strong>: <a href="https://github.com/BashPros/javascript">BashPros/javascript</a></li>
+<li><strong>Billabong</strong>: <a href="https://github.com/billabong/javascript">billabong/javascript</a></li>
+<li><strong>Bisk</strong>: <a href="https://github.com/Bisk/">bisk</a></li>
+<li><strong>Bonhomme</strong>: <a href="https://github.com/bonhommeparis/javascript">bonhommeparis/javascript</a></li>
+<li><strong>Brainshark</strong>: <a href="https://github.com/brainshark/javascript">brainshark/javascript</a></li>
+<li><strong>CaseNine</strong>: <a href="https://github.com/CaseNine/javascript">CaseNine/javascript</a></li>
+<li><strong>Chartboost</strong>: <a href="https://github.com/ChartBoost/javascript-style-guide">ChartBoost/javascript-style-guide</a></li>
+<li><strong>ComparaOnline</strong>: <a href="https://github.com/comparaonline/javascript-style-guide">comparaonline/javascript</a></li>
+<li><strong>Compass Learning</strong>: <a href="https://github.com/compasslearning/javascript-style-guide">compasslearning/javascript-style-guide</a></li>
+<li><strong>DailyMotion</strong>: <a href="https://github.com/dailymotion/javascript">dailymotion/javascript</a></li>
+<li><strong>DoSomething</strong>: <a href="https://github.com/DoSomething/eslint-config">DoSomething/eslint-config</a></li>
+<li><strong>Digitpaint</strong> <a href="https://github.com/digitpaint/javascript">digitpaint/javascript</a></li>
+<li><strong>Drupal</strong>: <a href="https://www.drupal.org/project/drupal">www.drupal.org</a></li>
+<li><strong>Ecosia</strong>: <a href="https://github.com/ecosia/javascript">ecosia/javascript</a></li>
+<li><strong>Evernote</strong>: <a href="https://github.com/evernote/javascript-style-guide">evernote/javascript-style-guide</a></li>
+<li><strong>Evolution Gaming</strong>: <a href="https://github.com/evolution-gaming/javascript">evolution-gaming/javascript</a></li>
+<li><strong>EvozonJs</strong>: <a href="https://github.com/evozonjs/javascript">evozonjs/javascript</a></li>
+<li><strong>ExactTarget</strong>: <a href="https://github.com/ExactTarget/javascript">ExactTarget/javascript</a></li>
+<li><strong>Expensify</strong> <a href="https://github.com/Expensify/Style-Guide/blob/master/javascript.md">Expensify/Style-Guide</a></li>
+<li><strong>Flexberry</strong>: <a href="https://github.com/Flexberry/javascript-style-guide">Flexberry/javascript-style-guide</a></li>
+<li><strong>Gawker Media</strong>: <a href="https://github.com/gawkermedia/">gawkermedia</a></li>
+<li><strong>General Electric</strong>: <a href="https://github.com/GeneralElectric/javascript">GeneralElectric/javascript</a></li>
+<li><strong>Generation Tux</strong>: <a href="https://github.com/generationtux/styleguide">GenerationTux/javascript</a></li>
+<li><strong>GoodData</strong>: <a href="https://github.com/gooddata/gdc-js-style">gooddata/gdc-js-style</a></li>
+<li><strong>GreenChef</strong>: <a href="https://github.com/greenchef/javascript">greenchef/javascript</a></li>
+<li><strong>Grooveshark</strong>: <a href="https://github.com/grooveshark/javascript">grooveshark/javascript</a></li>
+<li><strong>Grupo-Abraxas</strong>: <a href="https://github.com/Grupo-Abraxas/javascript">Grupo-Abraxas/javascript</a></li>
+<li><strong>Honey</strong>: <a href="https://github.com/honeyscience/javascript">honeyscience/javascript</a></li>
+<li><strong>How About We</strong>: <a href="https://github.com/howaboutwe/javascript-style-guide">howaboutwe/javascript</a></li>
+<li><strong>Huballin</strong>: <a href="https://github.com/huballin/">huballin</a></li>
+<li><strong>HubSpot</strong>: <a href="https://github.com/HubSpot/javascript">HubSpot/javascript</a></li>
+<li><strong>Hyper</strong>: <a href="https://github.com/hyperoslo/javascript-playbook/blob/master/style.md">hyperoslo/javascript-playbook</a></li>
+<li><strong>InterCity Group</strong>: <a href="https://github.com/intercitygroup/javascript-style-guide">intercitygroup/javascript-style-guide</a></li>
+<li><strong>Jam3</strong>: <a href="https://github.com/Jam3/Javascript-Code-Conventions">Jam3/Javascript-Code-Conventions</a></li>
+<li><strong>JeopardyBot</strong>: <a href="https://github.com/kesne/jeopardy-bot/blob/master/STYLEGUIDE.md">kesne/jeopardy-bot</a></li>
+<li><strong>JSSolutions</strong>: <a href="https://github.com/JSSolutions/javascript">JSSolutions/javascript</a></li>
+<li><strong>Kaplan Komputing</strong>: <a href="https://github.com/kaplankomputing/javascript">kaplankomputing/javascript</a></li>
+<li><strong>KickorStick</strong>: <a href="https://github.com/kickorstick/">kickorstick</a></li>
+<li><strong>Kinetica Solutions</strong>: <a href="https://github.com/kinetica/Javascript-style-guide">kinetica/javascript</a></li>
+<li><strong>LEINWAND</strong>: <a href="https://github.com/LEINWAND/javascript">LEINWAND/javascript</a></li>
+<li><strong>Lonely Planet</strong>: <a href="https://github.com/lonelyplanet/javascript">lonelyplanet/javascript</a></li>
+<li><strong>M2GEN</strong>: <a href="https://github.com/M2GEN/javascript">M2GEN/javascript</a></li>
+<li><strong>Mighty Spring</strong>: <a href="https://github.com/mightyspring/javascript">mightyspring/javascript</a></li>
+<li><strong>MinnPost</strong>: <a href="https://github.com/MinnPost/javascript">MinnPost/javascript</a></li>
+<li><strong>MitocGroup</strong>: <a href="https://github.com/MitocGroup/javascript">MitocGroup/javascript</a></li>
+<li><strong>ModCloth</strong>: <a href="https://github.com/modcloth/javascript">modcloth/javascript</a></li>
+<li><strong>Money Advice Service</strong>: <a href="https://github.com/moneyadviceservice/javascript">moneyadviceservice/javascript</a></li>
+<li><strong>Muber</strong>: <a href="https://github.com/muber/">muber</a></li>
+<li><strong>National Geographic</strong>: <a href="https://github.com/natgeo/">natgeo</a></li>
+<li><strong>Nimbl3</strong>: <a href="https://github.com/nimbl3/javascript">nimbl3/javascript</a></li>
+<li><strong>Nulogy</strong>: <a href="https://github.com/nulogy/javascript">nulogy/javascript</a></li>
+<li><strong>Orange Hill Development</strong>: <a href="https://github.com/orangehill/javascript">orangehill/javascript</a></li>
+<li><strong>Orion Health</strong>: <a href="https://github.com/orionhealth/javascript">orionhealth/javascript</a></li>
+<li><strong>OutBoxSoft</strong>: <a href="https://github.com/OutBoxSoft/javascript">OutBoxSoft/javascript</a></li>
+<li><strong>Peerby</strong>: <a href="https://github.com/Peerby/javascript">Peerby/javascript</a></li>
+<li><strong>Qotto</strong>: <a href="https://github.com/Qotto/javascript-style-guide">Qotto/javascript-style-guide</a></li>
+<li><strong>Razorfish</strong>: <a href="https://github.com/razorfish/javascript-style-guide">razorfish/javascript-style-guide</a></li>
+<li><strong>reddit</strong>: <a href="https://github.com/reddit/styleguide/tree/master/javascript">reddit/styleguide/javascript</a></li>
+<li><strong>React</strong>: <a href="https://facebook.github.io/react/contributing/how-to-contribute.html#style-guide">facebook.github.io/react/contributing/how-to-contribute.html#style-guide</a></li>
+<li><strong>REI</strong>: <a href="https://github.com/rei/code-style-guides/">reidev/js-style-guide</a></li>
+<li><strong>Ripple</strong>: <a href="https://github.com/ripple/javascript-style-guide">ripple/javascript-style-guide</a></li>
+<li><strong>Sainsbury&rsquo;s Supermarkets</strong>: <a href="https://github.com/jsainsburyplc">jsainsburyplc</a></li>
+<li><strong>SeekingAlpha</strong>: <a href="https://github.com/seekingalpha/javascript-style-guide">seekingalpha/javascript-style-guide</a></li>
+<li><strong>Shutterfly</strong>: <a href="https://github.com/shutterfly/javascript">shutterfly/javascript</a></li>
+<li><strong>Sourcetoad</strong>: <a href="https://github.com/sourcetoad/javascript">sourcetoad/javascript</a></li>
+<li><strong>Springload</strong>: <a href="https://github.com/springload/">springload</a></li>
+<li><strong>StratoDem Analytics</strong>: <a href="https://github.com/stratodem/javascript">stratodem/javascript</a></li>
+<li><strong>SteelKiwi Development</strong>: <a href="https://github.com/steelkiwi/javascript">steelkiwi/javascript</a></li>
+<li><strong>StudentSphere</strong>: <a href="https://github.com/studentsphere/guide-javascript">studentsphere/javascript</a></li>
+<li><strong>SwoopApp</strong>: <a href="https://github.com/swoopapp/javascript">swoopapp/javascript</a></li>
+<li><strong>SysGarage</strong>: <a href="https://github.com/sysgarage/javascript-style-guide">sysgarage/javascript-style-guide</a></li>
+<li><strong>Syzygy Warsaw</strong>: <a href="https://github.com/syzygypl/javascript">syzygypl/javascript</a></li>
+<li><strong>Target</strong>: <a href="https://github.com/target/javascript">target/javascript</a></li>
+<li><strong>TheLadders</strong>: <a href="https://github.com/TheLadders/javascript">TheLadders/javascript</a></li>
+<li><strong>The Nerdery</strong>: <a href="https://github.com/thenerdery/javascript-standards">thenerdery/javascript-standards</a></li>
+<li><strong>T4R Technology</strong>: <a href="https://github.com/T4R-Technology/javascript">T4R-Technology/javascript</a></li>
+<li><strong>VoxFeed</strong>: <a href="https://github.com/VoxFeed/javascript-style-guide">VoxFeed/javascript-style-guide</a></li>
+<li><strong>WeBox Studio</strong>: <a href="https://github.com/weboxstudio/javascript">weboxstudio/javascript</a></li>
+<li><strong>Weggo</strong>: <a href="https://github.com/Weggo/javascript">Weggo/javascript</a></li>
+<li><strong>Zillow</strong>: <a href="https://github.com/zillow/javascript">zillow/javascript</a></li>
+<li><strong>ZocDoc</strong>: <a href="https://github.com/ZocDoc/javascript">ZocDoc/javascript</a></li>
+</ul>
+
+<p><strong><a href="#table-of-contents">⬆ back to top</a></strong></p>
+
+<h2 id="translation">Translation</h2>
+
+<p>This style guide is also available in other languages:</p>
+
+<ul>
+<li><img src="https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Brazil.png" alt="br" /> <strong>Brazilian Portuguese</strong>: <a href="https://github.com/armoucar/javascript-style-guide">armoucar/javascript-style-guide</a></li>
+<li><img src="https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Bulgaria.png" alt="bg" /> <strong>Bulgarian</strong>: <a href="https://github.com/borislavvv/javascript">borislavvv/javascript</a></li>
+<li><img src="https://raw.githubusercontent.com/fpmweb/javascript-style-guide/master/img/catala.png" alt="ca" /> <strong>Catalan</strong>: <a href="https://github.com/fpmweb/javascript-style-guide">fpmweb/javascript-style-guide</a></li>
+<li><img src="https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/China.png" alt="cn" /> <strong>Chinese (Simplified)</strong>: <a href="https://github.com/yuche/javascript">yuche/javascript</a></li>
+<li><img src="https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Taiwan.png" alt="tw" /> <strong>Chinese (Traditional)</strong>: <a href="https://github.com/jigsawye/javascript">jigsawye/javascript</a></li>
+<li><img src="https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/France.png" alt="fr" /> <strong>French</strong>: <a href="https://github.com/nmussy/javascript-style-guide">nmussy/javascript-style-guide</a></li>
+<li><img src="https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Germany.png" alt="de" /> <strong>German</strong>: <a href="https://github.com/timofurrer/javascript-style-guide">timofurrer/javascript-style-guide</a></li>
+<li><img src="https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Italy.png" alt="it" /> <strong>Italian</strong>: <a href="https://github.com/sinkswim/javascript-style-guide">sinkswim/javascript-style-guide</a></li>
+<li><img src="https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Japan.png" alt="jp" /> <strong>Japanese</strong>: <a href="https://github.com/mitsuruog/javascript-style-guide">mitsuruog/javascript-style-guide</a></li>
+<li><img src="https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/South-Korea.png" alt="kr" /> <strong>Korean</strong>: <a href="https://github.com/ParkSB/javascript-style-guide">ParkSB/javascript-style-guide</a></li>
+<li><img src="https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Russia.png" alt="ru" /> <strong>Russian</strong>: <a href="https://github.com/leonidlebedev/javascript-airbnb">leonidlebedev/javascript-airbnb</a></li>
+<li><img src="https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Spain.png" alt="es" /> <strong>Spanish</strong>: <a href="https://github.com/paolocarrasco/javascript-style-guide">paolocarrasco/javascript-style-guide</a></li>
+<li><img src="https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Thailand.png" alt="th" /> <strong>Thai</strong>: <a href="https://github.com/lvarayut/javascript-style-guide">lvarayut/javascript-style-guide</a></li>
+<li><img src="https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Turkey.png" alt="tr" /> <strong>Turkish</strong>: <a href="https://github.com/eraycetinay/javascript">eraycetinay/javascript</a></li>
+<li><img src="https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Ukraine.png" alt="ua" /> <strong>Ukrainian</strong>: <a href="https://github.com/ivanzusko/javascript">ivanzusko/javascript</a></li>
+<li><img src="https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Vietnam.png" alt="vn" /> <strong>Vietnam</strong>: <a href="https://github.com/hngiang/javascript-style-guide">hngiang/javascript-style-guide</a></li>
+</ul>
+
+<h2 id="the-javascript-style-guide-guide">The JavaScript Style Guide Guide</h2>
+
+<ul>
+<li><a href="https://github.com/airbnb/javascript/wiki/The-JavaScript-Style-Guide-Guide">Reference</a></li>
+</ul>
+
+<h2 id="chat-with-us-about-javascript">Chat With Us About JavaScript</h2>
+
+<ul>
+<li>Find us on <a href="https://gitter.im/airbnb/javascript">gitter</a>.</li>
+</ul>
+
+<h2 id="contributors">Contributors</h2>
+
+<ul>
+<li><a href="https://github.com/airbnb/javascript/graphs/contributors">View Contributors</a></li>
+</ul>
+
+<h2 id="license">License</h2>
+
+<p>(The MIT License)</p>
+
+<p>Copyright &copy; 2012 Airbnb</p>
+
+<p>Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+&lsquo;Software&rsquo;), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:</p>
+
+<p>The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.</p>
+
+<p>THE SOFTWARE IS PROVIDED &lsquo;AS IS&rsquo;, WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
+
+<p><strong><a href="#table-of-contents">⬆ back to top</a></strong></p>
+
+<h2 id="amendments">Amendments</h2>
+
+<p>We encourage you to fork this guide and change the rules to fit your team’s style guide. Below, you may list some amendments to the style guide. This allows you to periodically update your style guide without having to deal with merge conflicts.</p>
+
+<h1 id="toc_40">};</h1>
+    
+<div id="disqus_thread"></div>
+<script>
+    (function () {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://https-hoangtranson-github-io-my-blog.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the
+    <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+</noscript> 
+
+  </main>
+
+          <footer role="contentinfo">
+  
+  
+</footer>
+
+        </div>
+      </div>
+    </div>
+    <script src="https://hoangtranson.github.io/my-blog/js/prism.js"></script>
+<script src="https://hoangtranson.github.io/my-blog/js/dom-scripts.js"></script>
+
+    
+    
+  
+  <script>
+  window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+  ga('create', 'UA-118292467-1', 'auto');
+  ga('send', 'pageview');
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  
+
+  </body>
+</html>

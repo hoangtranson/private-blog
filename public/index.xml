@@ -13,92 +13,83 @@
     
     <item>
       <title>Integrate custom font svg to font-awesome</title>
-      <link>https://hoangtranson.github.io/my-blog/blogs/work3/</link>
+      <link>https://hoangtranson.github.io/my-blog/blogs/integrate-custom-font-svg-to-font-awesome/</link>
       <pubDate>Mon, 30 Apr 2018 17:00:00 +0700</pubDate>
       
-      <guid>https://hoangtranson.github.io/my-blog/blogs/work3/</guid>
+      <guid>https://hoangtranson.github.io/my-blog/blogs/integrate-custom-font-svg-to-font-awesome/</guid>
       <description>&lt;p&gt;I have huge trouble with these stuff in my projects before.&lt;/p&gt;</description>
     </item>
     
     <item>
-      <title>Clean Code Javascript</title>
-      <link>https://hoangtranson.github.io/my-blog/blogs/work5/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://hoangtranson.github.io/my-blog/blogs/work5/</guid>
-      <description>&lt;p&gt;Software engineering principles, from Robert C. Martin&amp;rsquo;s book Clean Code.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>How to merge old commits to only one commit</title>
-      <link>https://hoangtranson.github.io/my-blog/blogs/work4/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://hoangtranson.github.io/my-blog/blogs/work4/</guid>
-      <description>&lt;p&gt;I face this problem a lot in my projects and here is the way that I resolve it.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Javascript Trick part 1</title>
-      <link>https://hoangtranson.github.io/my-blog/blogs/work6/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://hoangtranson.github.io/my-blog/blogs/work6/</guid>
-      <description>&lt;p&gt;In this section, I gonna talk about time-saving Javascript techniques that I used to apply to my code.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Functional Programming Currying - Part 1</title>
-      <link>https://hoangtranson.github.io/my-blog/blogs/work14/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://hoangtranson.github.io/my-blog/blogs/work14/</guid>
-      <description>&lt;p&gt;In this section, I gonna talk about &lt;strong&gt;Currying&lt;/strong&gt; in functional programming.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>JavaScript Style Guide</title>
-      <link>https://hoangtranson.github.io/my-blog/blogs/work16/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://hoangtranson.github.io/my-blog/blogs/work16/</guid>
-      <description>&lt;p&gt;JavaScript Style Guide&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Pure function in Javascript</title>
-      <link>https://hoangtranson.github.io/my-blog/blogs/work13/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://hoangtranson.github.io/my-blog/blogs/work13/</guid>
-      <description>&lt;p&gt;Pure functions are essential for a variety of purposes such as functional programming, reliable concurrency, and Redux app.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>CSS Specificity</title>
-      <link>https://hoangtranson.github.io/my-blog/blogs/work7/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://hoangtranson.github.io/my-blog/blogs/work7/</guid>
-      <description>&lt;p&gt;This term came to me every single time I edited my css.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>How to have comment on your content</title>
-      <link>https://hoangtranson.github.io/my-blog/blogs/work2/</link>
+      <title>How To Add Commment To Blog Content</title>
+      <link>https://hoangtranson.github.io/my-blog/blogs/how-to-add-comment-to-blog-content/</link>
       <pubDate>Sun, 29 Apr 2018 20:00:00 +0700</pubDate>
       
-      <guid>https://hoangtranson.github.io/my-blog/blogs/work2/</guid>
+      <guid>https://hoangtranson.github.io/my-blog/blogs/how-to-add-comment-to-blog-content/</guid>
       <description>&lt;p&gt;After Creating my awesome website to public it and I just wonder how to add comment on that.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>How To Create A Blog and Deploy to Github</title>
-      <link>https://hoangtranson.github.io/my-blog/blogs/work1/</link>
+      <link>https://hoangtranson.github.io/my-blog/blogs/how-to-create-a-blog-and-deploy-to-github/</link>
       <pubDate>Fri, 27 Apr 2018 15:00:00 +0700</pubDate>
       
-      <guid>https://hoangtranson.github.io/my-blog/blogs/work1/</guid>
+      <guid>https://hoangtranson.github.io/my-blog/blogs/how-to-create-a-blog-and-deploy-to-github/</guid>
       <description>&lt;p&gt;I ve just configured out recently how to create a site and deploy it to github hosting.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>CSS Specificity</title>
+      <link>https://hoangtranson.github.io/my-blog/blogs/css-specificity/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hoangtranson.github.io/my-blog/blogs/css-specificity/</guid>
+      <description>&lt;p&gt;This term came to me every single time I edited my css.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Clean Code Javascript</title>
+      <link>https://hoangtranson.github.io/my-blog/blogs/clean-code-javascript/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hoangtranson.github.io/my-blog/blogs/clean-code-javascript/</guid>
+      <description>&lt;p&gt;Software engineering principles, from Robert C. Martin&amp;rsquo;s book Clean Code.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>How to merge old commits into one</title>
+      <link>https://hoangtranson.github.io/my-blog/blogs/how-to-merge-old-commits-into-one/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hoangtranson.github.io/my-blog/blogs/how-to-merge-old-commits-into-one/</guid>
+      <description>&lt;p&gt;I face this problem a lot in my projects and here is the way that I resolve it.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>JavaScript Style Guide</title>
+      <link>https://hoangtranson.github.io/my-blog/blogs/javascript-style-guide/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hoangtranson.github.io/my-blog/blogs/javascript-style-guide/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Javascript Trick - 1</title>
+      <link>https://hoangtranson.github.io/my-blog/blogs/javascript-trick-p1/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hoangtranson.github.io/my-blog/blogs/javascript-trick-p1/</guid>
+      <description>&lt;p&gt;In this section, I gonna talk about time-saving Javascript techniques that I used to apply to my code.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Pure function in Javascript</title>
+      <link>https://hoangtranson.github.io/my-blog/blogs/pure-function-in-javascript/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hoangtranson.github.io/my-blog/blogs/pure-function-in-javascript/</guid>
+      <description>&lt;p&gt;Pure functions are essential for a variety of purposes such as functional programming, reliable concurrency, and Redux app.&lt;/p&gt;</description>
     </item>
     
   </channel>

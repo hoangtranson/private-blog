@@ -6,12 +6,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
   <meta name="generator" content="Hugo 0.55.5" />
-  <link rel="canonical" href="https://hoangtranson.github.io/my-blog/">
+  <link rel="canonical" href="https://hoangtranson.github.io/my-blog/blogs/javascript-trick-p1/">
 
-  
-    
-      <meta name="description" content="Tran Son Hoang Blog">
-    
   
 
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -36,9 +32,7 @@
 
   
   
-    
-  
-  <title>Hoang Tran Blog</title>
+  <title>Javascript Trick - 1 | Hoang Tran Blog</title>
 </head>
 
   <body>
@@ -168,7 +162,7 @@
       
       
       
-      <a href="/my-blog/" aria-current="page">
+      <a href="/my-blog/" >
         <svg class="bookmark-icon" aria-hidden="true" focusable="false" viewBox="0 0 40 50">
           <use xlink:href="#bookmark"></use>
         </svg>
@@ -210,21 +204,130 @@
         <div>
           
   <main id="main">
-    <h1>About me: A Frontend Engineering and Software Philosopher</h1>
-    <p>Hey! I&rsquo;m Hoang, a front-end developer from Ho Chi Minh VietNam.</p>
+    <h1>Javascript Trick - 1</h1>
+    <p>In this section, I gonna talk about time-saving Javascript techniques that I used to apply to my code.</p>
 
-<p>After years of design and software development, I created this blog as a better way to share my knowledge.</p>
+<h3 id="table-of-content">Table of content</h3>
 
-<p><img src="/my-blog/img/my_photo_1.jpg" alt="This is me" /></p>
+<ul>
+<li><a href="#truncating_array">Clearing or truncating an array</a></li>
+<li><a href="#simulating_named_param">Simulating named parameters with object destructuring</a></li>
+<li><a href="#obj_destructuring">Object destructuring for array items</a></li>
+<li><a href="#switch_range">Switch with ranges</a></li>
+<li><a href="#create_pure_func">Creating pure objects</a></li>
+<li><a href="#remove_duplicated_item_array">Removing duplicate items from an array</a></li>
+<li><a href="#flattening_multidimensional">Flattening multidimensional arrays</a></li>
+</ul>
 
-<p>PingPong champion 2018 double category at Pyco group</p>
+<h4 id="clearing-or-truncating-an-array-a-name-truncating-array-a">Clearing or truncating an array <a name="truncating_array"></a></h4>
 
-<!-- #### Education
+<p>An easiest way to clear or truncate an array without reassigning is to use <strong>length</strong> property.</p>
 
-* HCM Internation University - computer science major
-* Online site: Udemy, Freecode camp, Egghead.io
+<p><img src="/my-blog/img/portfolio/content6/img1.jpg" alt="clearing or truncating an array" /></p>
 
-But the awesome knowledge I ever learnt is from my Colleagues, Friends, and my Boss. -->
+<p>be careful when we assign new value to length.</p>
+
+<pre><code class="language-Javascript">const arr = [11, 22, 33, 44, 55, 66];
+arr.length = 10;
+console.log(arr); //=&gt; [11, 22, 33, 44, 55, 66, empty × 4]
+</code></pre>
+
+<h4 id="simulating-named-parameters-with-object-destructuring-a-name-simulating-named-param-a">Simulating named parameters with object destructuring <a name="simulating_named_param"></a></h4>
+
+<p>Remember topic <a href="https://hoangtranson.github.io/my-blog/portfolio/work5/#functions">Clean Code Javascript</a> I mentioned to <strong>Function arguments</strong> we should only have one or two arguements in a function since it is hard to maintain code during time.</p>
+
+<pre><code class="language-Javascript">function doSomething({ foo = 'Hi', bar = 'Yo!', baz = 13 }) {
+  //...
+}
+</code></pre>
+
+<p>If you need to make the arguements object optional, it’s very simple, too:</p>
+
+<pre><code class="language-Javascript">function doSomething({ foo = 'Hi', bar = 'Yo!', baz = 13 } = {}) {
+  //...
+}
+</code></pre>
+
+<h4 id="object-destructuring-for-array-items-a-name-obj-destructuring-a">Object destructuring for array items <a name="obj_destructuring"></a></h4>
+
+<p>This is common technique that I apply in my code last year and now in 2018. There are too many properties in Redux state and I just take the properties that I need to have at current screen. So I use this to take things that I really need to display on screen.</p>
+
+<pre><code class="language-Javascript">const { auth: { identity } } = $ngRedux.getState();
+</code></pre>
+
+<p>I tried to get identity information from auth in app state instead of I get all messy stuff.</p>
+
+<h4 id="switch-with-ranges-a-name-switch-range-a">Switch with ranges <a name="switch_range"></a></h4>
+
+<p>I read this code from stackoverflow and tried to apply it sometimes in my code. It works!</p>
+
+<pre><code class="language-Javascript">function calculateStudentRange(point) {
+  let result;
+  switch (true) {
+    case (point &gt;= 80):
+      result = 'excellent';
+      break;
+    case (point &gt;= 50 &amp;&amp; point &lt; 80):
+      result = 'ok';
+      break;
+    default:
+      result = 'week';
+  }
+  return result;
+}
+</code></pre>
+
+<h4 id="creating-pure-objects-a-name-create-pure-func-a">Creating pure objects <a name="create_pure_func"></a></h4>
+
+<p>In real life, I can create pure object which won’t inherit any property or method from Object such as constructor or toString()</p>
+
+<pre><code class="language-Javascript">const pureObject = Object.create(null);
+</code></pre>
+
+<p>cool huh?</p>
+
+<h4 id="removing-duplicate-items-from-an-array-a-name-remove-duplicated-item-array-a">Removing duplicate items from an array <a name="remove_duplicated_item_array"></a></h4>
+
+<p>This is reason why I love Javascript so much.</p>
+
+<pre><code class="language-Javascript">const removeDuplicateItems = arr =&gt; [...new Set(arr)];
+removeDuplicateItems([42, 'foo', 42, 'foo', true, true]);
+//=&gt; [42, &quot;foo&quot;, true]
+</code></pre>
+
+<h4 id="flattening-multidimensional-arrays-a-name-flattening-multidimensional-a">Flattening multidimensional arrays <a name="flattening_multidimensional"></a></h4>
+
+<pre><code class="language-Javascript">const arr = [11, [22, 33], [44, 55], 66];
+const flatArr = [].concat(...arr); //=&gt; [11, 22, 33, 44, 55, 66]
+</code></pre>
+
+<p>The above trick will only work with bidimensional arrays.</p>
+
+<p>For more than 2 dimensions array:</p>
+
+<pre><code class="language-Javascript">function flattenArray(arr) {
+  const flattened = [].concat(...arr);
+  return flattened.some(item =&gt; Array.isArray(item)) ? 
+    flattenArray(flattened) : flattened;
+}
+
+const arr = [11, [22, 33], [44, [55, 66, [77, [88]], 99]]];
+const flatArr = flattenArray(arr); 
+//=&gt; [11, 22, 33, 44, 55, 66, 77, 88, 99]
+</code></pre>
+    
+<div id="disqus_thread"></div>
+<script>
+    (function () {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://https-hoangtranson-github-io-my-blog.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the
+    <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+</noscript> 
 
   </main>
 

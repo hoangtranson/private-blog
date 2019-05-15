@@ -6,12 +6,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
   <meta name="generator" content="Hugo 0.55.5" />
-  <link rel="canonical" href="https://hoangtranson.github.io/my-blog/">
+  <link rel="canonical" href="https://hoangtranson.github.io/my-blog/blogs/how-to-create-a-blog-and-deploy-to-github/">
 
-  
-    
-      <meta name="description" content="Tran Son Hoang Blog">
-    
   
 
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -36,9 +32,7 @@
 
   
   
-    
-  
-  <title>Hoang Tran Blog</title>
+  <title>How To Create A Blog and Deploy to Github | Hoang Tran Blog</title>
 </head>
 
   <body>
@@ -168,7 +162,7 @@
       
       
       
-      <a href="/my-blog/" aria-current="page">
+      <a href="/my-blog/" >
         <svg class="bookmark-icon" aria-hidden="true" focusable="false" viewBox="0 0 40 50">
           <use xlink:href="#bookmark"></use>
         </svg>
@@ -210,21 +204,159 @@
         <div>
           
   <main id="main">
-    <h1>About me: A Frontend Engineering and Software Philosopher</h1>
-    <p>Hey! I&rsquo;m Hoang, a front-end developer from Ho Chi Minh VietNam.</p>
+    <h1>How To Create A Blog and Deploy to Github</h1>
+    <p>I ve just configured out recently how to create a site and deploy it to github hosting.</p>
 
-<p>After years of design and software development, I created this blog as a better way to share my knowledge.</p>
+<p><img src="/my-blog/img/portfolio/content1/my-Blog.jpg" alt="My blog" /></p>
 
-<p><img src="/my-blog/img/my_photo_1.jpg" alt="This is me" /></p>
+<h3 id="table-of-content">Table of content</h3>
 
-<p>PingPong champion 2018 double category at Pyco group</p>
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#setup-project">Set Up Project</a></li>
+<li><a href="#integrate-theme">Integrate Theme</a></li>
+<li><a href="#deployment">Deployment to Github page</a></li>
+</ul>
 
-<!-- #### Education
+<h4 id="introduction-a-name-introduction-a">Introduction <a name="introduction"></a></h4>
 
-* HCM Internation University - computer science major
-* Online site: Udemy, Freecode camp, Egghead.io
+<p>Thanks to the article <a href="https://medium.freecodecamp.org/every-developer-should-have-a-blog-heres-why-and-how-to-stick-with-it-5fd55a247fbf">Every developer should have a blog. Here’s why, and how to stick with it</a> that motivated me a lot to create a blog in order to share my knowledge to community.</p>
 
-But the awesome knowledge I ever learnt is from my Colleagues, Friends, and my Boss. -->
+<p>So from that helpful topic. There are 3 things I have studied.</p>
+
+<ol>
+<li><a href="https://gohugo.io/">Hugo</a></li>
+<li><a href="https://help.github.com/articles/what-is-github-pages/">Github page</a></li>
+<li><a href="https://github.com/adam-p/markdown-here">Markdown</a></li>
+</ol>
+
+<p>From this knowlegde I built my own site quickly and focused more on the content that I wanna share.</p>
+
+<h4 id="set-up-project-a-name-setup-project-a">Set Up Project <a name="setup-project"></a></h4>
+
+<p>My assumption is you guys already have experience with <a href="https://git-scm.com/docs/git">Git</a> in command line, <a href="https://github.com/">Github</a> which is a repository for your code and your labtop is <strong>MacOS Sierra</strong>.</p>
+
+<p>We will have 3 steps to set up a project.</p>
+
+<p>Step 1: Create Repo on <strong>Github</strong></p>
+
+<p>Repository is just a simple place to store your code. You have to create Github account first to create repository.</p>
+
+<p><img src="/my-blog/img/portfolio/content1/step1.jpg" alt="Create new Repository" /></p>
+
+<p>Step 2: Install <strong>Hugo</strong></p>
+
+<pre><code>brew install hugo
+</code></pre>
+
+<p>then cd to your Project folder and type</p>
+
+<pre><code>hugo new site you-site-name
+cd you-site-name
+git init
+git remote add origin https://github.com/user-name/repo-name.git
+</code></pre>
+
+<p>Here we do 4 minor steps:</p>
+
+<ol>
+<li>Create project name you-site-name</li>
+<li>Move to your project name</li>
+<li>Initial git repo on local</li>
+<li>Point your local git to Git repo online</li>
+</ol>
+
+<p>NOTE: a good question for newbie is where should I get this link <a href="https://github.com/user-name/repo-name.git">https://github.com/user-name/repo-name.git</a> ?</p>
+
+<p><img src="/my-blog/img/portfolio/content1/step2.jpg" alt="public link to my repositoty" /></p>
+
+<p>Read this <a href="https://gohugo.io/getting-started/directory-structure/">Project Structure</a> to learn the Hugo prjoject structure.</p>
+
+<p>Step 3 : Push your code to <strong>Github Repository</strong></p>
+
+<pre><code>git status
+git commit -m &quot;your-first-message&quot;
+git push origin master
+</code></pre>
+
+<p><img src="/my-blog/img/portfolio/content1/step3.jpg" alt="How your code look like on Github" /></p>
+
+<h4 id="integrate-theme-a-name-integrate-theme-a">Integrate Theme <a name="integrate-theme"></a></h4>
+
+<p>In this section. I gonna introduce you guys a simple way to have a perfect theme(UI - user interface) for your site.</p>
+
+<p><a href="https://themes.gohugo.io/">Hugo themes website</a> a good place to start with.</p>
+
+<p>we pick the theme from site above click on <strong>Download</strong> button to go to theme source.</p>
+
+<p><img src="/my-blog/img/portfolio/content1/theme_site.jpg" alt="porfolio theme" /></p>
+
+<p><img src="/my-blog/img/portfolio/content1/theme_source.jpg" alt="porfolio theme on Github" /></p>
+
+<p>There are two ways to get the source code. But, I perfer use download as ZIP file and put it in theme folder.</p>
+
+<p><img src="/my-blog/img/portfolio/content1/place_to_store_theme.jpg" alt="store theme to theme folder" /></p>
+
+<p>Then we must to add <code>publishDir = &quot;docs&quot;</code> to config.toml file since this is a way to help Github host regconize your site and public it globally.</p>
+
+<p><img src="/my-blog/img/portfolio/content1/must_do_config.jpg" alt="must do config" /></p>
+
+<h4 id="deployment-to-github-page-a-name-deployment-a">Deployment to Github page <a name="deployment"></a></h4>
+
+<p>This is the most imporant section that we wanna learn about. All stuff we made above is to push your site on internet.</p>
+
+<p>There are so many way to push your site on internet. But, to me as a developer i perfer Github as a simple way to do. It support hosting already,</p>
+
+<p>First I create a <strong>deploy.sh</strong> (I copied it from this <a href="https://gohugo.io/hosting-and-deployment/hosting-on-github/">site</a>) file that run on terminal</p>
+
+<pre><code>#!/bin/bash
+
+echo -e &quot;\033[0;32mDeploying updates to GitHub...\033[0m&quot;
+
+# Build the project.
+hugo -t hugo-creative-portfolio-theme-master  # if using a theme, replace with `hugo -t &lt;YOURTHEME&gt;`
+
+# Go To Public folder
+cd public
+# Add changes to git.
+git add .
+
+# Commit changes.
+msg=&quot;rebuilding site `date`&quot;
+if [ $# -eq 1 ]
+  then msg=&quot;$1&quot;
+fi
+git commit -m &quot;$msg&quot;
+
+# Push source and build repos.
+git push origin master
+
+# Come Back up to the Project Root
+cd ..
+</code></pre>
+
+<p>then I open Terminal and type <code>./deploy.sh</code> this will auto create docs folder and push your code to Github source.</p>
+
+<p><img src="/my-blog/img/portfolio/content1/deploy_blog.jpg" alt="deploy command on terminal" /></p>
+
+<p>Secondly, On your Github repo. Go to <strong>Setting</strong> and scroll down to the bottom you will see <strong>Github pages</strong> section. Choose <strong>master branch/docs folder</strong> option.</p>
+
+<p><img src="/my-blog/img/portfolio/content1/project_setting.jpg" alt="project setting on github" /></p>
+
+<p>DONE! click on Your site is published at <a href="Your site is published at https://hoangtranson.github.io/my-blog/">https://hoangtranson.github.io/my-blog/</a> to go to your website and enjoy cup of coffee.</p>
+    
+<div id="disqus_thread"></div>
+<script>
+    (function () {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://https-hoangtranson-github-io-my-blog.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the
+    <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+</noscript> 
 
   </main>
 

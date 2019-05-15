@@ -6,12 +6,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
   <meta name="generator" content="Hugo 0.55.5" />
-  <link rel="canonical" href="https://hoangtranson.github.io/my-blog/">
+  <link rel="canonical" href="https://hoangtranson.github.io/my-blog/blogs/how-to-merge-old-commits-into-one/">
 
-  
-    
-      <meta name="description" content="Tran Son Hoang Blog">
-    
   
 
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -36,9 +32,7 @@
 
   
   
-    
-  
-  <title>Hoang Tran Blog</title>
+  <title>How to merge old commits into one | Hoang Tran Blog</title>
 </head>
 
   <body>
@@ -168,7 +162,7 @@
       
       
       
-      <a href="/my-blog/" aria-current="page">
+      <a href="/my-blog/" >
         <svg class="bookmark-icon" aria-hidden="true" focusable="false" viewBox="0 0 40 50">
           <use xlink:href="#bookmark"></use>
         </svg>
@@ -210,21 +204,52 @@
         <div>
           
   <main id="main">
-    <h1>About me: A Frontend Engineering and Software Philosopher</h1>
-    <p>Hey! I&rsquo;m Hoang, a front-end developer from Ho Chi Minh VietNam.</p>
+    <h1>How to merge old commits into one</h1>
+    <p>I face this problem a lot in my projects and here is the way that I resolve it.</p>
 
-<p>After years of design and software development, I created this blog as a better way to share my knowledge.</p>
+<h3 id="table-of-content">Table of content</h3>
 
-<p><img src="/my-blog/img/my_photo_1.jpg" alt="This is me" /></p>
+<ul>
+<li><a href="#problem">Problem</a></li>
+<li><a href="#solution">Solution</a></li>
+</ul>
 
-<p>PingPong champion 2018 double category at Pyco group</p>
+<h4 id="problem-a-name-problem-a">Problem <a name="problem"></a></h4>
 
-<!-- #### Education
+<p>During my projects every feature I did, I created their own branch to do that feature and <strong>git commit</strong> a lot during implementation.</p>
 
-* HCM Internation University - computer science major
-* Online site: Udemy, Freecode camp, Egghead.io
+<p><img src="/my-blog/img/portfolio/content4/img1.jpg" alt="a lot of commit" /></p>
 
-But the awesome knowledge I ever learnt is from my Colleagues, Friends, and my Boss. -->
+<p>As you can see from photo above. I have there commits and two of them were dummy commit. So As a developer when I finished my ticket, I wanna merge all commits into only one.</p>
+
+<p>This help a lot of in building note change in Jenkin every time I deploy new code to testing environment and also I got a meaning text in commit on Github.</p>
+
+<h4 id="solution-a-name-solution-a">Solution <a name="solution"></a></h4>
+
+<p>So I came to quite simple solution by command line</p>
+
+<p>I reset to first commit on my branch</p>
+
+<p><img src="/my-blog/img/portfolio/content4/img2.jpeg" alt="reset to first commit" /></p>
+
+<p>Then I re-commit it again.</p>
+
+<p><img src="/my-blog/img/portfolio/content4/img3.jpeg" alt="general steps" /></p>
+
+<p>Quite simple huh?</p>
+    
+<div id="disqus_thread"></div>
+<script>
+    (function () {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://https-hoangtranson-github-io-my-blog.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the
+    <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+</noscript> 
 
   </main>
 

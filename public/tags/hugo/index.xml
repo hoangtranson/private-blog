@@ -6,18 +6,36 @@
     <description>Recent content in hugo on Hoang Tran Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 27 Apr 2018 15:00:00 +0700</lastBuildDate>
+    <lastBuildDate>Sun, 29 Apr 2018 20:00:00 +0700</lastBuildDate>
     
 	<atom:link href="https://hoangtranson.github.io/my-blog/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>How To Add Commment To Blog Content</title>
+      <link>https://hoangtranson.github.io/my-blog/blogs/how-to-add-comment-to-blog-content/</link>
+      <pubDate>Sun, 29 Apr 2018 20:00:00 +0700</pubDate>
+      
+      <guid>https://hoangtranson.github.io/my-blog/blogs/how-to-add-comment-to-blog-content/</guid>
+      <description>&lt;p&gt;After Creating my awesome website to public it and I just wonder how to add comment on that.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>How To Create A Blog and Deploy to Github</title>
-      <link>https://hoangtranson.github.io/my-blog/blogs/work1/</link>
+      <link>https://hoangtranson.github.io/my-blog/blogs/how-to-create-a-blog-and-deploy-to-github/</link>
       <pubDate>Fri, 27 Apr 2018 15:00:00 +0700</pubDate>
       
-      <guid>https://hoangtranson.github.io/my-blog/blogs/work1/</guid>
+      <guid>https://hoangtranson.github.io/my-blog/blogs/how-to-create-a-blog-and-deploy-to-github/</guid>
       <description>&lt;p&gt;I ve just configured out recently how to create a site and deploy it to github hosting.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>How to merge old commits into one</title>
+      <link>https://hoangtranson.github.io/my-blog/blogs/how-to-merge-old-commits-into-one/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hoangtranson.github.io/my-blog/blogs/how-to-merge-old-commits-into-one/</guid>
+      <description>&lt;p&gt;I face this problem a lot in my projects and here is the way that I resolve it.&lt;/p&gt;</description>
     </item>
     
   </channel>

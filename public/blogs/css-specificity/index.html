@@ -6,12 +6,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
   <meta name="generator" content="Hugo 0.55.5" />
-  <link rel="canonical" href="https://hoangtranson.github.io/my-blog/">
+  <link rel="canonical" href="https://hoangtranson.github.io/my-blog/blogs/css-specificity/">
 
-  
-    
-      <meta name="description" content="Tran Son Hoang Blog">
-    
   
 
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -36,9 +32,7 @@
 
   
   
-    
-  
-  <title>Hoang Tran Blog</title>
+  <title>CSS Specificity | Hoang Tran Blog</title>
 </head>
 
   <body>
@@ -168,7 +162,7 @@
       
       
       
-      <a href="/my-blog/" aria-current="page">
+      <a href="/my-blog/" >
         <svg class="bookmark-icon" aria-hidden="true" focusable="false" viewBox="0 0 40 50">
           <use xlink:href="#bookmark"></use>
         </svg>
@@ -210,21 +204,282 @@
         <div>
           
   <main id="main">
-    <h1>About me: A Frontend Engineering and Software Philosopher</h1>
-    <p>Hey! I&rsquo;m Hoang, a front-end developer from Ho Chi Minh VietNam.</p>
+    <h1>CSS Specificity</h1>
+    <p>This term came to me every single time I edited my css.</p>
 
-<p>After years of design and software development, I created this blog as a better way to share my knowledge.</p>
+<h3 id="table-of-content">Table of content</h3>
 
-<p><img src="/my-blog/img/my_photo_1.jpg" alt="This is me" /></p>
+<ul>
+<li><a href="#css_specificity">What is CSS Specificity?</a></li>
+<li><a href="#specificity_hierarchy">Specificity hierarchy</a></li>
+<li><a href="#specificity_rules">Specificity Rules</a></li>
+</ul>
 
-<p>PingPong champion 2018 double category at Pyco group</p>
+<h4 id="what-is-css-specificity-a-name-css-specificity-a">What is CSS Specificity? <a name="css_specificity"></a></h4>
 
-<!-- #### Education
+<p>To me, CSS Specificity is so familiar to Frontend guys since we use it often. Specificity determines which css rule is applied to a specific HTML element at that moment on browsers.</p>
 
-* HCM Internation University - computer science major
-* Online site: Udemy, Freecode camp, Egghead.io
+<blockquote>
+<p>“Specificity is a type of weighting that has a bearing on how your cascading style sheet (CSS) rules are displayed.”</p>
+</blockquote>
 
-But the awesome knowledge I ever learnt is from my Colleagues, Friends, and my Boss. -->
+<p>It is true that every single selector has its own specificity and if two selectors apply to the same element, the one with higher specificity wins.</p>
+
+<h4 id="specificity-hierarchy-a-name-specificity-hierarchy-a">Specificity hierarchy <a name="specificity_hierarchy"></a></h4>
+
+<p>Every selector has its place in the specificity hierarchy. There are four distinct categories which define the specificity level of a given selector:</p>
+
+<ol>
+<li>Inline styles (Presence of style in document). An inline style lives within your XHTML document. It is attached directly to the element to be styled. E.g. <code>&lt;h1 style=&quot;color: #fff;&quot;&gt;</code></li>
+<li>IDs (# of ID selectors). ID is an identifier for your page elements, such as #div.</li>
+<li>Classes, attributes and pseudo-classes (# of class selectors). This group includes .classes, [attributes] and pseudo-classes such as :hover,:focus etc.</li>
+<li>Elements and pseudo-elements (# of Element (type) selectors). Including for instance :before and :after.</li>
+</ol>
+
+<p>Here is some examples.</p>
+
+<ol>
+<li><p>A selector is the element that is linked to a particular style. E.g. p in</p>
+
+<pre><code class="language-css">    p { padding: 10px; }
+</code></pre>
+
+<ol>
+<li>A class selector is a selector that uses a defined class (multiple per page). E.g.p.section in</li>
+</ol>
+
+<pre><code class="language-css">    p.section { padding: 10px; }
+</code></pre></li>
+
+<li><p>An ID selector is a selector that uses an individually assigned identifier (one per page). E.g. p#section in</p>
+
+<pre><code class="language-css">    #section { padding: 10px; }
+</code></pre>
+
+<ol>
+<li>A contextual selector is a selector that defines a precise cascading order for the rule. E.g. p span in</li>
+</ol>
+
+<pre><code class="language-css">    p span { font-style: italic; }
+</code></pre>
+
+<p>defines that all span-elements within a p-element should be styled in italics.</p></li>
+
+<li><p>An attribute selector matches elements which have a specific attribute or its value. E.g. p span in</p>
+
+<pre><code class="language-css">    p[title] { font-weight: bold; }
+</code></pre>
+
+<p>matches all p-elements which have a title attribute.</p>
+
+<ol>
+<li>Pseudo-classes are special classes that are used to define the behavior of HTML elements. They are used to add special effects to some selectors, which are applied automatically in certain states. E.g. :visited in</li>
+</ol>
+
+<pre><code class="language-css">    a:visited { text-decoration: underline; }
+</code></pre></li>
+
+<li><p>Pseudo-elements provide designers a way to assign style to content that does not exist in the source document. Pseudo-element is a specific, unique part of an element that can be used to generate content &ldquo;on the fly&rdquo;, automatic numbering and lists. E.g. :first-line or :after in</p>
+
+<pre><code class="language-css">    p:first-line { font-variant: small-caps; }
+    a:link:after { content: &quot; (&quot; attr(href) &quot;)&quot;; }
+</code></pre>
+
+<h4 id="specificity-rules-a-name-specificity-rules-a">Specificity Rules <a name="specificity_rules"></a></h4>
+
+<h5 id="how-to-measure-specificity-a-good-question-to-start-with">How to measure specificity? a good question to start with.</h5>
+
+<p>Memorize how to measure specificity. “Start at 0, add 1000 for style attribute, add 100 for each ID, add 10 for each attribute, class or pseudo-class, add 1 for each element name or pseudo-element. So in</p>
+
+<pre><code class="language-css">body #content .data img:hover
+</code></pre></li>
+</ol>
+
+<p>The specificity value would be 122 (0,1,2,2 or 0122): 100 for #content, 10 for .data, 10 for :hover, 1 for body and 1 for img.”</p>
+
+<p>Specificity Examples</p>
+
+<p>It’s easier to calculate the specificity using the first method. Let’s find out, how it actually is done.</p>
+
+<table>
+<thead>
+<tr>
+<th align="center"></th>
+<th align="center"></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="center"><code>* { }</code></td>
+<td align="center">0</td>
+</tr>
+
+<tr>
+<td align="center"><code>li { }</code></td>
+<td align="center">1 (one element)</td>
+</tr>
+
+<tr>
+<td align="center"><code>li:first-line { }</code></td>
+<td align="center">2 (one element, one pseudo-element)</td>
+</tr>
+
+<tr>
+<td align="center"><code>ul li { }</code></td>
+<td align="center">2 (two elements)</td>
+</tr>
+
+<tr>
+<td align="center"><code>ul ol+li { }</code></td>
+<td align="center">3 (three elements)</td>
+</tr>
+
+<tr>
+<td align="center"><code>h1 + *[rel=up] { }</code></td>
+<td align="center">11 (one attribute, one element)</td>
+</tr>
+
+<tr>
+<td align="center"><code>ul ol li.red { }</code></td>
+<td align="center">13 (one class, three elements)</td>
+</tr>
+
+<tr>
+<td align="center"><code>li.red.level { }</code></td>
+<td align="center">21 (two classes, one element)</td>
+</tr>
+
+<tr>
+<td align="center"><code>style=”&quot;</code></td>
+<td align="center">1000 (one inline styling)</td>
+</tr>
+
+<tr>
+<td align="center"><code>p { }</code></td>
+<td align="center">1 (one HTML selector)</td>
+</tr>
+
+<tr>
+<td align="center"><code>div p { }</code></td>
+<td align="center">2 (two HTML selectors)</td>
+</tr>
+
+<tr>
+<td align="center"><code>.sith</code></td>
+<td align="center">10 (one class selector)</td>
+</tr>
+
+<tr>
+<td align="center"><code>div p.sith { }</code></td>
+<td align="center">12 (two HTML selectors and a class selector)</td>
+</tr>
+
+<tr>
+<td align="center"><code>#sith</code></td>
+<td align="center">100 (one id selector)</td>
+</tr>
+
+<tr>
+<td align="center"><code>body #darkside .sith p { }</code></td>
+<td align="center">112 (HTML selector, id selector, class selector, HTML selector; 1+100+10+1)</td>
+</tr>
+</tbody>
+</table>
+
+<p>Easy right?</p>
+
+<h5 id="basic-principles">Basic Principles</h5>
+
+<p>Equal specificity: the latest rule is the one that counts. “If you have written the same rule into your external style sheet twice, than the lower rule in your style sheet is closer to the element to be styled, it is deemed to be more specific and therefore will be applied.
+When selectors have an equal specificity value, such as</p>
+
+<pre><code class="language-css">#content h1 { padding: 5px; } 
+#content h1 { padding: 10px; }
+</code></pre>
+
+<p>where both rules have the specificity 0, 1, 0, 1, the latter rule is always applied.</p>
+
+<h5 id="specificity-rules">Specificity Rules</h5>
+
+<ol>
+<li>Rules with more specific selectors have a greater specificity. The more specific the references are in your selector, the greater the specificity for the rule.</li>
+
+<li><p>ID selectors have a higher specificity than attribute selectors. For example, in HTML, the selector #p123 is more specific than [id=p123] in terms of the cascade.</p>
+
+<pre><code class="language-css">Case A: a#a-02 { background-image : url(n.gif); }
+Case B: a[id=&quot;a-02&quot;] { background-image : url(n.png); }
+</code></pre>
+
+<p>the first rule (A) is more specific than the second one (B).</p>
+
+<ol>
+<li>Contextual selectors are more specific than a single element selector. It also holds for other selectors involving more than one HTML element selector.</li>
+<li>The embedded style sheet is closer to the element to be styled. So in the following situation CSS:</li>
+</ol>
+
+<pre><code class="language-css">#content h1 { padding: 5px; }
+</code></pre>
+
+<pre><code class="language-html">&lt;style type=&quot;text/css&quot;&gt; #content h1 { padding: 10px; } &lt;/style&gt;
+</code></pre>
+
+<p>the latter rule will be applied.</p>
+
+<ol>
+<li>The last rule defined overrides any previous, conflicting rules. For example, given these two rules</li>
+</ol>
+
+<pre><code class="language-css">p { color: red; background: yellow } 
+p { color: green }
+</code></pre>
+
+<p>paragraphs would appear in green text. They would also have a yellow background however, because the first rule is not completely negated.</p></li>
+
+<li><p>A class selector beats any number of element selectors. .introduction beats html body div div h2 p.</p></li>
+
+<li><p>The universal selector has a specificity of 0, 0, 0, 0. *, body * and similar selectors have a zero specificity. Inherited values also have a specificity of 0, 0, 0, 0.</p></li>
+</ol>
+
+<h5 id="specificity-example">Specificity Example</h5>
+
+<pre><code class="language-css">A:  h1 {} 
+B:  #content h1 {}
+C:  &lt;div id=&quot;content&quot;&gt;
+        &lt;h1 style=&quot;color: #fff&quot;&gt;Headline&lt;/h1&gt;
+    &lt;/div&gt;
+</code></pre>
+
+<p>The specificity of A is 0,0,0,1 (one element), the specificity of B is 0,1,0,1 (one ID reference point and one element), the specificity value of C is 1,0,0,0, since it is an inline styling.</p>
+
+<p>Since</p>
+
+<p>0001 = 1 &lt; 0101 = 101 &lt; 1000,</p>
+
+<p>the third rule has a greater level of specificity, and therefore will be applied. If the third rule didn’t exist, the second rule would have been applied.</p>
+
+<h4 id="references">References:</h4>
+
+<ol>
+<li><p><a href="https://www.w3schools.com/css/css_specificity.asp">CSS Specificity - w3schools</a></p></li>
+
+<li><p><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity">How is specificity calculated?</a></p></li>
+
+<li><p><a href="https://css-tricks.com/specifics-on-css-specificity/">Specifics on CSS Specificity</a></p></li>
+</ol>
+    
+<div id="disqus_thread"></div>
+<script>
+    (function () {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://https-hoangtranson-github-io-my-blog.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the
+    <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+</noscript> 
 
   </main>
 

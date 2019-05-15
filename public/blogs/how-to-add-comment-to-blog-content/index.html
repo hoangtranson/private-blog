@@ -6,12 +6,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
   <meta name="generator" content="Hugo 0.55.5" />
-  <link rel="canonical" href="https://hoangtranson.github.io/my-blog/">
+  <link rel="canonical" href="https://hoangtranson.github.io/my-blog/blogs/how-to-add-comment-to-blog-content/">
 
-  
-    
-      <meta name="description" content="Tran Son Hoang Blog">
-    
   
 
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -36,9 +32,7 @@
 
   
   
-    
-  
-  <title>Hoang Tran Blog</title>
+  <title>How To Add Commment To Blog Content | Hoang Tran Blog</title>
 </head>
 
   <body>
@@ -168,7 +162,7 @@
       
       
       
-      <a href="/my-blog/" aria-current="page">
+      <a href="/my-blog/" >
         <svg class="bookmark-icon" aria-hidden="true" focusable="false" viewBox="0 0 40 50">
           <use xlink:href="#bookmark"></use>
         </svg>
@@ -210,21 +204,99 @@
         <div>
           
   <main id="main">
-    <h1>About me: A Frontend Engineering and Software Philosopher</h1>
-    <p>Hey! I&rsquo;m Hoang, a front-end developer from Ho Chi Minh VietNam.</p>
+    <h1>How To Add Commment To Blog Content</h1>
+    <p>After Creating my awesome website to public it and I just wonder how to add comment on that.</p>
 
-<p>After years of design and software development, I created this blog as a better way to share my knowledge.</p>
+<p>After googling some keyword and read some API document on <a href="https://gohugo.io/content-management/comments/">GoHugo</a> I have some ideas come to my mind how to make it quickly and fast.</p>
 
-<p><img src="/my-blog/img/my_photo_1.jpg" alt="This is me" /></p>
+<p><img src="/my-blog/img/portfolio/content2/demo.jpg" alt="comment section demostration" /></p>
 
-<p>PingPong champion 2018 double category at Pyco group</p>
+<h3 id="table-of-content">Table of content</h3>
 
-<!-- #### Education
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#setup-project">Set Up Disqus</a></li>
+<li><a href="#integrate-theme">Integrate to your blog</a></li>
+</ul>
 
-* HCM Internation University - computer science major
-* Online site: Udemy, Freecode camp, Egghead.io
+<h4 id="introduction-a-name-introduction-a">Introduction <a name="introduction"></a></h4>
 
-But the awesome knowledge I ever learnt is from my Colleagues, Friends, and my Boss. -->
+<p>In this section I will show you some my research on doing this things. I will refer you some another way to do and references.</p>
+
+<p>Comment on my article is a great way to communicate with anothers and understand their ideas and Anwser their questions. So I am able to improve my knowledege and widen it.</p>
+
+<p>Thanks to awesome <a href="https://gohugo.io/content-management/comments/">document</a> from GoHugo that help me a lot to know how I approach and do my idea in order to have comment section on my blog.</p>
+
+<p>We have so many different ways to deal with this stuff such as <a href="https://disqus.com/">Disqus</a>, <a href="https://staticman.net/">Static Man</a>, <a href="https://intensedebate.com/">Intense Debate</a>, <a href="https://graphcomment.com/en/">Graph comment</a>, <a href="https://muut.com/">Mutt</a> and <a href="https://posativ.org/isso/">Isso</a> for person love <a href="https://www.djangoproject.com/">Django</a> like me.</p>
+
+<p>Also <a href="https://portfolio.peter-baumgartner.net/2017/09/10/how-to-install-disqus-on-hugo/">How to install Disqus on Hugo?</a> is a good topic to know general step I gonna do.</p>
+
+<p><strong>Disqus discussion not generated</strong> The error I made during do this technical task. then I found a very helpful solution on Github <a href="https://github.com/rstudio/blogdown/issues/52#issuecomment-288407836">Disqus discussion not generated because of wrong disqus_url</a></p>
+
+<h4 id="set-up-disqus-a-name-set-up-disqus-a">Set Up Disqus <a name="set-up-disqus"></a></h4>
+
+<p>I registered my acc on Disqus.</p>
+
+<p><img src="/my-blog/img/portfolio/content2/disqus_acc.jpg" alt="my Disqus account" /></p>
+
+<p>Then I put into config.toml file</p>
+
+<pre><code>disqusShortname = &quot;https-hoangtranson-github-io-my-blog&quot;
+</code></pre>
+
+<p><img src="/my-blog/img/portfolio/content2/config_disqus.jpg" alt="put disqus shortname to config file" /></p>
+
+<h4 id="integrate-to-your-blog-a-name-integrate-disqus-a">Integrate to your blog <a name="integrate-disqus"></a></h4>
+
+<p>I think this is the most difficult path for those who is not familar with code. But, you guys are still able to do it by following my guide.</p>
+
+<p>First you should go to theme folder and find single.html. I usually locate at _default folder or partials folder depend on each theme.</p>
+
+<p>In my case, it located at _default folder.</p>
+
+<p><img src="/my-blog/img/portfolio/content2/single.html.jpg" alt="place to integrate disqus discussion" /></p>
+
+<p>In the photo, we see this line of code.</p>
+
+<pre><code>{{ template &quot;_internal/disqus.html&quot; . }}
+</code></pre>
+
+<p>So I create disqus.html file in _internal folder and put this code on that file.</p>
+
+<pre><code>&lt;div id=&quot;disqus_thread&quot;&gt;&lt;/div&gt;
+&lt;script&gt;
+    (function () {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://https-hoangtranson-github-io-my-blog.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+&lt;/script&gt;
+&lt;noscript&gt;Please enable JavaScript to view the
+    &lt;a href=&quot;https://disqus.com/?ref_noscript&quot;&gt;comments powered by Disqus.&lt;/a&gt;
+&lt;/noscript&gt;
+</code></pre>
+
+<p><img src="/my-blog/img/portfolio/content2/implement_disqus.jpg" alt="create disqus html file" /></p>
+
+<p>Then we see this text on your local blog</p>
+
+<p><img src="/my-blog/img/portfolio/content2/final_result.jpg" alt="final result after integrating comment" /></p>
+
+<p>Deploy it to Github and see the magic.</p>
+    
+<div id="disqus_thread"></div>
+<script>
+    (function () {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://https-hoangtranson-github-io-my-blog.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the
+    <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+</noscript> 
 
   </main>
 

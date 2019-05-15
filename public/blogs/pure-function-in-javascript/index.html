@@ -6,12 +6,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
   <meta name="generator" content="Hugo 0.55.5" />
-  <link rel="canonical" href="https://hoangtranson.github.io/my-blog/">
+  <link rel="canonical" href="https://hoangtranson.github.io/my-blog/blogs/pure-function-in-javascript/">
 
-  
-    
-      <meta name="description" content="Tran Son Hoang Blog">
-    
   
 
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -36,9 +32,7 @@
 
   
   
-    
-  
-  <title>Hoang Tran Blog</title>
+  <title>Pure function in Javascript | Hoang Tran Blog</title>
 </head>
 
   <body>
@@ -168,7 +162,7 @@
       
       
       
-      <a href="/my-blog/" aria-current="page">
+      <a href="/my-blog/" >
         <svg class="bookmark-icon" aria-hidden="true" focusable="false" viewBox="0 0 40 50">
           <use xlink:href="#bookmark"></use>
         </svg>
@@ -210,21 +204,80 @@
         <div>
           
   <main id="main">
-    <h1>About me: A Frontend Engineering and Software Philosopher</h1>
-    <p>Hey! I&rsquo;m Hoang, a front-end developer from Ho Chi Minh VietNam.</p>
+    <h1>Pure function in Javascript</h1>
+    <p>Pure functions are essential for a variety of purposes such as functional programming, reliable concurrency, and Redux app.</p>
 
-<p>After years of design and software development, I created this blog as a better way to share my knowledge.</p>
+<p><img src="/my-blog/img/portfolio/content13/pure.jpeg" alt="pure functions" /></p>
 
-<p><img src="/my-blog/img/my_photo_1.jpg" alt="This is me" /></p>
+<h3 id="table-of-content">Table of content</h3>
 
-<p>PingPong champion 2018 double category at Pyco group</p>
+<ul>
+<li><a href="#pure_function">What is pure function?</a></li>
+<li><a href="#pf_good_part">Pure function the good part</a></li>
+</ul>
 
-<!-- #### Education
+<h4 id="what-is-pure-function-a-name-pure-function-a">What is pure function? <a name="pure_function"></a></h4>
 
-* HCM Internation University - computer science major
-* Online site: Udemy, Freecode camp, Egghead.io
+<p>To answer question above, we have to understand what function is in advanced.</p>
 
-But the awesome knowledge I ever learnt is from my Colleagues, Friends, and my Boss. -->
+<pre><code>input --&gt; function --&gt; output
+</code></pre>
+
+<p>As you see, Function take input and give us output right? so simple isn&rsquo;t it?</p>
+
+<p>In reality we can do many stuff with function such as mapping, procedures, and I/O.</p>
+
+<p>A <strong>Pure function</strong> is a function with the same input we get the same output.</p>
+
+<p>As a developer, I think we should favor pure function when we can use it to develop program. Pure function take some input and give some output with that input, so we can reuse it in many places in our program. The primary principle in computer science I think are KISS(Keep it simple stupid). Pure function is that stupid thing we can do during implementation.</p>
+
+<p>We get benefits from using pure function such as indepenedent, easy to move around, refactor, re-organize, flexible and adaptable to extend in the future.</p>
+
+<h4 id="pure-function-the-good-part-a-name-pf-good-part-a">Pure function the good part <a name="pf_good_part"></a></h4>
+
+<h5 id="given-the-same-input-always-return-the-same-output">Given the Same Input, Always Return the Same Output</h5>
+
+<p>You may think that every single method will generate the same output from the same input, but actually it is not. So weird huh?</p>
+
+<p>Assume that we have function double which always double itput as output.</p>
+
+<pre><code class="language-Javascript"> function double(num){
+     return num*2;
+ }
+</code></pre>
+
+<p>So we call it three times</p>
+
+<pre><code class="language-Javascript">double(2); // 4
+double(2); // 4
+double(2); // 4
+</code></pre>
+
+<p>The input is 2. we always receive back the value 4. So double is a pure function.</p>
+
+<p>Consider this:</p>
+
+<pre><code class="language-Javascript">Math.random(); // =&gt; 0.490327772182118
+Math.random(); // =&gt; 0.6670939642421154
+Math.random(); // =&gt; 0.11873054846370912
+</code></pre>
+
+<p>The same input we receive different output in this case. So Math.random() is not pure or impure function.</p>
+
+<p>To sum up, A function is only pure if, given the same input, it will always produce the same output.</p>
+    
+<div id="disqus_thread"></div>
+<script>
+    (function () {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://https-hoangtranson-github-io-my-blog.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the
+    <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+</noscript> 
 
   </main>
 
