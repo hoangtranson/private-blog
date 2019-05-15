@@ -1,11 +1,8 @@
-+++
-showonlyimage = false
-draft = false
-image = "img/portfolio/content13/pure-fn.png"
-date = "2018-04-5T12:00:00+07:00"
-title = "Pure function in Javascript"
-weight = 3
-+++
+---
+date: "2018-04-5T12:00:00+07:00"
+title: "Pure function in Javascript"
+tags: ["javascript"]
+---
 
 Pure functions are essential for a variety of purposes such as functional programming, reliable concurrency, and Redux app.
 <!--more-->

@@ -1,11 +1,8 @@
-+++
-showonlyimage = false
-draft = false
-image = ""
-date = "2018-04-1T22:00:00+07:00"
-title = "How to merge old commits to only one commit"
-weight = 2
-+++
+---
+date: "2018-04-1T22:00:00+07:00"
+title: "How to merge old commits into one"
+tags: ["hugo"]
+---
 
 I face this problem a lot in my projects and here is the way that I resolve it.
 <!--more-->

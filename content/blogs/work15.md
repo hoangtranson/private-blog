@@ -3,7 +3,7 @@ showonlyimage = false
 draft = true
 image = "img/portfolio/content15/fp.png"
 date = "2018-29-5T12:00:00+07:00"
-title = "Functional Programming Compose - Part 2"
+title = "Compose In Functional Programming"
 weight = 3
 +++
 

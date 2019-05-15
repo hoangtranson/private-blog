@@ -1,11 +1,8 @@
-+++
-showonlyimage = false
-draft = false
-image = "img/portfolio/content6/js_trick.jpg"
-date = "2018-04-5T12:00:00+07:00"
-title = "Javascript Trick part 1"
-weight = 2
-+++
+---
+date: "2018-04-5T12:00:00+07:00"
+title: "Javascript Trick - 1"
+tags: ["javascript"]
+---
 
 In this section, I gonna talk about time-saving Javascript techniques that I used to apply to my code.
 <!--more-->

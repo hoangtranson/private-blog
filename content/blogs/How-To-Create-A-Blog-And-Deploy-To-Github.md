@@ -1,7 +1,7 @@
 ---
 date: "2018-04-27T15:00:00+07:00"
 title: "How To Create A Blog and Deploy to Github"
-tags: ["hugo", "theme", "command-line"]
+tags: ["hugo"]
 ---
 
 I ve just configured out recently how to create a site and deploy it to github hosting.

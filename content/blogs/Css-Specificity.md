@@ -1,11 +1,8 @@
-+++
-showonlyimage = false
-draft = false
-image = "img/portfolio/content7/css.jpg"
-date = "2018-04-9T12:00:00+07:00"
-title = "CSS Specificity"
-weight = 4
-+++
+---
+date: "2018-04-9T12:00:00+07:00"
+title: "CSS Specificity"
+tags: ["css"]
+---
 
 This term came to me every single time I edited my css.
 <!--more-->

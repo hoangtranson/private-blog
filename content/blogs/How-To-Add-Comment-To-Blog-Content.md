@@ -1,11 +1,8 @@
-+++
-showonlyimage = false
-draft = false
-image = "img/portfolio/content2/background.jpg"
-date = "2018-04-29T20:00:00+07:00"
-title = "How to have comment on your content"
-weight = 0
-+++
+---
+date: "2018-04-29T20:00:00+07:00"
+title: "How To Add Commment To Blog Content"
+tags: ["hugo"]
+---
 
 After Creating my awesome website to public it and I just wonder how to add comment on that.
 <!--more-->

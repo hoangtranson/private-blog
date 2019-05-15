@@ -1,11 +1,8 @@
-+++
-showonlyimage = false
-draft = false
-image = "img/portfolio/content3/font-awesome.jpg"
-date = "2018-04-30T17:00:00+07:00"
-title = "Integrate custom font svg to font-awesome"
-weight = 1
-+++
+---
+date: "2018-04-30T17:00:00+07:00"
+title: "Integrate custom font svg to font-awesome"
+tags: ["css"]
+---
 
 I have huge trouble with these stuff in my projects before.
 <!--more-->

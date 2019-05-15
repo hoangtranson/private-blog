@@ -1,9 +1,9 @@
 +++
 showonlyimage = false
-draft = false
+draft = true
 image = "img/portfolio/content14/curry.png"
 date = "2018-29-5T12:00:00+07:00"
-title = "Functional Programming Currying - Part 1"
+title = "Currying In Functional Programming"
 weight = 3
 +++
 

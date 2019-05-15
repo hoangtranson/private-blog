@@ -1,13 +1,9 @@
-+++
-showonlyimage = false
-draft = false
-image = "img/portfolio/content16/team.jpg"
-date = "2018-4-6T16:00:00+07:00"
-title = "JavaScript Style Guide"
-weight = 3
-+++
+---
+date: "2018-4-6T16:00:00+07:00"
+title: "JavaScript Style Guide"
+tags: ["javascript"]
+---
 
-JavaScript Style Guide
 <!--more-->
 
 *A mostly reasonable approach to JavaScript*
