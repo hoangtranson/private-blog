@@ -1,13 +1,19 @@
 <header class="intro-and-nav" role="banner">
   <div>
     <div class="intro">
-      <a class="logo" href="/" aria-label="{{ .Site.Title }} home page">
-        <img src="{{ "images/logo.svg" | absURL }}" alt="">
+      <a class="logo" href="/my-blog/" aria-label="{{ .Site.Title }} home page">
+        <img src="{{ "img/avatar.jpg" | absURL }}" alt="">
       </a>
       <p class="library-desc">
-        {{ with .Site.Params.description }}
+          Frontend Developer 💻 <br/> 
+          Software Philosopher 📖 <br/>
+          <a href="https://stackoverflow.com/users/4344732/hoang-tran-son" aria-label="Hoang stackoverflow">
+            Stackoverflow
+          </a>
+          <a href="mailto:hayden.tran.d@gmail.com">hayden.tran.d@gmail.com</a>
+        <!-- {{ with .Site.Params.description }}
           {{ . | markdownify }}
-        {{ end }}
+        {{ end }} -->
       </p>
     </div>
     {{ partial "nav.html" . }}

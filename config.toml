@@ -17,7 +17,7 @@ enableGitInfo = false
   quality = 99
 
 [params]
-  description = "Tran Son Hoang Blog"
+  description = "Blog"
   homeMetaContent = "Tran Son Hoang Blog"
 
 [menu]
