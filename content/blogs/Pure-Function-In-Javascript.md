@@ -1,5 +1,5 @@
 ---
-date: "2018-04-5T12:00:00+07:00"
+date: "2018-04-05T12:00:00+07:00"
 title: "Pure function in Javascript"
 tags: ["javascript"]
 ---
