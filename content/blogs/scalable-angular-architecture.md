@@ -97,9 +97,35 @@ To sum up, There is always just one source of truth in an application and there 
 
 ##### App root
 
-AppModule is app’s root module.
+Every application has at least one Angular module, the root module that you bootstrap to launch the application. By convention, it is usually called **AppModule**.
 
+```javascript
+    /* JavaScript imports */
+    import { BrowserModule } from '@angular/platform-browser';
+    import { NgModule } from '@angular/core';
+    import { FormsModule } from '@angular/forms';
+    import { HttpClientModule } from '@angular/common/http';
+    
+    import { AppComponent } from './app.component';
+    
+    /* the AppModule class with the @NgModule decorator */
+    @NgModule({
+    declarations: [
+        AppComponent
+    ],
+    imports: [
+        BrowserModule,
+        FormsModule,
+        HttpClientModule
+    ],
+    providers: [],
+    bootstrap: [AppComponent]
+    })
+    export class AppModule { }
+```
 ##### Core module
+
+
 ##### Business module
 ##### Shared root
 ##### Layout root
