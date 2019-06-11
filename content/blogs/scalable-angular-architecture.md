@@ -11,6 +11,7 @@ tags: ["angular"]
 - [One-way data flow](#one_way_data)
 - [Modules](#modules)
 - [Configuration](#configuration)
+
 #### Introduction <a name="introduction"></a>
 
 This article regarding to how to create a scalable angular project based on my experience from serveral angular projects.
@@ -282,5 +283,60 @@ The `store.module.ts` is a file that we configure more than a state there. We ca
 ```
 
 #### Configuration <a name="configuration"></a>
+
+You use the Angular CLI to create projects, generate application and library code, and perform a variety of ongoing development tasks such as testing, bundling, and deployment.
+
+Install the Angular CLI globally.
+
+To install the CLI using npm, open a terminal/console window and enter the following command:
+
+```bash
+npm install -g @angular/cli
+```
+
+Create a workspace and initial application
+
+```bash
+ng new my-app
+```
+
+The Angular CLI includes a server, so that you can easily build and serve your app locally.
+
+```bash
+cd my-app
+ng serve
+```
+
+Install store
+
+```bash
+npm install @ngxs/store --save
+```
+
+create `NgxsModule` and then in `app.module.ts`, import the `NgxsModule`:
+
+```typescript
+    import { NgModule } from '@angular/core';
+    import { NgxsModule } from '@ngxs/store';
+    import { environment as env } from '../environments/environment';
+
+    import { UserState } from './user/user.state';
+
+    @NgModule({
+        imports: [
+            CommonModule,
+            NgxsModule.forRoot([UserState], { developmentMode: !env.production })
+        ],
+        exports: [
+            NgxsModule
+        ]
+    })
+    export class NgxsStoreModule {}
+```
+
+Then run `ng g module module-name --routing=true` to create module src/app/module-name/module-name.module.ts for shared, core, and feature module.
+
+And run `ng g component module-name/component-name --module=module-name` to create component src/app/module-name/landing/landing.component.ts
+
 
 [1]: /my-blog/img/portfolio/one-way-data-flow.png
