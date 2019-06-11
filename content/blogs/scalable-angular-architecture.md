@@ -10,7 +10,7 @@ tags: ["angular"]
 - [Component architecture](#component_architecture)
 - [One-way data flow](#one_way_data)
 - [Modules](#modules)
-
+- [Configuration](#configuration)
 #### Introduction <a name="introduction"></a>
 
 This article regarding to how to create a scalable angular project based on my experience from serveral angular projects.
@@ -151,9 +151,136 @@ export * from './pipes/...';
 ```
 
 So In the project we can import these services, constants, interfaces, pipes from public api (not core module)
-##### Business module
-##### Shared root
-##### Layout root
-##### Views root
+##### Feature module
+
+Feature module is a module composed of related components, constants, directives, pipes, constants, routing etc.
+
+A feature module should never communicate with others directly. They will communicate via core module or store module.
+
+```
+features/
+├── feature-1/
+│   ├── components/ (presentational components)
+│   │   ├── component-1/
+│   │   │   ├── component-1.component.html
+│   │   │   ├── component-1.component.scss
+│   │   │   ├── component-1.component.ts
+│   │   └── ...
+│   ├── containers/ (container components that CAN'T be routed to)
+│   │   ├── container-1/
+│   │   │   ├── container-1.container.html
+│   │   │   ├── container-1.container.scss
+│   │   │   └── container-1.container.ts
+│   │   └── ...
+│   ├── helpers/ (pure helper functions grouped by related functionalities)
+│   │   ├── h1.helpers.ts
+│   │   └── ...
+│   ├── types/ (TypeScript types, interfaces and classes)
+│   │   ├── type-1.ts
+│   │   └── ...
+│   ├── views/ (container components that CAN be routed to)
+│   │   ├── view-1/
+│   │   │   ├── view-1.view.html
+│   │   │   ├── view-1.view.scss
+│   │   │   └── view-1.view.ts
+│   │   └── ...
+│   ├── feature-1-routing.module.ts
+│   ├── feature-1.configs.ts
+│   ├── feature-1.constants.ts
+│   └── feature-1.module.ts
+└── feature-2/
+    └── ... (same as above)
+```
+
+So In the feature 1 module, it should be like
+
+```typescript
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+
+import { View1 } from './views/view-1.view';
+import { View2 } from './views/view-2.view';
+
+const routes: Routes = [{
+  path: 'feature1',
+  children: [
+      { path: '',   component: View1 },
+      { path: '',   component: View2 },
+      ...
+  ]
+}];
+
+// { path: '**', component: LandingComponent }
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+export class Feature1Module { }
+```
+##### Shared module
+
+SharedModule is a place to store all the reuseable presentational components and abstraction class used be features. Componnents and Abstraction should not depend on other module and should not have business logic inside like we mentioned in presentational components concept above.
+
+```typescript
+shared/
+├── abstract/
+│   ├── abstract1.abstract.ts
+│   └── ...
+├── components/
+│   ├── component1/
+│   │   ├── component1.html
+│   │   ├── component1.scss
+│   │   ├── component1.ts
+│   └── ...
+└── shared.module.ts
+```
+##### Store Module
+
+This is a module where we centralize our data into single source of truth.
+
+```typescript
+store/
+├── business1/
+│   ├── business1.action.ts
+│   └── business1.state.ts
+├── ...
+└── store.module.ts
+```
+
+The `store.module.ts` is a file that we configure more than a state there. We can add debug mode in order to debug state on console log for develop environment. We can add router plugin to control navigation via state and we can add plugin for form too to centralize the form model to state.
+
+```typescript
+    import { NgModule } from '@angular/core';
+    import { NgxsModule } from '@ngxs/store';
+    import { CommonModule } from '@angular/common';
+    import { NgxsFormPluginModule } from '@ngxs/form-plugin';
+    import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
+    import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
+    import { NgxsRouterPluginModule } from '@ngxs/router-plugin';
+
+    import { environment as env } from '../environments/environment';
+    import { UserState } from './user/user.state';
+
+    @NgModule({
+    imports: [
+        CommonModule,
+        NgxsFormPluginModule.forRoot(),
+        NgxsLoggerPluginModule.forRoot({ logger: console, collapsed: false }),
+        NgxsReduxDevtoolsPluginModule.forRoot({ disabled: env.production }),
+        NgxsRouterPluginModule.forRoot(),
+        NgxsModule.forRoot([UserState], { developmentMode: !env.production })
+    ],
+    exports: [
+        NgxsFormPluginModule,
+        NgxsLoggerPluginModule,
+        NgxsReduxDevtoolsPluginModule,
+        NgxsModule
+    ]
+    })
+    export class NgxsStoreModule {}
+```
+
+#### Configuration <a name="configuration"></a>
 
 [1]: /my-blog/img/portfolio/one-way-data-flow.png
