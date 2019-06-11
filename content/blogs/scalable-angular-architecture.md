@@ -125,7 +125,32 @@ Every application has at least one Angular module, the root module that you boot
 ```
 ##### Core module
 
+To me, Core module is dedicated to singleton provider provided in root injector.
 
+```
+core/
+├── constants (contains consstants for application)
+├── data (contains data in json for testing)
+├── directives (contains custom directives)
+├── interceptors (handle interceptors for http request)
+├── interfaces (contains model and interfaces)
+├── pipes (contains custom pipes)
+├── services (contains services)
+├── utils (contains utils function)
+├── public-api.ts (public files)
+└── core.module.ts
+```
+
+public-api.ts sample
+
+```typescript
+export * from './services/...';
+export * from './constants/...';
+export * from './interfaces/...';
+export * from './pipes/...';
+```
+
+So In the project we can import these services, constants, interfaces, pipes from public api (not core module)
 ##### Business module
 ##### Shared root
 ##### Layout root
